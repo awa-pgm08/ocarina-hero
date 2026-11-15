@@ -277,6 +277,10 @@ function buildPad(): void {
           ${partImg(partStickLeftUrl, 'gp-part-static gp-at-stick-left')}
           ${bendKeyHtml(2, 'gp-pos gp-pos-sup')}
           ${bendKeyHtml(-2, 'gp-pos gp-pos-sdown')}
+          <!-- Stick direction arrows: the stick part glows whole for either bend,
+               so the triangle at its top or bottom edge names up vs down. -->
+          <span class="gp-bend-arrow gp-bend-arrow--up" aria-hidden="true"><svg viewBox="0 0 24 14" aria-hidden="true"><path d="M12 1.5 22.5 12.5h-21Z" /></svg></span>
+          <span class="gp-bend-arrow gp-bend-arrow--down" aria-hidden="true"><svg viewBox="0 0 24 14" aria-hidden="true"><path d="M12 12.5 1.5 1.5h21Z" /></svg></span>
         </div>
         <div class="gp-cluster gp-cluster-dpad">
           ${partImg(partDpadUpUrl, 'gp-part-static gp-at-dpad-up')}

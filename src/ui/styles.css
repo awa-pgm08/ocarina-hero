@@ -410,6 +410,16 @@ progress::-moz-progress-bar { background: transparent; }
 @keyframes key-ripple { from { scale: .96; opacity: .95; } to { scale: 1.24; opacity: 0; } }
 .key.is-miss { animation: key-miss .32s ease-in-out; }
 @keyframes key-miss { 20% { translate: -4px 0; } 45% { translate: 4px 0; } 70% { translate: -2px 0; } }
+/* Controller-pad keys are centred with translate: -50% -50%; the plain shake
+   overwrites that centring, so a missed note throws the button half its own
+   size down-right for the length of the shake. Shake around the centred
+   position instead. This only ever fires in practice mode, on a wrong note. */
+.pad--controller .key.is-miss { animation-name: key-miss-centred; }
+@keyframes key-miss-centred {
+  20% { translate: calc(-50% - 4px) -50%; }
+  45% { translate: calc(-50% + 4px) -50%; }
+  70% { translate: calc(-50% - 2px) -50%; }
+}
 .progress-track.is-hit::after { animation: needle-stitch .34s cubic-bezier(.3, 1.3, .5, 1); }
 .progress-track.is-swept::before { animation: thread-sheen .7s ease-out; }
 @keyframes needle-stitch { 38% { translate: 0 -6px; rotate: 90deg; scale: 1.3; } 78% { translate: 0 1px; rotate: 180deg; scale: .9; } 100% { rotate: 180deg; } }
@@ -490,14 +500,15 @@ progress::-moz-progress-bar { background: transparent; }
 .gp-in-b { width: 82%; }
 /* Part feedback: the filter follows the PNG alpha, so a disc glows as a disc, the
    tab as the tab band alone, and each D-pad arm as its own arm. Expected parts
-   pulse gently; active parts burn brighter and press in slightly. The clusters
+   pulse hard — a double halo, so the next button is unmistakable even on the
+   dark photo; active parts burn brighter still and press in slightly. The clusters
    mirror their bend keys' states via :has(): the stick glows whole whichever
    bend is live, but each D-pad arm answers only to its own bend — the left and
    right arms have no bend and never light. The pulse keyframes animate filter
    only, so they never fight the transforms below. */
 @keyframes gp-part-pulse {
-  from { filter: brightness(1.1) drop-shadow(0 0 3px #ffcd55a0); }
-  to { filter: brightness(1.34) drop-shadow(0 0 9px #ffcd55e6); }
+  from { filter: brightness(1.3) saturate(1.25) drop-shadow(0 0 8px #ffcd55d9) drop-shadow(0 0 22px #ffb52e80); }
+  to { filter: brightness(1.7) saturate(1.35) drop-shadow(0 0 18px #ffcd55) drop-shadow(0 0 44px #ffb52ecc); }
 }
 .pad--controller .key.is-expected .gp-part,
 .gp-cluster-stick:has(.bend-key.is-expected) .gp-part,
@@ -508,17 +519,37 @@ progress::-moz-progress-bar { background: transparent; }
 .gp-cluster-dpad:has(.bend-key[data-bend="1"].is-active) .gp-at-dpad-up,
 .gp-cluster-dpad:has(.bend-key[data-bend="-1"].is-active) .gp-at-dpad-down {
   animation: none;
-  filter: brightness(1.48) drop-shadow(0 0 10px #ffcd55f2);
+  filter: brightness(1.9) saturate(1.4) drop-shadow(0 0 16px #ffcd55) drop-shadow(0 0 38px #ffb52e);
 }
 .pad--controller .key.is-active .gp-part,
 .gp-cluster-dpad:has(.bend-key[data-bend="1"].is-active) .gp-at-dpad-up,
 .gp-cluster-dpad:has(.bend-key[data-bend="-1"].is-active) .gp-at-dpad-down { transform: scale(.96); }
-/* Tilting the stick: while a stick bend is held, the stick part leans that way.
-   The shift is a transform on the img (independent of the filter pulse above);
-   the transition keeps it a quick lean rather than a jump. */
+/* Tilting the stick: while a stick bend is held — or is the next note in
+   practice — the stick part leans that way. The shift is a transform on the
+   img (independent of the filter pulse above); the transition keeps it a quick
+   lean rather than a jump. */
 .gp-at-stick-left { transition: transform 90ms ease-out; }
-.gp-cluster-stick:has(.bend-key[data-bend="2"].is-active) .gp-at-stick-left { transform: translateY(-9%); }
-.gp-cluster-stick:has(.bend-key[data-bend="-2"].is-active) .gp-at-stick-left { transform: translateY(9%); }
+.gp-cluster-stick:has(.bend-key[data-bend="2"].is-active) .gp-at-stick-left,
+.gp-cluster-stick:has(.bend-key[data-bend="2"].is-expected) .gp-at-stick-left { transform: translateY(-9%); }
+.gp-cluster-stick:has(.bend-key[data-bend="-2"].is-active) .gp-at-stick-left,
+.gp-cluster-stick:has(.bend-key[data-bend="-2"].is-expected) .gp-at-stick-left { transform: translateY(9%); }
+/* Stick direction arrows: the stick glows whole for either bend, so up and down
+   look identical — and the bend key's own arrow icon is hidden on the photo pad.
+   A gold triangle at the stick's top or bottom edge names the direction, shown
+   for the expected bend in practice and while the bend is held. */
+.gp-bend-arrow { position: absolute; left: 24.4%; top: 30%; translate: -50% -50%; width: 7.5%; aspect-ratio: 24 / 14; z-index: 2; pointer-events: none; opacity: 0; transition: opacity .15s ease-out; }
+.gp-bend-arrow svg { display: block; width: 100%; height: 100%; filter: drop-shadow(0 0 6px #ffcd55) drop-shadow(0 1px 1px #110f09); }
+.gp-bend-arrow path { fill: #ffcd55; stroke: #110f09; stroke-width: 1.5; stroke-linejoin: round; }
+.gp-bend-arrow--down { top: 45.5%; }
+.gp-cluster-stick:has(.bend-key[data-bend="2"].is-expected) .gp-bend-arrow--up,
+.gp-cluster-stick:has(.bend-key[data-bend="2"].is-active) .gp-bend-arrow--up,
+.gp-cluster-stick:has(.bend-key[data-bend="-2"].is-expected) .gp-bend-arrow--down,
+.gp-cluster-stick:has(.bend-key[data-bend="-2"].is-active) .gp-bend-arrow--down { opacity: 1; }
+.gp-cluster-stick:has(.bend-key[data-bend="2"].is-expected) .gp-bend-arrow--up,
+.gp-cluster-stick:has(.bend-key[data-bend="-2"].is-expected) .gp-bend-arrow--down { animation: gp-arrow-pulse 1.2s ease-in-out infinite alternate; }
+@keyframes gp-arrow-pulse { from { opacity: .65; } to { opacity: 1; } }
+/* Songs without bends hide the bend hit areas; the arrows go with them. */
+.pad--controller.is-bends-hidden .gp-bend-arrow { display: none; }
 /* Hit areas, centred on the corrected part positions; at least as large as the
    overlays they replace, and large enough to cover each part. */
 .gp-pos-l { left: 20.3%; top: 19.5%; width: 21%; height: 17.5%; border-radius: 12px; }
