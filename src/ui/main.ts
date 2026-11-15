@@ -243,14 +243,14 @@ function gamepadArt(): string {
       <path class="gp-body" d="M58 30 Q180 12 302 30 Q336 34 338 68 Q339 100 330 132 Q322 172 296 182 Q272 190 262 160 Q254 134 226 128 L134 128 Q106 134 98 160 Q88 190 64 182 Q38 172 30 132 Q21 100 22 68 Q24 34 58 30 Z" fill="#26314a" stroke="#c19845" stroke-width="5" />
       <path d="M58 30 Q180 12 302 30 Q336 34 338 68 Q339 100 330 132 Q322 172 296 182 Q272 190 262 160 Q254 134 226 128 L134 128 Q106 134 98 160 Q88 190 64 182 Q38 172 30 132 Q21 100 22 68 Q24 34 58 30 Z" transform="translate(180 105) scale(.93) translate(-180 -105)" fill="none" stroke="#d5ac55" stroke-width="1.6" stroke-dasharray="5 4" opacity=".75" />
       <circle cx="76" cy="82" r="27" fill="#1d2740" stroke="#8b98b0" stroke-width="1.4" stroke-dasharray="3 3" />
-      <circle cx="208" cy="124" r="22" fill="#1d2740" stroke="#8b98b0" stroke-width="1.4" stroke-dasharray="3 3" />
-      <circle cx="208" cy="124" r="15" fill="#39496a" />
-      <circle cx="208" cy="124" r="8" fill="none" stroke="#8b98b0" stroke-width="1.4" />
+      <circle cx="176" cy="102" r="18" fill="#1d2740" stroke="#8b98b0" stroke-width="1.4" stroke-dasharray="3 3" />
+      <circle cx="176" cy="102" r="12" fill="#39496a" />
+      <circle cx="176" cy="102" r="6.5" fill="none" stroke="#8b98b0" stroke-width="1.4" />
       <circle cx="124" cy="54" r="7" fill="#d8c391" />
       <path d="M120.5 54 H127.5" stroke="#26314a" stroke-width="1.8" />
       <circle cx="222" cy="50" r="7" fill="#d8c391" />
       <path d="M218.5 50 H225.5 M222 46.5 V53.5" stroke="#26314a" stroke-width="1.8" />
-      <path d="M0 5 C0 1 -3 -2 -7 -2 C-12 -2 -15 2 -15 6 C-15 12 -7 17 0 23 C7 17 15 12 15 6 C15 2 12 -2 7 -2 C3 -2 0 1 0 5 Z" transform="translate(172 64)" fill="#a83a2c" stroke="#e8cc8f" stroke-width="1.2" stroke-dasharray="3 2" />
+      <path d="M0 5 C0 1 -3 -2 -7 -2 C-12 -2 -15 2 -15 6 C-15 12 -7 17 0 23 C7 17 15 12 15 6 C15 2 12 -2 7 -2 C3 -2 0 1 0 5 Z" transform="translate(166 56)" fill="#a83a2c" stroke="#e8cc8f" stroke-width="1.2" stroke-dasharray="3 2" />
     </svg>`;
 }
 

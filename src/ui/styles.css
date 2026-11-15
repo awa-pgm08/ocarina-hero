@@ -467,20 +467,20 @@ progress::-moz-progress-bar { background: transparent; }
 .gp-stick .control-icon--modifier { width: 15px; height: 20px; }
 .gp-stick .key-ref { font-size: 9px; padding: 0 1px; }
 .gp-stick .bend-key.is-expected::after { border-radius: 50%; inset: 3px; }
-.gp-dpad { position: absolute; left: 16.5%; top: 41%; width: 28%; height: 48%; display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(3, 1fr); }
+.gp-dpad { position: absolute; left: 10.5%; top: 55.5%; width: 17%; height: 26%; display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(3, 1fr); }
 .gp-dpad .bend-key, .gp-dpad .gp-arm { background: linear-gradient(180deg, #dec084, #b98d4f); border: 1.5px solid #141a26; }
 .gp-dpad .bend-key { padding: 0; border-radius: 3px; }
 .gp-dpad .bend-key[data-bend='1'] { border-bottom: 0; border-radius: 3px 3px 0 0; }
 .gp-dpad .bend-key[data-bend='-1'] { border-top: 0; border-radius: 0 0 3px 3px; }
 .gp-dpad .gp-arm { border-inline: 0; }
 .gp-dpad .gp-arm--center { border: 0; }
-.gp-dpad .control-icon--modifier { width: 14px; height: 19px; }
+.gp-dpad .control-icon--modifier { width: 12px; height: 16px; }
 .gp-dpad .key-ref { font-size: 9px; padding: 0 1px; color: #2c1f0d; text-shadow: none; }
 .gp-face { position: absolute; left: 55%; top: 14%; width: 43%; height: 48%; display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(2, 1fr); gap: 4px; }
 .gp-face .key { padding: 2px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #ecd096, #c49a58 72%, #a87c3e); }
 .gp-face .control-icon--button { width: 23px; height: 26px; }
 .gp-face .key-ref { font-size: 10px; padding: 0 2px; color: #2c1f0d; text-shadow: none; }
-.gp-face .ghost { border-radius: 50%; }
+.gp-face .ghost { border-radius: 50%; border: 0; background: radial-gradient(circle at 35% 30%, #ecd096, #c49a58 72%, #a87c3e); color: #2c1f0d; font-size: 21px; }
 .gp-face .key.is-expected::after { border-radius: 50%; inset: 4px; }
 .pad--controller .gp-shoulder.is-active, .pad--controller .gp-shoulder.is-expected { background: linear-gradient(180deg, #8296ba, #5d6f96); }
 .pad--controller .gp-face .key.is-active, .pad--controller .gp-face .key.is-expected { background: radial-gradient(circle at 35% 30%, #f4dc9e, #8a6a30 78%); }
