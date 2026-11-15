@@ -36,6 +36,7 @@ import { completedIds, markOpened, markPractice, PROGRESS_STORAGE, readProgress,
 import { DEFAULT_PREFERENCES, PREFERENCES_STORAGE, readPreferences, type PadStyle, type Preferences } from './preferences';
 import { LOCAL_DATA_KEYS, parseSavedExport, savedExport } from './local-data';
 import { displaySubtitle, displayTitle, getLang, initI18n, t } from './i18n';
+import gamepadPhotoUrl from './gamepad-photo.jpg?url';
 
 const APP_BASE = import.meta.env.BASE_URL;
 const engine = new OcarinaEngine();
@@ -216,16 +217,16 @@ function keyHtml(pitch: PitchSpec, extraClass = ''): string {
     </button>`;
 }
 
-function bendKeyHtml(value: number): string {
+function bendKeyHtml(value: number, extraClass = ''): string {
   return `
-    <button class="bend-key" type="button" data-bend="${value}" aria-label="${schemeBendLabel(value, controlScheme())}" title="${schemeBendLabel(value, controlScheme())}">
+    <button class="bend-key${extraClass ? ` ${extraClass}` : ''}" type="button" data-bend="${value}" aria-label="${schemeBendLabel(value, controlScheme())}" title="${schemeBendLabel(value, controlScheme())}">
       ${modifierIcon(value)}
       <kbd class="key-ref" data-bend-label="${value}">${keyLabel(bindings[KEYBOARD_ACTIONS.find(action => BEND_ACTIONS[action as keyof typeof BEND_ACTIONS] === value)!])}</kbd>
     </button>`;
 }
 
 /**
- * Pad presentation: the button list, or the embroidered gamepad. Mirrors the stored
+ * Pad presentation: the button list, or the controller photo. Mirrors the stored
  * preference; the Settings select further down writes both. Read straight from storage
  * here because the pad renders before that preferences block runs.
  */
@@ -234,58 +235,26 @@ let padStyle: PadStyle = (() => {
   catch { return DEFAULT_PREFERENCES.padStyle; }
 })();
 
-/** Decorative gamepad cloth: navy body, gold stitched edge, grey sticks, a heart patch. Purely visual; the real buttons sit on top. */
-function gamepadArt(): string {
-  return `
-    <svg class="gamepad-art" viewBox="0 0 360 210" aria-hidden="true" focusable="false">
-      <rect x="36" y="8" width="64" height="28" rx="9" fill="#54648a" stroke="#93a5c9" stroke-width="1.4" stroke-dasharray="4 3" />
-      <rect x="260" y="8" width="64" height="28" rx="9" fill="#54648a" stroke="#93a5c9" stroke-width="1.4" stroke-dasharray="4 3" />
-      <path class="gp-body" d="M58 30 Q180 12 302 30 Q336 34 338 68 Q339 100 330 132 Q322 172 296 182 Q272 190 262 160 Q254 134 226 128 L134 128 Q106 134 98 160 Q88 190 64 182 Q38 172 30 132 Q21 100 22 68 Q24 34 58 30 Z" fill="#26314a" stroke="#c19845" stroke-width="5" />
-      <path d="M58 30 Q180 12 302 30 Q336 34 338 68 Q339 100 330 132 Q322 172 296 182 Q272 190 262 160 Q254 134 226 128 L134 128 Q106 134 98 160 Q88 190 64 182 Q38 172 30 132 Q21 100 22 68 Q24 34 58 30 Z" transform="translate(180 105) scale(.93) translate(-180 -105)" fill="none" stroke="#d5ac55" stroke-width="1.6" stroke-dasharray="5 4" opacity=".75" />
-      <circle cx="76" cy="82" r="27" fill="#1d2740" stroke="#8b98b0" stroke-width="1.4" stroke-dasharray="3 3" />
-      <circle cx="176" cy="102" r="18" fill="#1d2740" stroke="#8b98b0" stroke-width="1.4" stroke-dasharray="3 3" />
-      <circle cx="176" cy="102" r="12" fill="#39496a" />
-      <circle cx="176" cy="102" r="6.5" fill="none" stroke="#8b98b0" stroke-width="1.4" />
-      <circle cx="124" cy="54" r="7" fill="#d8c391" />
-      <path d="M120.5 54 H127.5" stroke="#26314a" stroke-width="1.8" />
-      <circle cx="222" cy="50" r="7" fill="#d8c391" />
-      <path d="M218.5 50 H225.5 M222 46.5 V53.5" stroke="#26314a" stroke-width="1.8" />
-      <path d="M0 5 C0 1 -3 -2 -7 -2 C-12 -2 -15 2 -15 6 C-15 12 -7 17 0 23 C7 17 15 12 15 6 C15 2 12 -2 7 -2 C3 -2 0 1 0 5 Z" transform="translate(166 56)" fill="#a83a2c" stroke="#e8cc8f" stroke-width="1.2" stroke-dasharray="3 2" />
-    </svg>`;
-}
-
 function buildPad(): void {
   const retro = currentTheme() === 'retro';
   if (padStyle === 'controller') {
+    // The photo is the pad: the same buttons sit transparently over the printed
+    // controls (positions measured from the photo; see .gp-pos-* in styles.css).
+    // B is printed on the photo but has no action, so it gets no overlay — except
+    // in the retro scheme, where R lives at the diamond centre, over the B disc.
     pad.classList.add('pad--controller');
     pad.innerHTML = `
-      <div class="gamepad">
-        ${gamepadArt()}
-        ${keyHtml(pitchForButton('L'), 'gp-shoulder gp-l')}
-        ${retro ? '' : keyHtml(pitchForButton('R'), 'gp-shoulder gp-r')}
-        <div class="gp-stick">
-          ${bendKeyHtml(2)}
-          ${bendKeyHtml(-2)}
-        </div>
-        <div class="gp-dpad">
-          <span aria-hidden="true"></span>
-          ${bendKeyHtml(1)}
-          <span aria-hidden="true"></span>
-          <span class="gp-arm" aria-hidden="true"></span>
-          <span class="gp-arm gp-arm--center" aria-hidden="true"></span>
-          <span class="gp-arm" aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-          ${bendKeyHtml(-1)}
-          <span aria-hidden="true"></span>
-        </div>
-        <div class="gp-face">
-          <span class="cell" aria-hidden="true"></span>
-          ${keyHtml(pitchForButton('X'), 'gp-face-key')}
-          <span class="cell" aria-hidden="true"></span>
-          ${keyHtml(pitchForButton('Y'), 'gp-face-key')}
-          ${retro ? keyHtml(pitchForButton('R'), 'gp-face-key') : '<span class="ghost" aria-hidden="true">B</span>'}
-          ${keyHtml(pitchForButton('A'), 'gp-face-key')}
-        </div>
+      <div class="gamepad" role="group" aria-label="${t('lesson.controller')}">
+        <img class="gamepad-photo" src="${gamepadPhotoUrl}" alt="" aria-hidden="true" draggable="false" />
+        ${keyHtml(pitchForButton('L'), 'gp-pos gp-pos-l')}
+        ${retro ? keyHtml(pitchForButton('R'), 'gp-pos gp-pos-rb') : keyHtml(pitchForButton('R'), 'gp-pos gp-pos-r')}
+        ${bendKeyHtml(2, 'gp-pos gp-pos-sup')}
+        ${bendKeyHtml(-2, 'gp-pos gp-pos-sdown')}
+        ${bendKeyHtml(1, 'gp-pos gp-pos-dup')}
+        ${bendKeyHtml(-1, 'gp-pos gp-pos-ddown')}
+        ${keyHtml(pitchForButton('X'), 'gp-pos gp-pos-x')}
+        ${keyHtml(pitchForButton('Y'), 'gp-pos gp-pos-y')}
+        ${keyHtml(pitchForButton('A'), 'gp-pos gp-pos-a')}
       </div>`;
     bends.innerHTML = '';
     return;
@@ -304,7 +273,7 @@ function buildPad(): void {
       ${retro ? keyHtml(pitchForButton('R')) : '<span class="ghost" aria-hidden="true">B</span>'}
       ${keyHtml(pitchForButton('A'))}
     </div>`;
-  bends.innerHTML = [1, -1, 2, -2].map(bendKeyHtml).join('');
+  bends.innerHTML = [1, -1, 2, -2].map(value => bendKeyHtml(value)).join('');
 }
 
 function setActive(button: ControllerButton, active: boolean): void {

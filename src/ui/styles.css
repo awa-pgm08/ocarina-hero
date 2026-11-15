@@ -450,44 +450,40 @@ progress::-moz-progress-bar { background: transparent; }
 .ghost { display: flex; align-items: center; justify-content: center; color: #bba67166; border: 1px dashed #a2824933; border-radius: 5px; }
 .bends { display: flex; justify-content: center; gap: 10px; margin-top: 12px; touch-action: none; }
 .bend-key { min-width: 53px; min-height: 64px; padding: 4px; display: flex; flex-direction: column; align-items: center; justify-content: center; touch-action: none; user-select: none; }
-/* Controller pad style: the same actions arranged on an embroidered gamepad (see gamepadArt in main.ts). */
+/* Controller pad style: the user's controller photo is the pad; the same actions sit
+   on it as transparent overlays (positions measured from the photo, % of its frame). */
 .pad--controller { display: block; }
-.gamepad { position: relative; width: min(330px, 100%); aspect-ratio: 12 / 7; margin-inline: auto; }
-.gamepad-art { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
-.pad--controller .key, .pad--controller .bend-key { min-width: 0; min-height: 0; }
-.gp-shoulder { position: absolute; top: 0; width: 18.5%; height: 16%; padding: 1px; border-radius: 9px 9px 4px 4px; background: linear-gradient(180deg, #5d6f96, #42506e); }
-.gp-shoulder .control-icon--shoulder { width: 30px; height: 18px; }
-.gp-shoulder .key-ref { font-size: 11px; padding: 0 2px; }
-.gp-l { left: 4.5%; }
-.gp-r { right: 4.5%; }
-.gp-stick { position: absolute; left: 11.5%; top: 15%; width: 17%; height: 40%; }
-.gp-stick .bend-key { position: absolute; left: 50%; translate: -50% 0; width: 74%; aspect-ratio: 1; padding: 2px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #8296ba, #4c5c7c 78%); }
-.gp-stick .bend-key[data-bend='2'] { top: 0; }
-.gp-stick .bend-key[data-bend='-2'] { bottom: 0; }
-.gp-stick .control-icon--modifier { width: 15px; height: 20px; }
-.gp-stick .key-ref { font-size: 9px; padding: 0 1px; }
-.gp-stick .bend-key.is-expected::after { border-radius: 50%; inset: 3px; }
-.gp-dpad { position: absolute; left: 10.5%; top: 55.5%; width: 17%; height: 26%; display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(3, 1fr); }
-.gp-dpad .bend-key, .gp-dpad .gp-arm { background: linear-gradient(180deg, #dec084, #b98d4f); border: 1.5px solid #141a26; }
-.gp-dpad .bend-key { padding: 0; border-radius: 3px; }
-.gp-dpad .bend-key[data-bend='1'] { border-bottom: 0; border-radius: 3px 3px 0 0; }
-.gp-dpad .bend-key[data-bend='-1'] { border-top: 0; border-radius: 0 0 3px 3px; }
-.gp-dpad .gp-arm { border-inline: 0; }
-.gp-dpad .gp-arm--center { border: 0; }
-.gp-dpad .control-icon--modifier { width: 12px; height: 16px; }
-.gp-dpad .key-ref { font-size: 9px; padding: 0 1px; color: #2c1f0d; text-shadow: none; }
-.gp-face { position: absolute; left: 55%; top: 14%; width: 43%; height: 48%; display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(2, 1fr); gap: 4px; }
-.gp-face .key { padding: 2px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #ecd096, #c49a58 72%, #a87c3e); }
-.gp-face .control-icon--button { width: 23px; height: 26px; }
-.gp-face .key-ref { font-size: 10px; padding: 0 2px; color: #2c1f0d; text-shadow: none; }
-.gp-face .ghost { border-radius: 50%; border: 0; background: radial-gradient(circle at 35% 30%, #ecd096, #c49a58 72%, #a87c3e); color: #2c1f0d; font-size: 21px; }
-.gp-face .key.is-expected::after { border-radius: 50%; inset: 4px; }
-.pad--controller .gp-shoulder.is-active, .pad--controller .gp-shoulder.is-expected { background: linear-gradient(180deg, #8296ba, #5d6f96); }
-.pad--controller .gp-face .key.is-active, .pad--controller .gp-face .key.is-expected { background: radial-gradient(circle at 35% 30%, #f4dc9e, #8a6a30 78%); }
-.pad--controller .gp-dpad .bend-key.is-active, .pad--controller .gp-dpad .bend-key.is-expected { background: linear-gradient(180deg, #f0d18e, #8a6a30); }
-.pad--controller .gp-stick .bend-key.is-active, .pad--controller .gp-stick .bend-key.is-expected { background: radial-gradient(circle at 35% 30%, #a9bcdd, #5d6f96 78%); }
-/* Songs without bends hide the bend controls, as the list pad hides its bend row. */
-.pad--controller.is-bends-hidden .gp-dpad .bend-key, .pad--controller.is-bends-hidden .gp-stick .bend-key { visibility: hidden; }
+.gamepad { position: relative; width: min(340px, 100%); aspect-ratio: 780 / 543; margin-inline: auto; }
+.gamepad-photo { position: absolute; inset: 0; width: 100%; height: 100%; border-radius: 6px; pointer-events: none; user-select: none; -webkit-user-select: none; }
+.pad--controller .key, .pad--controller .bend-key {
+  position: absolute; min-width: 0; min-height: 0; padding: 0; translate: -50% -50%;
+  background: transparent; background-image: none; box-shadow: none;
+}
+.pad--controller .key::before, .pad--controller .bend-key::before { display: none; }
+/* The photo already prints the letters and glyphs; keep the DOM labels for bindings
+   and screen readers, but show none of them over the picture. */
+.pad--controller .control-icon, .pad--controller .key-ref { display: none; }
+/* Feedback on a transparent button: a warm glow ring hugging the printed control. */
+.pad--controller .key.is-active, .pad--controller .bend-key.is-active,
+.pad--controller .key.is-expected, .pad--controller .bend-key.is-expected {
+  background: transparent; background-image: none;
+  box-shadow: 0 0 0 2px #ffe9a8, 0 0 16px 5px #ffca55d9, inset 0 0 12px #ffca5566;
+}
+.pad--controller .key.is-expected::after, .pad--controller .bend-key.is-expected::after {
+  content: ''; position: absolute; inset: 3px; border: 2px dashed #ffe9a8; border-radius: inherit; pointer-events: none;
+}
+.gp-pos-l { left: 19%; top: 15%; width: 20%; height: 13%; border-radius: 12px; }
+.gp-pos-r { left: 73%; top: 11.5%; width: 22%; height: 13%; border-radius: 12px; }
+.gp-pos-rb { left: 71.7%; top: 46.8%; width: 10.5%; aspect-ratio: 1; border-radius: 50%; }
+.gp-pos-x { left: 71.5%; top: 26.8%; width: 10.5%; aspect-ratio: 1; border-radius: 50%; }
+.gp-pos-y { left: 65.5%; top: 38%; width: 10.5%; aspect-ratio: 1; border-radius: 50%; }
+.gp-pos-a { left: 80%; top: 38.5%; width: 10.5%; aspect-ratio: 1; border-radius: 50%; }
+.gp-pos-sup { left: 25%; top: 36.6%; width: 12%; height: 8.6%; border-radius: 999px 999px 6px 6px; }
+.gp-pos-sdown { left: 25%; top: 44.5%; width: 12%; height: 8.6%; border-radius: 6px 6px 999px 999px; }
+.gp-pos-dup { left: 36%; top: 54%; width: 7%; height: 11%; border-radius: 5px 5px 0 0; }
+.gp-pos-ddown { left: 36%; top: 64%; width: 7%; height: 11%; border-radius: 0 0 5px 5px; }
+/* Songs without bends hide the bend overlays, as the list pad hides its bend row. */
+.pad--controller.is-bends-hidden .bend-key { visibility: hidden; pointer-events: none; }
 .hint { font-size: 14px; text-align: center; margin: 9px 0 2px; color: var(--muted); }
 .settings-section { max-width: 760px; font-size: 16px; border-bottom: 1px dashed #a2824959; }
 .settings-section:first-of-type { margin-top: 8px; border-top: 1px dashed #a2824959; }

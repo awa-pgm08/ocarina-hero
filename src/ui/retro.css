@@ -154,17 +154,7 @@
 
 /* The retro pad: blue A on its own row, the four C-buttons in a diamond. */
 :root[data-theme='retro'] .shoulders { grid-template-columns: clamp(60px, 18vw, 76px); }
-/* The controller pad on stone: same gamepad shape, carved-stone fittings. */
-:root[data-theme='retro'] .gamepad-art .gp-body { fill: #33302a; }
-:root[data-theme='retro'] .gp-shoulder { background: linear-gradient(180deg, #6b6250, #4a4335); }
-:root[data-theme='retro'] .gp-face .key { background: radial-gradient(circle at 35% 30%, #7a7060, #4a4335 78%); }
-:root[data-theme='retro'] .gp-face .key-ref, :root[data-theme='retro'] .gp-dpad .key-ref { color: var(--text); text-shadow: .3px .7px #120e08; }
-:root[data-theme='retro'] .gp-dpad .bend-key, :root[data-theme='retro'] .gp-dpad .gp-arm { background: linear-gradient(180deg, #7a7060, #4a4335); border-color: var(--outline); }
-:root[data-theme='retro'] .gp-stick .bend-key { background: radial-gradient(circle at 35% 30%, #7a7060, #4a4335 78%); }
-:root[data-theme='retro'] .pad--controller .gp-shoulder.is-active, :root[data-theme='retro'] .pad--controller .gp-shoulder.is-expected,
-:root[data-theme='retro'] .pad--controller .gp-face .key.is-active, :root[data-theme='retro'] .pad--controller .gp-face .key.is-expected,
-:root[data-theme='retro'] .pad--controller .gp-dpad .bend-key.is-active, :root[data-theme='retro'] .pad--controller .gp-dpad .bend-key.is-expected,
-:root[data-theme='retro'] .pad--controller .gp-stick .bend-key.is-active, :root[data-theme='retro'] .pad--controller .gp-stick .bend-key.is-expected { background: #5c4c1c; }
+/* The controller pad is the user's photo in both themes: no stone recolor. */
 @media (min-width: 800px) { :root[data-theme='retro'] .key .control-icon--button { width: 36px; height: 38px; } }
 
 /* Commissioner runs wider than IM Fell: keep the bottom tabs on one line on phones. */
