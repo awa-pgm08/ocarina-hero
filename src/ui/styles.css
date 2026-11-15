@@ -456,6 +456,16 @@ progress::-moz-progress-bar { background: transparent; }
 .key { display: flex; align-items: center; justify-content: center; flex-direction: column; min-height: 52px; padding: 3px; touch-action: none; user-select: none; }
 .key::before, .bend-key::before { padding: 1.5px; }
 .key.is-active, .bend-key.is-active { filter: brightness(1.12); }
+/* List pad: the next button pulses gold in practice, so the direction is
+   animated whichever pad style is used. The photo pad has its own part pulse;
+   the retro theme keeps its still yellow frame instead of a glow. A missed
+   note keeps its shake: the pulse steps aside while is-miss is set. */
+:root:not([data-theme='retro']) .pad:not(.pad--controller) .key.is-expected:not(.is-miss),
+:root:not([data-theme='retro']) #bend-pad .bend-key.is-expected:not(.is-miss) { animation: key-expected-pulse 1.6s ease-in-out infinite alternate; }
+@keyframes key-expected-pulse {
+  from { filter: brightness(1.05) drop-shadow(0 0 4px #ffcd5540); }
+  to { filter: brightness(1.25) drop-shadow(0 0 14px #ffcd55cc); }
+}
 .key-ref { display: block; font: 16px/1.2 var(--story-font); color: var(--text); padding: 2px 5px; text-shadow: .3px .7px #0d180d; }
 .ghost { display: flex; align-items: center; justify-content: center; color: #bba67166; border: 1px dashed #a2824933; border-radius: 5px; }
 .bends { display: flex; justify-content: center; gap: 10px; margin-top: 12px; touch-action: none; }
@@ -524,27 +534,25 @@ progress::-moz-progress-bar { background: transparent; }
 .pad--controller .key.is-active .gp-part,
 .gp-cluster-dpad:has(.bend-key[data-bend="1"].is-active) .gp-at-dpad-up,
 .gp-cluster-dpad:has(.bend-key[data-bend="-1"].is-active) .gp-at-dpad-down { transform: scale(.96); }
-/* Tilting the stick: while a stick bend is held — or is the next note in
-   practice — the stick part leans that way. The shift is a transform on the
-   img (independent of the filter pulse above); the transition keeps it a quick
-   lean rather than a jump. */
+/* Tilting the stick: while a stick bend is held, the stick part leans that way.
+   It stays centred until it is actually pushed — in practice the direction to
+   push is shown by the arrow below, not by pre-tilting the stick. The shift
+   is a transform on the img (independent of the filter pulse above); the
+   transition keeps it a quick lean rather than a jump. */
 .gp-at-stick-left { transition: transform 90ms ease-out; }
-.gp-cluster-stick:has(.bend-key[data-bend="2"].is-active) .gp-at-stick-left,
-.gp-cluster-stick:has(.bend-key[data-bend="2"].is-expected) .gp-at-stick-left { transform: translateY(-9%); }
-.gp-cluster-stick:has(.bend-key[data-bend="-2"].is-active) .gp-at-stick-left,
-.gp-cluster-stick:has(.bend-key[data-bend="-2"].is-expected) .gp-at-stick-left { transform: translateY(9%); }
+.gp-cluster-stick:has(.bend-key[data-bend="2"].is-active) .gp-at-stick-left { transform: translateY(-9%); }
+.gp-cluster-stick:has(.bend-key[data-bend="-2"].is-active) .gp-at-stick-left { transform: translateY(9%); }
 /* Stick direction arrows: the stick glows whole for either bend, so up and down
    look identical — and the bend key's own arrow icon is hidden on the photo pad.
-   A gold triangle at the stick's top or bottom edge names the direction, shown
-   for the expected bend in practice and while the bend is held. */
+   In practice, a gold triangle at the stick's top or bottom edge shows the
+   direction to push next. It is an instruction, not a press effect: it shows
+   only for the expected bend, never while the bend is held. */
 .gp-bend-arrow { position: absolute; left: 24.4%; top: 30%; translate: -50% -50%; width: 7.5%; aspect-ratio: 24 / 14; z-index: 2; pointer-events: none; opacity: 0; transition: opacity .15s ease-out; }
 .gp-bend-arrow svg { display: block; width: 100%; height: 100%; filter: drop-shadow(0 0 6px #ffcd55) drop-shadow(0 1px 1px #110f09); }
 .gp-bend-arrow path { fill: #ffcd55; stroke: #110f09; stroke-width: 1.5; stroke-linejoin: round; }
 .gp-bend-arrow--down { top: 45.5%; }
 .gp-cluster-stick:has(.bend-key[data-bend="2"].is-expected) .gp-bend-arrow--up,
-.gp-cluster-stick:has(.bend-key[data-bend="2"].is-active) .gp-bend-arrow--up,
-.gp-cluster-stick:has(.bend-key[data-bend="-2"].is-expected) .gp-bend-arrow--down,
-.gp-cluster-stick:has(.bend-key[data-bend="-2"].is-active) .gp-bend-arrow--down { opacity: 1; }
+.gp-cluster-stick:has(.bend-key[data-bend="-2"].is-expected) .gp-bend-arrow--down { opacity: 1; }
 .gp-cluster-stick:has(.bend-key[data-bend="2"].is-expected) .gp-bend-arrow--up,
 .gp-cluster-stick:has(.bend-key[data-bend="-2"].is-expected) .gp-bend-arrow--down { animation: gp-arrow-pulse 1.2s ease-in-out infinite alternate; }
 @keyframes gp-arrow-pulse { from { opacity: .65; } to { opacity: 1; } }
