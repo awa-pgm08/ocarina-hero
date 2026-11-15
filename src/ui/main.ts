@@ -33,7 +33,7 @@ import { nextSong } from './featured';
 import { loadPopular, reportPlay } from './popularity';
 import { bindPullToRefresh } from './pull-refresh';
 import { completedIds, markOpened, markPractice, PROGRESS_STORAGE, readProgress, type Progress } from './progress';
-import { DEFAULT_PREFERENCES, PREFERENCES_STORAGE, readPreferences, type Preferences } from './preferences';
+import { DEFAULT_PREFERENCES, PREFERENCES_STORAGE, readPreferences, type PadStyle, type Preferences } from './preferences';
 import { LOCAL_DATA_KEYS, parseSavedExport, savedExport } from './local-data';
 import { displaySubtitle, displayTitle, getLang, initI18n, t } from './i18n';
 
@@ -206,9 +206,9 @@ function must<T extends HTMLElement = HTMLElement>(selector: string): T {
   return element;
 }
 
-function keyHtml(pitch: PitchSpec): string {
+function keyHtml(pitch: PitchSpec, extraClass = ''): string {
   return `
-    <button class="key" type="button" data-button="${pitch.button}"
+    <button class="key${extraClass ? ` ${extraClass}` : ''}" type="button" data-button="${pitch.button}"
       aria-label="${t('pad.playAria', { button: buttonLabel(pitch.button, controlScheme()), key: keyLabel(bindings[pitch.button]) })}"
       title="${t('pad.keyTitle', { pitch: pitch.id, key: keyLabel(bindings[pitch.button]) })}">
       ${buttonIcon(pitch.button)}
@@ -216,8 +216,81 @@ function keyHtml(pitch: PitchSpec): string {
     </button>`;
 }
 
+function bendKeyHtml(value: number): string {
+  return `
+    <button class="bend-key" type="button" data-bend="${value}" aria-label="${schemeBendLabel(value, controlScheme())}" title="${schemeBendLabel(value, controlScheme())}">
+      ${modifierIcon(value)}
+      <kbd class="key-ref" data-bend-label="${value}">${keyLabel(bindings[KEYBOARD_ACTIONS.find(action => BEND_ACTIONS[action as keyof typeof BEND_ACTIONS] === value)!])}</kbd>
+    </button>`;
+}
+
+/**
+ * Pad presentation: the button list, or the embroidered gamepad. Mirrors the stored
+ * preference; the Settings select further down writes both. Read straight from storage
+ * here because the pad renders before that preferences block runs.
+ */
+let padStyle: PadStyle = (() => {
+  try { return readPreferences(JSON.parse(localStorage.getItem(PREFERENCES_STORAGE) ?? 'null')).padStyle; }
+  catch { return DEFAULT_PREFERENCES.padStyle; }
+})();
+
+/** Decorative gamepad cloth: navy body, gold stitched edge, grey sticks, a heart patch. Purely visual; the real buttons sit on top. */
+function gamepadArt(): string {
+  return `
+    <svg class="gamepad-art" viewBox="0 0 360 210" aria-hidden="true" focusable="false">
+      <rect x="36" y="8" width="64" height="28" rx="9" fill="#54648a" stroke="#93a5c9" stroke-width="1.4" stroke-dasharray="4 3" />
+      <rect x="260" y="8" width="64" height="28" rx="9" fill="#54648a" stroke="#93a5c9" stroke-width="1.4" stroke-dasharray="4 3" />
+      <path class="gp-body" d="M58 30 Q180 12 302 30 Q336 34 338 68 Q339 100 330 132 Q322 172 296 182 Q272 190 262 160 Q254 134 226 128 L134 128 Q106 134 98 160 Q88 190 64 182 Q38 172 30 132 Q21 100 22 68 Q24 34 58 30 Z" fill="#26314a" stroke="#c19845" stroke-width="5" />
+      <path d="M58 30 Q180 12 302 30 Q336 34 338 68 Q339 100 330 132 Q322 172 296 182 Q272 190 262 160 Q254 134 226 128 L134 128 Q106 134 98 160 Q88 190 64 182 Q38 172 30 132 Q21 100 22 68 Q24 34 58 30 Z" transform="translate(180 105) scale(.93) translate(-180 -105)" fill="none" stroke="#d5ac55" stroke-width="1.6" stroke-dasharray="5 4" opacity=".75" />
+      <circle cx="76" cy="82" r="27" fill="#1d2740" stroke="#8b98b0" stroke-width="1.4" stroke-dasharray="3 3" />
+      <circle cx="208" cy="124" r="22" fill="#1d2740" stroke="#8b98b0" stroke-width="1.4" stroke-dasharray="3 3" />
+      <circle cx="208" cy="124" r="15" fill="#39496a" />
+      <circle cx="208" cy="124" r="8" fill="none" stroke="#8b98b0" stroke-width="1.4" />
+      <circle cx="124" cy="54" r="7" fill="#d8c391" />
+      <path d="M120.5 54 H127.5" stroke="#26314a" stroke-width="1.8" />
+      <circle cx="222" cy="50" r="7" fill="#d8c391" />
+      <path d="M218.5 50 H225.5 M222 46.5 V53.5" stroke="#26314a" stroke-width="1.8" />
+      <path d="M0 5 C0 1 -3 -2 -7 -2 C-12 -2 -15 2 -15 6 C-15 12 -7 17 0 23 C7 17 15 12 15 6 C15 2 12 -2 7 -2 C3 -2 0 1 0 5 Z" transform="translate(172 64)" fill="#a83a2c" stroke="#e8cc8f" stroke-width="1.2" stroke-dasharray="3 2" />
+    </svg>`;
+}
+
 function buildPad(): void {
   const retro = currentTheme() === 'retro';
+  if (padStyle === 'controller') {
+    pad.classList.add('pad--controller');
+    pad.innerHTML = `
+      <div class="gamepad">
+        ${gamepadArt()}
+        ${keyHtml(pitchForButton('L'), 'gp-shoulder gp-l')}
+        ${retro ? '' : keyHtml(pitchForButton('R'), 'gp-shoulder gp-r')}
+        <div class="gp-stick">
+          ${bendKeyHtml(2)}
+          ${bendKeyHtml(-2)}
+        </div>
+        <div class="gp-dpad">
+          <span aria-hidden="true"></span>
+          ${bendKeyHtml(1)}
+          <span aria-hidden="true"></span>
+          <span class="gp-arm" aria-hidden="true"></span>
+          <span class="gp-arm gp-arm--center" aria-hidden="true"></span>
+          <span class="gp-arm" aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          ${bendKeyHtml(-1)}
+          <span aria-hidden="true"></span>
+        </div>
+        <div class="gp-face">
+          <span class="cell" aria-hidden="true"></span>
+          ${keyHtml(pitchForButton('X'), 'gp-face-key')}
+          <span class="cell" aria-hidden="true"></span>
+          ${keyHtml(pitchForButton('Y'), 'gp-face-key')}
+          ${retro ? keyHtml(pitchForButton('R'), 'gp-face-key') : '<span class="ghost" aria-hidden="true">B</span>'}
+          ${keyHtml(pitchForButton('A'), 'gp-face-key')}
+        </div>
+      </div>`;
+    bends.innerHTML = '';
+    return;
+  }
+  pad.classList.remove('pad--controller');
   pad.innerHTML = `
     <div class="shoulders">
       ${keyHtml(pitchForButton('L'))}
@@ -231,11 +304,7 @@ function buildPad(): void {
       ${retro ? keyHtml(pitchForButton('R')) : '<span class="ghost" aria-hidden="true">B</span>'}
       ${keyHtml(pitchForButton('A'))}
     </div>`;
-  bends.innerHTML = [1, -1, 2, -2].map(value => `
-    <button class="bend-key" type="button" data-bend="${value}" aria-label="${schemeBendLabel(value, controlScheme())}" title="${schemeBendLabel(value, controlScheme())}">
-      ${modifierIcon(value)}
-      <kbd class="key-ref" data-bend-label="${value}">${keyLabel(bindings[KEYBOARD_ACTIONS.find(action => BEND_ACTIONS[action as keyof typeof BEND_ACTIONS] === value)!])}</kbd>
-    </button>`).join('');
+  bends.innerHTML = [1, -1, 2, -2].map(bendKeyHtml).join('');
 }
 
 function setActive(button: ControllerButton, active: boolean): void {
@@ -281,6 +350,7 @@ function renderTab(): void {
   passages = createPassages(recorded, current?.tempoBpm ?? FREE_PLAY_TEMPO_BPM, current?.phraseStarts);
   tabText.textContent = current ? toTabText(recorded, undefined, current.tempoBpm, { scheme: controlScheme(), noteSeparator: ', ' }) : '';
   bends.hidden = current !== null && !recorded.some(note => !!note.bend);
+  pad.classList.toggle('is-bends-hidden', bends.hidden);
   passageIndex = Math.max(0, Math.min(passageIndex, passages.length - 1));
   // Keep the staff and its passage controls at a stable size: free play can add a bend at any time.
   tab.classList.toggle('has-modifiers', current === null || recorded.some(note => !!note.bend));
@@ -408,7 +478,7 @@ function applyBend(value: number, glide = 0): void {
     renderTab();
   }
 
-  for (const element of bends.querySelectorAll<HTMLElement>('.bend-key')) {
+  for (const element of document.querySelectorAll<HTMLElement>('#pad .bend-key, #bend-pad .bend-key')) {
     element.classList.toggle('is-active', Number(element.dataset.bend) === value);
   }
 
@@ -463,6 +533,30 @@ window.addEventListener('gamepaddisconnected', () => {
 });
 
 const touchCapable = 'ontouchstart' in window;
+
+/** Mouse and pen bind per element, so this re-runs after every pad re-render (theme, language, pad style). */
+function bindPadPointer(): void {
+  if (touchCapable) return;
+  for (const element of document.querySelectorAll<HTMLElement>('#pad .key, #pad .bend-key, #bend-pad .bend-key')) {
+    element.addEventListener('pointerdown', (event) => {
+      event.preventDefault();
+      const source = `pointer:${event.pointerId}`;
+      if (element.dataset.bend !== undefined) {
+        controls.bendDown(source, Number(element.dataset.bend));
+      } else if (element.dataset.button) {
+        controls.noteDown(source, element.dataset.button as ControllerButton);
+      }
+    });
+    for (const type of ['pointerup', 'pointercancel', 'pointerleave'] as const) {
+      element.addEventListener(type, (event) => {
+        const source = `pointer:${event.pointerId}`;
+        controls.bendUp(source);
+        controls.noteUp(source);
+      });
+    }
+  }
+}
+
 if (touchCapable) {
   const hit = (x: number, y: number): HTMLElement | null => {
     const element = document.elementFromPoint(x, y);
@@ -493,24 +587,7 @@ if (touchCapable) {
   document.addEventListener('touchend', releaseTouch);
   document.addEventListener('touchcancel', releaseTouch);
 } else {
-  for (const element of document.querySelectorAll<HTMLElement>('#pad .key, #bend-pad .bend-key')) {
-    element.addEventListener('pointerdown', (event) => {
-      event.preventDefault();
-      const source = `pointer:${event.pointerId}`;
-      if (element.dataset.bend !== undefined) {
-        controls.bendDown(source, Number(element.dataset.bend));
-      } else if (element.dataset.button) {
-        controls.noteDown(source, element.dataset.button as ControllerButton);
-      }
-    });
-    for (const type of ['pointerup', 'pointercancel', 'pointerleave'] as const) {
-      element.addEventListener(type, (event) => {
-        const source = `pointer:${event.pointerId}`;
-        controls.bendUp(source);
-        controls.noteUp(source);
-      });
-    }
-  }
+  bindPadPointer();
 }
 
 
@@ -542,7 +619,7 @@ function renderBindings(): void {
     key.setAttribute('aria-label', t('pad.playAria', { button: buttonLabel(button, controlScheme()), key: keyLabel(bindings[button]) }));
     key.title = t('pad.keyTitle', { pitch: pitchForButton(button).id, key: keyLabel(bindings[button]) });
   }
-  for (const label of bends.querySelectorAll<HTMLElement>('[data-bend-label]')) {
+  for (const label of document.querySelectorAll<HTMLElement>('#pad [data-bend-label], #bend-pad [data-bend-label]')) {
     const action = KEYBOARD_ACTIONS.find(action => BEND_ACTIONS[action as keyof typeof BEND_ACTIONS] === Number(label.dataset.bendLabel))!;
     label.textContent = keyLabel(bindings[action]);
   }
@@ -828,7 +905,7 @@ function updateProgress(): void {
   for (const key of pad.querySelectorAll<HTMLElement>('[data-button]')) {
     key.classList.toggle('is-expected', !!expected && key.dataset.button === pitchById(expected.pitch).button);
   }
-  for (const key of bends.querySelectorAll<HTMLElement>('[data-bend]')) {
+  for (const key of document.querySelectorAll<HTMLElement>('#pad [data-bend], #bend-pad [data-bend]')) {
     key.classList.toggle('is-expected', !!expected?.bend && Number(key.dataset.bend) === expected.bend);
   }
 }
@@ -917,7 +994,7 @@ function rewardHit(point: { x: number; y: number } | null, button: ControllerBut
   const tier = comboTier(combo.streak);
   if (point) sparkBurst(tab, point, tier);
   stitchRipple(pad.querySelector(`[data-button="${button}"]`));
-  if (noteBend) stitchRipple(bends.querySelector(`[data-bend="${noteBend}"]`));
+  if (noteBend) stitchRipple(document.querySelector(`#pad [data-bend="${noteBend}"], #bend-pad [data-bend="${noteBend}"]`));
   retrigger(progressTrack, 'is-hit');
   if (cleared || finished) retrigger(progressTrack, 'is-swept');
   if (finished) {
@@ -1248,6 +1325,7 @@ document.addEventListener('themechange', () => {
   syncThemePicker();
   refreshThreadIcons();
   buildPad();
+  bindPadPointer();
   must('#keyboard-bindings').replaceChildren();
   renderBindings();
   delete tab.dataset.notes;
@@ -1268,6 +1346,7 @@ const preferenceInputs = {
   rate: must<HTMLSelectElement>('#pref-rate'),
   effects: must<HTMLInputElement>('#pref-effects'),
   haptics: must<HTMLInputElement>('#pref-haptics'),
+  padStyle: must<HTMLSelectElement>('#pref-pad-style'),
 };
 let preferences: Preferences = (() => {
   try { return readPreferences(JSON.parse(localStorage.getItem(PREFERENCES_STORAGE) ?? 'null')); }
@@ -1280,6 +1359,7 @@ function showPreferences(): void {
   playbackRate.value = preferenceInputs.rate.value = preferences.rate;
   preferenceInputs.effects.checked = preferences.effects;
   preferenceInputs.haptics.checked = preferences.haptics;
+  preferenceInputs.padStyle.value = preferences.padStyle;
   setPracticeFeedback(preferences);
 }
 
@@ -1301,6 +1381,14 @@ for (const [preference, lessonInput] of [[preferenceInputs.bends, bendsInput], [
 }
 preferenceInputs.effects.addEventListener('change', () => savePreferences({ ...preferences, effects: preferenceInputs.effects.checked }));
 preferenceInputs.haptics.addEventListener('change', () => savePreferences({ ...preferences, haptics: preferenceInputs.haptics.checked }));
+preferenceInputs.padStyle.addEventListener('change', () => {
+  padStyle = preferenceInputs.padStyle.value === 'controller' ? 'controller' : 'list';
+  savePreferences({ ...preferences, padStyle });
+  buildPad();
+  bindPadPointer();
+  applyBend(bend);
+  updateProgress();
+});
 
 const dataStatus = must<HTMLParagraphElement>('#data-status');
 must('#export-saved').addEventListener('click', () => {
@@ -1332,6 +1420,7 @@ must('#clear-data').addEventListener('click', () => {
 window.addEventListener('languagechange', () => {
   catalogue.refreshLanguage();
   buildPad();
+  bindPadPointer();
   must('#keyboard-bindings').replaceChildren();
   renderBindings();
   delete tab.dataset.notes;
