@@ -543,6 +543,10 @@ progress::-moz-progress-bar { background: transparent; }
 .gp-cluster-stick:has(.bend-key[data-bend="2"].is-expected) .gp-bend-arrow--up,
 .gp-cluster-stick:has(.bend-key[data-bend="-2"].is-expected) .gp-bend-arrow--down { animation: gp-arrow-pulse 1.2s ease-in-out infinite alternate; }
 @keyframes gp-arrow-pulse { from { opacity: .65; } to { opacity: 1; } }
+/* While the bend is held the instruction has been followed: the arrow hides.
+   The pulse animation must be stopped too, or it would keep forcing opacity. */
+.gp-cluster-stick:has(.bend-key[data-bend="2"].is-active) .gp-bend-arrow--up,
+.gp-cluster-stick:has(.bend-key[data-bend="-2"].is-active) .gp-bend-arrow--down { animation: none; opacity: 0; }
 /* Songs without bends hide the bend hit areas; the arrows go with them. */
 .pad--controller.is-bends-hidden .gp-bend-arrow { display: none; }
 /* Hit areas, centred on the corrected part positions; at least as large as the
