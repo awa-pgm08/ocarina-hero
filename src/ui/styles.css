@@ -463,15 +463,26 @@ progress::-moz-progress-bar { background: transparent; }
 /* The photo already prints the letters and glyphs; keep the DOM labels for bindings
    and screen readers, but show none of them over the picture. */
 .pad--controller .control-icon, .pad--controller .key-ref { display: none; }
-/* Feedback on a transparent button: a warm glow ring hugging the printed control. */
+/* Feedback on a transparent button: no drawn frame — the printed control itself
+   lights up. A soft warm light, shaped by the overlay's own border-radius (disc,
+   tab, half-disc, D-pad arm) and screen-blended into the photo beneath it; the
+   gradient is fully transparent before the edges, so no light spills outside the
+   printed shape. The base seam-frame ::after is suppressed in both themes. */
+.pad--controller .key::after, .pad--controller .bend-key::after { display: none; }
 .pad--controller .key.is-active, .pad--controller .bend-key.is-active,
 .pad--controller .key.is-expected, .pad--controller .bend-key.is-expected {
-  background: transparent; background-image: none;
-  box-shadow: 0 0 0 2px #ffe9a8, 0 0 16px 5px #ffca55d9, inset 0 0 12px #ffca5566;
+  box-shadow: none;
+  background-color: transparent;
+  background-image: radial-gradient(ellipse at center, #fff6d8f2 0%, #ffdf8fd9 38%, #ffca5580 62%, transparent 78%);
+  mix-blend-mode: screen;
 }
-.pad--controller .key.is-expected::after, .pad--controller .bend-key.is-expected::after {
-  content: ''; position: absolute; inset: 3px; border: 2px dashed #ffe9a8; border-radius: inherit; pointer-events: none;
+.pad--controller .key.is-expected, .pad--controller .bend-key.is-expected {
+  animation: pad-glow-pulse 1.6s ease-in-out infinite alternate;
 }
+.pad--controller .key.is-active, .pad--controller .bend-key.is-active {
+  animation: none; opacity: 1;
+}
+@keyframes pad-glow-pulse { from { opacity: .38; } to { opacity: .88; } }
 .gp-pos-l { left: 19%; top: 15%; width: 20%; height: 13%; border-radius: 12px; }
 .gp-pos-r { left: 73%; top: 11.5%; width: 22%; height: 13%; border-radius: 12px; }
 .gp-pos-rb { left: 71.7%; top: 46.8%; width: 10.5%; aspect-ratio: 1; border-radius: 50%; }
