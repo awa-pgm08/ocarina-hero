@@ -6,6 +6,7 @@ import { selectAudioWindow, type AudioSelection } from '../core/audio-window';
 import audioLimits from '../core/audio-limits.json';
 import type { PreparedAudio } from './import';
 import { threadIcon } from './thread-icons';
+import { t } from './i18n';
 import './audio-editor.css';
 
 type EditorCallbacks = {
@@ -34,6 +35,7 @@ export class AudioFragmentEditor {
   private selected: AudioSelection | null = null;
   private generation = 0;
   private busy = false;
+  private previewing = false;
   private readonly abort = new AbortController();
   private readonly root: HTMLElement;
   private readonly filename: HTMLElement;
@@ -53,27 +55,27 @@ export class AudioFragmentEditor {
 
   constructor(private readonly container: HTMLElement, private readonly callbacks: EditorCallbacks) {
     const max = audioLimits.maxDurationSeconds;
-    container.innerHTML = `<section class="audio-editor" aria-label="Audio fragment editor" hidden>
+    container.innerHTML = `<section class="audio-editor" aria-label="${t('editor.aria')}" hidden>
       <div class="audio-editor-head">
         <p class="audio-editor-file"><span class="audio-editor-name"></span> <span class="audio-editor-duration"></span></p>
-        <div class="audio-editor-zoom" role="group" aria-label="Waveform zoom">
-          <button type="button" class="step audio-editor-zoom-out" aria-label="Zoom out">−</button>
-          <input type="range" min="0" max="${ZOOM_MAX}" step="10" value="0" aria-label="Waveform zoom">
-          <button type="button" class="step audio-editor-zoom-in" aria-label="Zoom in">+</button>
+        <div class="audio-editor-zoom" role="group" aria-label="${t('editor.zoom')}">
+          <button type="button" class="step audio-editor-zoom-out" aria-label="${t('editor.zoomOut')}">−</button>
+          <input type="range" min="0" max="${ZOOM_MAX}" step="10" value="0" aria-label="${t('editor.zoom')}">
+          <button type="button" class="step audio-editor-zoom-in" aria-label="${t('editor.zoomIn')}">+</button>
         </div>
       </div>
-      <div class="audio-editor-wave-frame"><div class="audio-editor-wave" aria-label="Audio waveform"></div></div>
-      <p class="audio-editor-hint">Drag the highlighted band to move it, or drag its edges to resize it (up to ${max} seconds).</p>
+      <div class="audio-editor-wave-frame"><div class="audio-editor-wave" aria-label="${t('editor.waveform')}"></div></div>
+      <p class="audio-editor-hint">${t('editor.hint', { max })}</p>
       <div class="audio-editor-selection">
         <div class="audio-editor-bounds">
-          <div class="field"><label for="audio-editor-start">Start (s)</label><span class="input-frame"><input id="audio-editor-start" class="audio-editor-start" type="number" min="0" step="0.1" inputmode="decimal"></span></div>
-          <div class="field"><label for="audio-editor-end">End (s)</label><span class="input-frame"><input id="audio-editor-end" class="audio-editor-end" type="number" min="0" step="0.1" inputmode="decimal"></span></div>
+          <div class="field"><label for="audio-editor-start">${t('editor.start')}</label><span class="input-frame"><input id="audio-editor-start" class="audio-editor-start" type="number" min="0" step="0.1" inputmode="decimal"></span></div>
+          <div class="field"><label for="audio-editor-end">${t('editor.end')}</label><span class="input-frame"><input id="audio-editor-end" class="audio-editor-end" type="number" min="0" step="0.1" inputmode="decimal"></span></div>
         </div>
         <div class="audio-editor-length">
           <p class="audio-editor-summary"></p>
           <div class="audio-editor-meter" aria-hidden="true"><span></span></div>
         </div>
-        <button type="button" class="audio-editor-preview action"><span class="audio-editor-preview-icon"></span><span class="stitched-label">Play selection</span></button>
+        <button type="button" class="audio-editor-preview action"><span class="audio-editor-preview-icon"></span><span class="stitched-label">${t('editor.playSelection')}</span></button>
       </div>
       <p class="audio-editor-status" role="status" aria-live="polite"></p>
     </section>`;
@@ -94,6 +96,7 @@ export class AudioFragmentEditor {
     this.zoomIn = find('.audio-editor-zoom-in');
     this.status = find('.audio-editor-status');
     this.setPreviewing(false);
+    window.addEventListener('languagechange', () => this.refreshLanguage(), { signal: this.abort.signal });
     const signal = this.abort.signal;
     container.addEventListener('focusin', () => callbacks.onEditingFocus(), { signal });
     for (const field of [this.start, this.end]) field.addEventListener('change', () => this.acceptFields(), { signal });
@@ -103,7 +106,7 @@ export class AudioFragmentEditor {
       callbacks.onPreviewStart();
       const generation = this.generation;
       void this.wave.play(this.region.start, this.region.end).catch(() => {
-        if (generation === this.generation) this.setStatus('Unable to play this selection.');
+        if (generation === this.generation) this.setStatus(t('editor.unablePlay'));
       });
     }, { signal });
     const applyZoom = () => this.wave?.zoom(Number(this.zoom.value));
@@ -126,8 +129,8 @@ export class AudioFragmentEditor {
     this.audio = audio;
     this.root.hidden = false;
     this.filename.textContent = audio.file.name;
-    this.duration.textContent = `· ${formatClock(audio.buffer.duration)} total`;
-    this.setStatus('Loading waveform…');
+    this.duration.textContent = t('editor.total', { time: formatClock(audio.buffer.duration) });
+    this.setStatus(t('editor.loadingWaveform'));
     const colors = getComputedStyle(this.container);
     const cream = colors.getPropertyValue('--text').trim();
     const regions = RegionsPlugin.create();
@@ -163,7 +166,7 @@ export class AudioFragmentEditor {
       wave.destroy();
       this.wave = null;
       this.audio = null;
-      this.setStatus('Unable to load the audio waveform.');
+      this.setStatus(t('editor.unableLoad'));
       this.updateControls();
       throw error;
     }
@@ -175,6 +178,25 @@ export class AudioFragmentEditor {
     this.region?.setOptions({ drag: !busy, resize: !busy });
     this.root.classList.toggle('is-busy', busy);
     this.updateControls();
+  }
+
+  /** Rebuild the editor's static labels in the new language; a shown selection is re-summarised. */
+  private refreshLanguage(): void {
+    this.root.setAttribute('aria-label', t('editor.aria'));
+    this.container.querySelector('.audio-editor-zoom')?.setAttribute('aria-label', t('editor.zoom'));
+    this.zoomOut.setAttribute('aria-label', t('editor.zoomOut'));
+    this.zoomIn.setAttribute('aria-label', t('editor.zoomIn'));
+    this.zoom.setAttribute('aria-label', t('editor.zoom'));
+    this.waveform.setAttribute('aria-label', t('editor.waveform'));
+    const hint = this.container.querySelector('.audio-editor-hint');
+    if (hint) hint.textContent = t('editor.hint', { max: audioLimits.maxDurationSeconds });
+    const startLabel = this.container.querySelector('label[for="audio-editor-start"]');
+    if (startLabel) startLabel.textContent = t('editor.start');
+    const endLabel = this.container.querySelector('label[for="audio-editor-end"]');
+    if (endLabel) endLabel.textContent = t('editor.end');
+    this.setPreviewing(this.previewing);
+    if (this.audio) this.duration.textContent = t('editor.total', { time: formatClock(this.audio.buffer.duration) });
+    this.syncSelection();
   }
 
   setStatus(message: string): void { this.status.textContent = message; }
@@ -201,7 +223,8 @@ export class AudioFragmentEditor {
   destroy(): void { this.clear(); this.abort.abort(); this.container.replaceChildren(); }
 
   private setPreviewing(playing: boolean): void {
-    this.previewLabel.textContent = playing ? 'Stop preview' : 'Play selection';
+    this.previewing = playing;
+    this.previewLabel.textContent = t(playing ? 'editor.stopPreview' : 'editor.playSelection');
     this.previewIcon.innerHTML = threadIcon(playing ? 'stop' : 'play');
   }
 
@@ -226,13 +249,13 @@ export class AudioFragmentEditor {
   private rejectBounds(): void {
     this.stopPreview();
     this.syncSelection();
-    this.setStatus(`Enter a fragment inside the recording, up to ${audioLimits.maxDurationSeconds} seconds long.`);
+    this.setStatus(t('editor.enterFragment', { max: audioLimits.maxDurationSeconds }));
   }
 
   private renderSummary(start: number, end: number): void {
     const max = audioLimits.maxDurationSeconds;
     const length = Math.max(0, end - start);
-    this.summary.textContent = `${formatClock(start)} – ${formatClock(end)} · ${length.toFixed(1)} of ${max} s`;
+    this.summary.textContent = t('editor.summary', { start: formatClock(start), end: formatClock(end), length: length.toFixed(1), max });
     this.meter.style.width = `${Math.min(100, length / max * 100)}%`;
   }
 

@@ -35,6 +35,7 @@ import { bindPullToRefresh } from './pull-refresh';
 import { completedIds, markOpened, markPractice, PROGRESS_STORAGE, readProgress, type Progress } from './progress';
 import { DEFAULT_PREFERENCES, PREFERENCES_STORAGE, readPreferences, type Preferences } from './preferences';
 import { LOCAL_DATA_KEYS, parseSavedExport, savedExport } from './local-data';
+import { getLang, initI18n, t } from './i18n';
 
 const APP_BASE = import.meta.env.BASE_URL;
 const engine = new OcarinaEngine();
@@ -116,7 +117,7 @@ const importer = new SourceImporter({
     must<HTMLButtonElement>('#open-import').disabled = false;
     updateLessonHeading();
     showView('lesson');
-    if (source.analysis) setWorkshopStatus(`TAB ready: ${source.melody.length} notes. Open the melody to play or practice it.`);
+    if (source.analysis) setWorkshopStatus(t('workshop.tabReady', { count: source.melody.length }));
   },
   onStatus(message) {
     songHint.textContent = message;
@@ -134,7 +135,7 @@ const importer = new SourceImporter({
   },
 });
 const editor = new AudioFragmentEditor(must<HTMLElement>('#audio-editor'), {
-  onSelectionChange() { invalidateAudioResult('Fragment changed. Choose Analyze fragment to generate its TAB.'); },
+  onSelectionChange() { invalidateAudioResult(t('workshop.fragmentChanged')); },
   onSelectionReady() { updateAnalyzeButton(); },
   onPreviewStart() {
     stopPlayback();
@@ -170,8 +171,8 @@ function showAnalysisProgress(pending: boolean): void {
   if (!pending) return;
   const seconds = editor.selection && selectedAudio ? (editor.selection.endIndex - editor.selection.startIndex) / selectedAudio.buffer.sampleRate : 0;
   must('#analysis-progress-label').textContent = analysisPhase === 'decoding'
-    ? 'Reading the recording…'
-    : analysisPhase === 'importing' ? 'Importing the MIDI melody…' : `Finding the melody in ${seconds.toFixed(1)} s of audio…`;
+    ? t('workshop.reading')
+    : analysisPhase === 'importing' ? t('workshop.importingPhase') : t('workshop.findingPhase', { seconds: seconds.toFixed(1) });
   const started = performance.now();
   analysisElapsed.textContent = '0 s';
   analysisTimer = window.setInterval(() => { analysisElapsed.textContent = `${Math.floor((performance.now() - started) / 1000)} s`; }, 1000);
@@ -208,8 +209,8 @@ function must<T extends HTMLElement = HTMLElement>(selector: string): T {
 function keyHtml(pitch: PitchSpec): string {
   return `
     <button class="key" type="button" data-button="${pitch.button}"
-      aria-label="Play ${buttonLabel(pitch.button, controlScheme())}, keyboard ${keyLabel(bindings[pitch.button])}"
-      title="${pitch.id} · keyboard ${keyLabel(bindings[pitch.button])}">
+      aria-label="${t('pad.playAria', { button: buttonLabel(pitch.button, controlScheme()), key: keyLabel(bindings[pitch.button]) })}"
+      title="${t('pad.keyTitle', { pitch: pitch.id, key: keyLabel(bindings[pitch.button]) })}">
       ${buttonIcon(pitch.button)}
       <kbd class="key-ref">${keyLabel(bindings[pitch.button])}</kbd>
     </button>`;
@@ -248,11 +249,13 @@ function clearActive(): void {
 }
 
 let lastNoteLabel = '';
+let hintStarted = false;
 
 function updateHint(): void {
+  hintStarted = true;
   const parts: string[] = [];
   if (lastNoteLabel) parts.push(lastNoteLabel);
-  parts.push(bend ? `bend ${schemeBendLabel(bend, controlScheme())}` : 'no bend');
+  parts.push(bend ? t('pad.bend', { label: schemeBendLabel(bend, controlScheme()) }) : t('pad.noBend'));
   hint.textContent = parts.join(' · ');
 }
 
@@ -285,15 +288,15 @@ function renderTab(): void {
   if (recorded.length === 0) {
     delete tab.dataset.notes;
     renderedWindow = null;
-    passageSelect.replaceChildren(new Option('1 of 1', '0'));
+    passageSelect.replaceChildren(new Option(t('passage.of', { index: 1, total: 1 }), '0'));
     must<HTMLButtonElement>('#previous-passage').disabled = true;
     must<HTMLButtonElement>('#next-passage').disabled = true;
-    tab.innerHTML = `${staffClef()}<p class="empty">Your notes will appear on this staff.</p>`;
+    tab.innerHTML = `${staffClef()}<p class="empty">${t('staff.empty')}</p>`;
     updateProgress();
     return;
   }
-  if (passageSelect.options.length !== passages.length || passageSelect.options[0]?.text !== `1 of ${passages.length}`) {
-    passageSelect.replaceChildren(...passages.map((_, index) => new Option(`${index + 1} of ${passages.length}`, String(index))));
+  if (passageSelect.options.length !== passages.length || passageSelect.options[0]?.text !== t('passage.of', { index: 1, total: passages.length })) {
+    passageSelect.replaceChildren(...passages.map((_, index) => new Option(t('passage.of', { index: index + 1, total: passages.length }), String(index))));
   }
   passageSelect.value = String(passageIndex);
   must<HTMLButtonElement>('#previous-passage').disabled = passageIndex === 0;
@@ -331,7 +334,7 @@ function renderTab(): void {
 function arrangementLabel(projection: Projection): string {
   const percent = Math.round(projection.confidence * 100);
   const shift = projection.transpositionSemitones;
-  return `${percent}% arrangement fit · transposition ${shift > 0 ? '+' : ''}${shift} semitones · ${projection.shiftedNotes}/${projection.notes.length} notes moved · ${projection.bentNotes} bent`;
+  return t('arrangement.fit', { percent, shift: `${shift > 0 ? '+' : ''}${shift}`, moved: projection.shiftedNotes, total: projection.notes.length, bent: projection.bentNotes });
 }
 
 function show(arrangement: Arrangement, label: string, play = false): void {
@@ -358,15 +361,15 @@ function renderSource(source: Source, play = false): void {
 
   const fixed = source.fixedNotes !== undefined;
   simplifyInput.disabled = fixed || !!source.preserveTiming;
-  simplifyInput.title = fixed ? 'Fixed arrangements preserve their notes and timing.' : source.preserveTiming ? 'Audio preserves detected notes and timing.' : '';
+  simplifyInput.title = fixed ? t('arrangement.fixedTitle') : source.preserveTiming ? t('arrangement.audioTitle') : '';
   bendsInput.disabled = fixed;
-  bendsInput.title = fixed ? 'Fixed arrangements preserve their notes and timing.' : '';
+  bendsInput.title = fixed ? t('arrangement.fixedTitle') : '';
   const prepared = prepareMelody(source, {
     simplify: simplifyInput.checked,
     maxBend: bendsInput.checked ? 2 : 0,
   });
 
-  const removed = prepared.removed ? ` · ${prepared.removed} ornaments removed` : '';
+  const removed = prepared.removed ? t('arrangement.ornamentsRemoved', { count: prepared.removed }) : '';
   const label = prepared.projection
     ? `${source.subtitle}${removed} · ${arrangementLabel(prepared.projection)}`
     : source.subtitle;
@@ -393,6 +396,7 @@ function runDemo(demo: DemoTrack): void {
   });
 }
 
+initI18n();
 buildPad();
 renderTab();
 
@@ -427,17 +431,13 @@ const controls = new Controls(
 
 const gamepads = new GamepadInput(controls);
 const gamepadStatus = must<HTMLParagraphElement>('#gamepad-status');
-const GAMEPAD_HELP: Record<ControlScheme, string> = {
-  switch: 'Controller connected: the shoulder and face buttons play; the D-pad and the sticks bend.',
-  n64: 'Controller connected: A and the right stick, as the C buttons, play; R, Z and the left stick bend.',
-};
 /** Whether the connected pad has a layout the app can read; null while none is connected. */
 let gamepadReadable: boolean | null = null;
 let gamepadFrame: number | undefined;
 
 function renderGamepadStatus(): void {
   if (gamepadReadable === null) return;
-  gamepadStatus.textContent = gamepadReadable ? GAMEPAD_HELP[controlScheme()] : 'This browser does not recognise the layout of that controller.';
+  gamepadStatus.textContent = gamepadReadable ? t(controlScheme() === 'n64' ? 'gamepad.helpN64' : 'gamepad.helpSwitch') : t('gamepad.unrecognised');
 }
 
 /** Poll while the lesson is on screen and a usable pad is connected; one last empty poll releases what was held. */
@@ -459,7 +459,7 @@ window.addEventListener('gamepadconnected', event => {
 });
 window.addEventListener('gamepaddisconnected', () => {
   gamepadReadable = null;
-  gamepadStatus.textContent = 'Controller disconnected.';
+  gamepadStatus.textContent = t('gamepad.disconnected');
 });
 
 const touchCapable = 'ontouchstart' in window;
@@ -523,14 +523,14 @@ function isEditingTarget(target: EventTarget | null): boolean {
 }
 
 function actionLabel(action: KeyboardAction): string {
-  if (!(action in BEND_ACTIONS)) return `Button ${buttonLabel(action as ControllerButton, controlScheme())}`;
+  if (!(action in BEND_ACTIONS)) return t('keyboard.buttonAction', { label: buttonLabel(action as ControllerButton, controlScheme()) });
   return schemeBendLabel(BEND_ACTIONS[action as keyof typeof BEND_ACTIONS], controlScheme());
 }
 
 function renderBindings(): void {
   const list = must('#keyboard-bindings');
   if (!list.childElementCount) list.innerHTML = KEYBOARD_ACTIONS.map(action =>
-    `<div class="binding-row"><span class="binding-control">${action in BEND_ACTIONS ? modifierIcon(BEND_ACTIONS[action as keyof typeof BEND_ACTIONS]) : buttonIcon(action as ControllerButton)}<span>${actionLabel(action)}</span></span><button class="action binding-key" type="button" data-binding="${action}" aria-label="Change ${actionLabel(action)} key"><kbd></kbd></button></div>`).join('');
+    `<div class="binding-row"><span class="binding-control">${action in BEND_ACTIONS ? modifierIcon(BEND_ACTIONS[action as keyof typeof BEND_ACTIONS]) : buttonIcon(action as ControllerButton)}<span>${actionLabel(action)}</span></span><button class="action binding-key" type="button" data-binding="${action}" aria-label="${t('keyboard.changeKeyAria', { label: actionLabel(action) })}"><kbd></kbd></button></div>`).join('');
   for (const button of list.querySelectorAll<HTMLButtonElement>('[data-binding]')) {
     const action = button.dataset.binding as KeyboardAction;
     button.querySelector('kbd')!.textContent = bindingTarget === action ? '…' : keyLabel(bindings[action]);
@@ -539,8 +539,8 @@ function renderBindings(): void {
   for (const key of pad.querySelectorAll<HTMLElement>('[data-button]')) {
     const button = key.dataset.button as ControllerButton;
     key.querySelector('kbd')!.textContent = keyLabel(bindings[button]);
-    key.setAttribute('aria-label', `Play ${buttonLabel(button, controlScheme())}, keyboard ${keyLabel(bindings[button])}`);
-    key.title = `${pitchForButton(button).id} · keyboard ${keyLabel(bindings[button])}`;
+    key.setAttribute('aria-label', t('pad.playAria', { button: buttonLabel(button, controlScheme()), key: keyLabel(bindings[button]) }));
+    key.title = t('pad.keyTitle', { pitch: pitchForButton(button).id, key: keyLabel(bindings[button]) });
   }
   for (const label of bends.querySelectorAll<HTMLElement>('[data-bend-label]')) {
     const action = KEYBOARD_ACTIONS.find(action => BEND_ACTIONS[action as keyof typeof BEND_ACTIONS] === Number(label.dataset.bendLabel))!;
@@ -551,15 +551,15 @@ function renderBindings(): void {
 function saveBindings(): void {
   try {
     localStorage.setItem(KEY_BINDINGS_STORAGE, JSON.stringify(bindings));
-    must('#keyboard-status').textContent = 'Keyboard mapping saved.';
-  } catch { must('#keyboard-status').textContent = 'Mapping applies for this session; browser storage is unavailable.'; }
+    must('#keyboard-status').textContent = t('keyboard.saved');
+  } catch { must('#keyboard-status').textContent = t('keyboard.sessionOnly'); }
 }
 
 function cancelBinding(): void {
   if (!bindingTarget) return;
   bindingTarget = null;
   renderBindings();
-  must('#keyboard-status').textContent = 'Key assignment cancelled.';
+  must('#keyboard-status').textContent = t('keyboard.cancelled');
 }
 
 must('#keyboard-bindings').addEventListener('click', event => {
@@ -570,7 +570,7 @@ must('#keyboard-bindings').addEventListener('click', event => {
   clearActive();
   bindingTarget = button.dataset.binding as KeyboardAction;
   renderBindings();
-  must('#keyboard-status').textContent = `Press a key for ${actionLabel(bindingTarget)}. Escape cancels.`;
+  must('#keyboard-status').textContent = t('keyboard.pressKey', { label: actionLabel(bindingTarget) });
 });
 must<HTMLDetailsElement>('#keyboard-settings').addEventListener('toggle', event => {
   if (!(event.target as HTMLDetailsElement).open) cancelBinding();
@@ -607,7 +607,7 @@ window.addEventListener('keydown', (event) => {
     if (event.repeat) return;
     const updated = assignKey(bindings, bindingTarget, event.code);
     if (!updated) {
-      must('#keyboard-status').textContent = 'Choose an unused letter, number, arrow or punctuation key.';
+      must('#keyboard-status').textContent = t('keyboard.chooseKey');
       return;
     }
     bindings = updated;
@@ -640,7 +640,7 @@ window.addEventListener('blur', () => {
 must<HTMLButtonElement>('#clear').addEventListener('click', () => {
   closeAudioEditor();
   fileInput.value = '';
-  fileName.textContent = 'No file loaded';
+  fileName.textContent = t('workshop.noFileLoaded');
   analysisDownload.disabled = true;
   for (const input of [simplifyInput, bendsInput]) {
     input.disabled = false;
@@ -659,8 +659,8 @@ must<HTMLButtonElement>('#clear').addEventListener('click', () => {
   renderTab();
   updateLessonHeading();
   showView('lesson');
-  practiceStatus.textContent = 'Play any note to start a melody.';
-  songHint.textContent = 'Free play recording.';
+  practiceStatus.textContent = t('status.startMelody');
+  songHint.textContent = t('status.freePlayRecording');
 });
 
 bendsInput.addEventListener('change', () => {
@@ -699,7 +699,7 @@ const playback = new Playback(engine, {
       repeatingTimer = window.setTimeout(() => { repeatingTimer = undefined; void replay(); }, 200);
     }
   },
-  error: (error) => { practiceStatus.textContent = `Playback failed: ${error instanceof Error ? error.message : 'unknown error'}`; },
+  error: (error) => { practiceStatus.textContent = t('error.playback', { message: error instanceof Error ? error.message : 'unknown error' }); },
 });
 
 function stopPlayback(): void {
@@ -709,7 +709,7 @@ function stopPlayback(): void {
 }
 
 function setPlayLabel(label: string): void {
-  playButton.querySelector('.stitched-label')!.textContent = label;
+  playButton.querySelector('.stitched-label')!.textContent = t(label === 'Stop' ? 'lesson.stop' : 'lesson.play');
   playButton.querySelector('.play-icon')!.innerHTML = threadIcon(label === 'Stop' ? 'stop' : 'play');
 }
 
@@ -737,15 +737,15 @@ playbackRate.addEventListener('change', () => {
   const speed = playbackRate.selectedOptions[0]?.text ?? playbackRate.value;
   if (playback.playing) {
     replay();
-    practiceStatus.textContent = `Playing at ${speed} speed.`;
+    practiceStatus.textContent = t('speed.playingAt', { speed });
   } else {
-    practiceStatus.textContent = `Next play at ${speed} speed.`;
+    practiceStatus.textContent = t('speed.nextAt', { speed });
   }
 });
 
 async function openAudioFile(file: File): Promise<void> {
   const version = audioLoadVersion;
-  songHint.textContent = 'Reading the recording…';
+  songHint.textContent = t('workshop.reading');
   setWorkshopStatus('');
   analysisPhase = 'decoding';
   const audio = await importer.prepareAudio(file);
@@ -754,7 +754,7 @@ async function openAudioFile(file: File): Promise<void> {
   try {
     await editor.setAudio(audio);
     if (version === audioLoadVersion) {
-      const message = 'Fragment ready. Preview it if you like, then choose Analyze fragment.';
+      const message = t('workshop.fragmentReady');
       songHint.textContent = message;
       setWorkshopStatus(message);
       updateAnalyzeButton();
@@ -762,7 +762,7 @@ async function openAudioFile(file: File): Promise<void> {
   } catch (error) {
     if (version !== audioLoadVersion) return;
     closeAudioEditor();
-    songHint.textContent = `Could not open the audio editor: ${error instanceof Error ? error.message : 'unknown error'}`;
+    songHint.textContent = t('workshop.editorFailed', { message: error instanceof Error ? error.message : 'unknown error' });
   }
 }
 
@@ -770,7 +770,7 @@ fileInput.addEventListener('change', () => {
   const file = fileInput.files?.[0];
   if (!file) return;
   closeAudioEditor();
-  invalidateAudioResult('Preparing file…');
+  invalidateAudioResult(t('workshop.preparing'));
   controls.reset();
   clearActive();
   fileName.textContent = file.name;
@@ -790,11 +790,11 @@ analyzeButton.addEventListener('click', () => {
 
 must('#cancel-analysis').addEventListener('click', () => {
   if (analysisPhase === 'analysing') {
-    invalidateAudioResult('Analysis cancelled. Adjust the fragment or choose Analyze fragment again.');
+    invalidateAudioResult(t('workshop.analysisCancelled'));
   } else {
     closeAudioEditor();
-    fileName.textContent = 'No file selected';
-    setWorkshopStatus('Loading cancelled. Choose a recording to begin.');
+    fileName.textContent = t('workshop.noFileSelected');
+    setWorkshopStatus(t('workshop.loadingCancelled'));
   }
   analyzeButton.focus();
 });
@@ -820,9 +820,9 @@ function updateProgress(): void {
   progress.value = position;
   progressTrack.style.setProperty('--progress-ratio', String(position / Math.max(1, recorded.length)));
   must('#song-progress').hidden = current === null || recorded.length === 0;
-  must('#progress-label').textContent = `${position} / ${recorded.length} notes`;
+  must('#progress-label').textContent = t('progress.notes', { done: position, total: recorded.length });
   must('#progress-percent').textContent = `${Math.round(position / Math.max(1, recorded.length) * 100)}%`;
-  must('#progress-caption').textContent = practiceMode ? 'Practice progress' : 'Song progress';
+  must('#progress-caption').textContent = t(practiceMode ? 'progress.practice' : 'progress.song');
   if (!practiceMode) renderCombo();
   const expected = practiceMode && !isPlaying ? recorded[practiceCursor] : undefined;
   for (const key of pad.querySelectorAll<HTMLElement>('[data-button]')) {
@@ -836,22 +836,22 @@ function updateProgress(): void {
 function renderLessonMeta(): void {
   const songProgress = selectedEntry ? progress[selectedEntry.id] : undefined;
   must('#lesson-meta').textContent = current
-    ? [...lessonDetails(selectedEntry?.version, recorded.length, passages.length), songProgress?.completed && 'Completed', songProgress && songProgress.bestCombo > 1 && `Best combo ×${songProgress.bestCombo}`].filter(Boolean).join(' · ')
-    : 'Make a little music.';
+    ? [...lessonDetails(selectedEntry?.version, recorded.length, passages.length, getLang()), songProgress?.completed && t('common.completed'), songProgress && songProgress.bestCombo > 1 && t('lesson.bestCombo', { count: songProgress.bestCombo })].filter(Boolean).join(' · ')
+    : t('lesson.makeMusic');
 }
 
 function updateLessonHeading(): void {
-  must('#lesson-title').textContent = selectedEntry?.title ?? current?.title ?? 'Free play';
+  must('#lesson-title').textContent = selectedEntry?.title ?? current?.title ?? t('nav.freeplay');
   const universe = must('#lesson-universe');
   universe.innerHTML = threadIcon(selectedEntry?.icon ?? 'music');
-  universe.append(document.createTextNode(selectedEntry?.universe ?? (current ? 'Your melody' : 'Your instrument')));
+  universe.append(document.createTextNode(selectedEntry?.universe ?? (current ? t('lesson.yourMelody') : t('lesson.yourInstrument'))));
   renderLessonMeta();
   const save = must<HTMLButtonElement>('#save-song');
   const saved = !!selectedEntry && catalogue.isSaved(selectedEntry.id);
   save.hidden = selectedEntry === null;
-  save.innerHTML = `${threadIcon(saved ? 'heart-filled' : 'heart-empty')}<span>${saved ? 'Saved' : 'Save'}</span>`;
+  save.innerHTML = `${threadIcon(saved ? 'heart-filled' : 'heart-empty')}<span>${saved ? t('common.saved') : t('common.save')}</span>`;
   save.setAttribute('aria-pressed', String(saved));
-  save.setAttribute('aria-label', saved ? 'Remove from saved songs' : 'Save song');
+  save.setAttribute('aria-label', saved ? t('lesson.removeSavedAria') : t('lesson.saveSongAria'));
   must('#share-song').hidden = selectedEntry === null;
   must('#song-modes').hidden = current === null;
   must('.app').classList.toggle('has-song', current !== null);
@@ -863,14 +863,14 @@ function updateLessonHeading(): void {
 
 function refreshPracticeStatus(lead = ''): void {
   if (!current) {
-    practiceStatus.textContent = recorded.length ? 'Your melody is ready to play.' : 'Play any note to start a melody.';
+    practiceStatus.textContent = recorded.length ? t('status.melodyReady') : t('status.startMelody');
   } else if (!practiceMode) {
-    practiceStatus.textContent = 'Listen and follow the highlighted button.';
+    practiceStatus.textContent = t('status.listenFollow');
   } else {
     const expected = recorded[practiceCursor];
     practiceStatus.textContent = lead + (expected
-      ? `Next: ${noteInstruction(pitchById(expected.pitch).button, expected.bend ?? 0, controlScheme())}`
-      : `You reached the end${combo.best > 1 ? ` with a best combo of ${combo.best}` : ''}.`);
+      ? t('status.next', { instruction: noteInstruction(pitchById(expected.pitch).button, expected.bend ?? 0, controlScheme()) })
+      : combo.best > 1 ? t('status.reachedEndCombo', { best: combo.best }) : t('status.reachedEndPlain'));
   }
 }
 
@@ -921,13 +921,13 @@ function rewardHit(point: { x: number; y: number } | null, button: ControllerBut
   retrigger(progressTrack, 'is-hit');
   if (cleared || finished) retrigger(progressTrack, 'is-swept');
   if (finished) {
-    ribbon(practiceLine, 'Song complete', combo.best > 1 ? `Best combo ×${combo.best}` : '', 'song');
+    ribbon(practiceLine, t('ribbon.songComplete'), combo.best > 1 ? t('lesson.bestCombo', { count: combo.best }) : '', 'song');
     haptic([18, 50, 18, 50, 40]);
   } else if (milestone) {
-    ribbon(statusSlot, `${milestone.label}!`, '', 'combo');
+    ribbon(statusSlot, `${t(`combo.${milestone.label}`)}!`, '', 'combo');
     haptic([14, 40, 22]);
   } else if (cleared) {
-    ribbon(statusSlot, 'Passage clear', '', 'passage');
+    ribbon(statusSlot, t('ribbon.passageClear'), '', 'passage');
     haptic([10, 30, 10]);
   } else {
     haptic(8);
@@ -954,7 +954,7 @@ function offerNextStep(): void {
   nextSongButton.hidden = !upcoming;
   if (upcoming) {
     nextSongButton.querySelector('.stitched-label')!.textContent = upcoming.title;
-    nextSongButton.setAttribute('aria-label', `Next song: ${upcoming.title}`);
+    nextSongButton.setAttribute('aria-label', t('lesson.nextSongAria', { title: upcoming.title }));
     nextSongButton.dataset.song = upcoming.id;
   }
   songComplete.hidden = false;
@@ -970,7 +970,7 @@ function practiceNote(button: ControllerButton): void {
     retrigger(pad.querySelector(`[data-button="${button}"]`), 'is-miss');
     if (result.broken) haptic(24);
     renderCombo(result.broken);
-    practiceStatus.textContent = `${result.broken ? 'Combo broken · try' : 'Keep your place. Try'} ${noteInstruction(pitchById(expected.pitch).button, expected.bend ?? 0, controlScheme())}.`;
+    practiceStatus.textContent = t(result.broken ? 'status.comboBroken' : 'status.keepPlace', { instruction: noteInstruction(pitchById(expected.pitch).button, expected.bend ?? 0, controlScheme()) });
     return;
   }
   const hitIndex = practiceCursor;
@@ -985,7 +985,7 @@ function practiceNote(button: ControllerButton): void {
   const stillDrawnHit = centreIn(tab, tab.querySelector(`[data-note-index="${hitIndex}"]`));
   const songFinished = finished && !repeatPassage.checked;
   rewardHit(stillDrawnHit, button, expected.bend ?? 0, result.milestone, cleared, songFinished);
-  refreshPracticeStatus(result.milestone ? `${result.milestone.label}! ` : '');
+  refreshPracticeStatus(result.milestone ? `${t(`combo.${result.milestone.label}`)}! ` : '');
   recordPractice(songFinished);
   if (songFinished) offerNextStep();
 }
@@ -1028,7 +1028,7 @@ function showView(next: AppView, pushHistory = true): void {
     if (view === 'workshop' && importer.pending) {
       audioLoadVersion++;
       importer.invalidate();
-      setWorkshopStatus('Analysis cancelled. Choose Analyze fragment to try again.');
+      setWorkshopStatus(t('workshop.analysisCancelledRetry'));
     }
   }
   view = next;
@@ -1106,9 +1106,9 @@ function reloadPopular(): Promise<void> {
     status.textContent = '';
     try {
       catalogue.setPopular(await loadPopular({ force: true }));
-      status.textContent = 'Ranking updated.';
+      status.textContent = t('popular.updated');
     } catch {
-      status.textContent = 'Could not refresh the ranking. Try again later.';
+      status.textContent = t('popular.failed');
     } finally {
       button.disabled = false;
       popularReload = null;
@@ -1135,17 +1135,17 @@ must('#share-song').addEventListener('click', async () => {
   const button = must('#share-song .share-label');
   const url = shareUrl(location.href, APP_BASE, selectedEntry.id);
   const title = `${selectedEntry.title} · Ocarina Hero`;
-  let label = 'Copied!';
+  let label = t('share.copied');
   try {
     if (navigator.share) { await navigator.share({ title, url }); return; }
     await navigator.clipboard.writeText(url);
   } catch (error) {
     if ((error as DOMException).name === 'AbortError') return;
-    label = 'Copy failed';
+    label = t('share.failed');
   }
   button.textContent = label;
   window.clearTimeout(shareResetTimer);
-  shareResetTimer = window.setTimeout(() => { button.textContent = 'Share'; }, 1800);
+  shareResetTimer = window.setTimeout(() => { button.textContent = t('share.label'); }, 1800);
 });
 
 function switchLessonMode(practice: boolean): void {
@@ -1287,7 +1287,7 @@ function savePreferences(next: Preferences): void {
   preferences = next;
   showPreferences();
   try { localStorage.setItem(PREFERENCES_STORAGE, JSON.stringify(preferences)); }
-  catch { preferenceStatus.textContent = 'Preferences apply for this session; browser storage is unavailable.'; }
+  catch { preferenceStatus.textContent = t('prefs.sessionOnly'); }
 }
 
 showPreferences();
@@ -1305,9 +1305,9 @@ preferenceInputs.haptics.addEventListener('change', () => savePreferences({ ...p
 const dataStatus = must<HTMLParagraphElement>('#data-status');
 must('#export-saved').addEventListener('click', () => {
   const ids = catalogue.savedIds();
-  if (!ids.length) { dataStatus.textContent = 'There are no saved songs to export yet.'; return; }
+  if (!ids.length) { dataStatus.textContent = t('data.noneToExport'); return; }
   downloadJson('ocarina-hero-saved-songs.json', savedExport(ids));
-  dataStatus.textContent = `Exported ${ids.length} saved ${ids.length === 1 ? 'song' : 'songs'}.`;
+  dataStatus.textContent = t(ids.length === 1 ? 'data.exportedOne' : 'data.exportedMany', { count: ids.length });
 });
 must<HTMLInputElement>('#import-saved').addEventListener('change', async event => {
   const input = event.target as HTMLInputElement;
@@ -1317,16 +1317,33 @@ must<HTMLInputElement>('#import-saved').addEventListener('change', async event =
   try {
     const ids = parseSavedExport(await file.text(), new Set(catalogue.entries.map(entry => entry.id)));
     const added = catalogue.importSaved(ids);
-    dataStatus.textContent = added ? `Added ${added} ${added === 1 ? 'song' : 'songs'} to Saved.` : 'Every song in that file is already saved.';
+    dataStatus.textContent = added ? t(added === 1 ? 'data.addedOne' : 'data.addedMany', { count: added }) : t('data.alreadySaved');
   } catch {
-    dataStatus.textContent = 'That file is not an Ocarina Hero saved-songs export.';
+    dataStatus.textContent = t('data.notExport');
   }
 });
 must('#clear-data').addEventListener('click', () => {
-  if (!window.confirm('Remove saved songs, progress, keyboard keys, preferences and the chosen look from this browser?')) return;
+  if (!window.confirm(t('data.confirmClear'))) return;
   try { for (const key of LOCAL_DATA_KEYS) localStorage.removeItem(key); }
-  catch { dataStatus.textContent = 'Browser storage is unavailable, so there is nothing stored to clear.'; return; }
+  catch { dataStatus.textContent = t('data.nothingToClear'); return; }
   location.reload();
+});
+
+window.addEventListener('languagechange', () => {
+  catalogue.refreshLanguage();
+  buildPad();
+  must('#keyboard-bindings').replaceChildren();
+  renderBindings();
+  delete tab.dataset.notes;
+  renderedWindow = null;
+  renderTab();
+  updateLessonHeading();
+  updateProgress();
+  refreshPracticeStatus();
+  setPlayLabel(playback.playing || repeatingTimer !== undefined ? 'Stop' : 'Play');
+  if (hintStarted) updateHint();
+  else hint.textContent = t('lesson.pressNote');
+  miniPlayer.refreshLanguage();
 });
 
 restoreView();

@@ -9,6 +9,7 @@ import { songMeta, type SongbookEntry } from './songbook';
 import { staffClef, staffTokenHtml } from './staff';
 import { swapStaff, timeNoteThread } from './staff-motion';
 import { threadIcon } from './thread-icons';
+import { t } from './i18n';
 
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
@@ -54,7 +55,7 @@ export class MiniPlayer {
     this.tab = root.querySelector('.tab')!;
     this.status = root.querySelector('#mini-status')!;
     this.quick = new QuickPlay(player, state => this.render(state), error => {
-      this.status.textContent = `Playback failed: ${error instanceof Error ? error.message : 'unknown error'}`;
+      this.status.textContent = t('error.playback', { message: error instanceof Error ? error.message : 'unknown error' });
     });
     this.toggleButton.addEventListener('click', () => { if (this.loaded) this.toggle(this.loaded.entry); });
     root.querySelector('#mini-close')!.addEventListener('click', () => this.close());
@@ -91,7 +92,7 @@ export class MiniPlayer {
     }, error => {
       if (!current()) return;
       this.requesting = null;
-      this.status.textContent = `Could not load ${entry.title}: ${error instanceof Error ? error.message : 'unknown error'}`;
+      this.status.textContent = t('mini.loadFailed', { title: entry.title, message: error instanceof Error ? error.message : 'unknown error' });
     });
   }
 
@@ -109,7 +110,7 @@ export class MiniPlayer {
         passages: createPassages(notes, track.tempoBpm, track.phraseStarts),
       };
       this.title.textContent = entry.title;
-      this.expandButton.setAttribute('aria-label', `Open the lesson for ${entry.title}`);
+      this.expandButton.setAttribute('aria-label', t('mini.openLessonFor', { title: entry.title }));
       this.meta.textContent = songMeta(entry);
       this.tab.classList.toggle('has-modifiers', notes.some(note => !!note.bend));
       this.renderedWindow = null;
@@ -149,6 +150,14 @@ export class MiniPlayer {
     this.quick.toggle(id, this.loaded.arrangement);
   }
 
+  /** Re-render the toggle wording and announcements in the new language. */
+  refreshLanguage(): void {
+    if (this.loaded) this.expandButton.setAttribute('aria-label', t('mini.openLessonFor', { title: this.loaded.entry.title }));
+    this.announced = '';
+    this.shown = null;
+    this.render(this.quick.state);
+  }
+
   /** Re-render the staff with the active theme's glyphs and control names. */
   refreshTheme(): void {
     delete this.tab.dataset.notes;
@@ -173,9 +182,9 @@ export class MiniPlayer {
     const title = this.loaded.entry.title;
     if (changed) {
       this.toggleButton.innerHTML = threadIcon(playing ? 'pause' : 'play');
-      this.toggleButton.setAttribute('aria-label', `${playing ? 'Pause' : 'Play'} ${title}`);
+      this.toggleButton.setAttribute('aria-label', t(playing ? 'mini.pauseAria' : 'mini.playAria', { title }));
     }
-    this.announce(playing ? `Playing ${title}` : `Paused ${title}`);
+    this.announce(t(playing ? 'mini.playing' : 'mini.paused', { title }));
     this.renderStaff(state);
   }
 

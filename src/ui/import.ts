@@ -7,6 +7,7 @@ import type { MelodyNote } from '../core/project';
 import { transcribeAudio, type Transcription } from '../core/transcribe';
 import { transcribeWithBasicPitch, type BasicPitchModel, type BasicPitchTranscription } from '../core/basic-pitch';
 import { BASIC_PITCH_MODEL_SHA256, loadBrowserBasicPitch } from '../audio/basic-pitch-model';
+import { t } from './i18n';
 
 /** Identifies the Basic Pitch decoding rules in src/core/melody-decoder.ts; change it when they change. */
 export const BASIC_PITCH_DECODER = 'basic-pitch-viterbi-v2';
@@ -80,7 +81,7 @@ export class SourceImporter {
       if (this.generation !== generation) return null;
       return this.prepared = { file, buffer };
     } catch (error) {
-      if (this.generation === generation) this.callbacks.onStatus(`Could not decode that audio file: ${error instanceof Error ? error.message : 'unknown error'}`);
+      if (this.generation === generation) this.callbacks.onStatus(t('import.decodeFailed', { message: error instanceof Error ? error.message : 'unknown error' }));
       return null;
     } finally {
       if (this.generation === generation) this.setPending(false);
@@ -92,7 +93,7 @@ export class SourceImporter {
     const { buffer, file } = audio;
     const { startIndex, endIndex } = selection;
     if (!Number.isFinite(buffer.sampleRate) || buffer.sampleRate <= 0 || !Number.isInteger(startIndex) || !Number.isInteger(endIndex) || startIndex < 0 || endIndex > buffer.length || endIndex <= startIndex || endIndex - startIndex > Math.floor(audioLimits.maxDurationSeconds * buffer.sampleRate)) {
-      this.callbacks.onStatus('Invalid audio window.');
+      this.callbacks.onStatus(t('import.invalidWindow'));
       return;
     }
     await this.runAnalysis(file, buffer, startIndex, endIndex);
@@ -124,12 +125,12 @@ export class SourceImporter {
         const midi = new Midi(await file.arrayBuffer());
         if (!current()) return;
         const result = extractMelody(midi);
-        if (!result) { status('No melodic track found in that file.'); return; }
-        publish({ title: file.name, subtitle: `${result.trackName} · track ${result.trackIndex + 1}/${result.trackCount} · ${result.notes.length} notes`, tempoBpm: midi.header.tempos[0]?.bpm ?? 120, beatsPerBar: 4, melody: result.notes });
+        if (!result) { status(t('import.noMelodicTrack')); return; }
+        publish({ title: file.name, subtitle: t('import.trackSubtitle', { name: result.trackName, index: result.trackIndex + 1, total: result.trackCount, count: result.notes.length }), tempoBpm: midi.header.tempos[0]?.bpm ?? 120, beatsPerBar: 4, melody: result.notes });
         return;
       }
       if (!buffer) return;
-      status('Analysing audio…');
+      status(t('import.analysing'));
       const length = endIndex - startIndex;
       const samples = new Float32Array(length);
       for (let channel = 0; channel < buffer.numberOfChannels; channel++) {
@@ -148,20 +149,20 @@ export class SourceImporter {
       if (!current()) return;
       let analysis: AudioSourceAnalysis;
       if (result) {
-        if (!result.notes.length) { status('No melody found.'); return; }
+        if (!result.notes.length) { status(t('import.noMelody')); return; }
         analysis = { ...common, engine: { id: 'basic-pitch', modelSha256: BASIC_PITCH_MODEL_SHA256, decoder: BASIC_PITCH_DECODER }, notes: result.notes.map(note => ({ ...note })), voicedFrameFraction: result.voicedFrameFraction, warnings: [] };
       } else {
         // The periodicity detector reads only clear single-instrument recordings; say why it was used.
         const fallback = (this.dependencies.transcribe ?? transcribeAudio)(samples, buffer.sampleRate);
-        if (!fallback?.notes.length) { status(`No melody found. The melody model could not load (${modelFailure}), so the basic detector was used.`); return; }
-        analysis = { ...common, engine: { id: 'isolated-periodicity' }, notes: fallback.notes.map(note => ({ ...note })), voicedFrameFraction: fallback.quality, warnings: [`Melody model unavailable (${modelFailure}); used the basic detector.`, 'Continuous reattacks may be unresolved.'] };
+        if (!fallback?.notes.length) { status(t('import.noMelodyFallback', { failure: modelFailure })); return; }
+        analysis = { ...common, engine: { id: 'isolated-periodicity' }, notes: fallback.notes.map(note => ({ ...note })), voicedFrameFraction: fallback.quality, warnings: [t('import.warningModel', { failure: modelFailure }), t('import.warningReattacks')] };
       }
       analysis.sourceWindow = { startSeconds: startIndex / buffer.sampleRate, endSeconds: endIndex / buffer.sampleRate, sourceDurationSeconds: buffer.length / buffer.sampleRate };
-      const clip = `${(startIndex / buffer.sampleRate).toFixed(2)}–${(endIndex / buffer.sampleRate).toFixed(2)}s selected`;
+      const clip = t('import.clipSelected', { start: (startIndex / buffer.sampleRate).toFixed(2), end: (endIndex / buffer.sampleRate).toFixed(2) });
       const warning = analysis.warnings.length ? ` · ${analysis.warnings.join(' ')}` : '';
-      publish({ title: file.name, subtitle: `${analysis.notes.length} source notes · ${Math.round(analysis.voicedFrameFraction * 100)}% voiced frames · ${clip}${warning}`, tempoBpm: 60, beatsPerBar: 4, melody: analysis.notes, preserveTiming: true, analysis });
+      publish({ title: file.name, subtitle: `${t('import.audioSubtitle', { count: analysis.notes.length, percent: Math.round(analysis.voicedFrameFraction * 100), clip })}${warning}`, tempoBpm: 60, beatsPerBar: 4, melody: analysis.notes, preserveTiming: true, analysis });
     } catch (error) {
-      status(`Could not read that file: ${error instanceof Error ? error.message : 'unknown error'}`);
+      status(t('import.readFailed', { message: error instanceof Error ? error.message : 'unknown error' }));
     } finally {
       if (current()) this.setPending(false);
     }

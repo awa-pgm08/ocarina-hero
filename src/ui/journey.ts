@@ -29,9 +29,10 @@ export function journey<T extends Song>(entries: readonly T[], progress: Progres
   };
 }
 
-/** "1 play", "15 plays", "1.2K plays"; null before the first play. */
-export function playsLabel(plays: number): string | null {
+/** "1 play", "15 plays", "1.2K plays" (Japanese: "15回再生"); null before the first play. English unless a language is given, so prerendered pages and tests keep the source wording. */
+export function playsLabel(plays: number, lang: 'en' | 'ja' = 'en'): string | null {
   if (plays <= 0) return null;
+  if (lang === 'ja') return `${new Intl.NumberFormat('ja', { notation: 'compact', maximumFractionDigits: 1 }).format(plays)}回再生`;
   if (plays === 1) return '1 play';
   return `${new Intl.NumberFormat('en', { notation: 'compact', maximumFractionDigits: 1 }).format(plays)} plays`;
 }

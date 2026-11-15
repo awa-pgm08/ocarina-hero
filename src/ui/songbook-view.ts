@@ -9,6 +9,7 @@ import { missedSearchNoter } from '../core/search-text';
 import { reportMissedSearch, type PopularEntry } from './popularity';
 import { SAVED_STORAGE } from './local-data';
 import { songPath } from './route';
+import { getLang, t } from './i18n';
 
 /** Below this many results the list is short enough to scan, so the letter rail is hidden. */
 const RAIL_MIN_RESULTS = 12;
@@ -18,7 +19,17 @@ const FOCUSABLE_ROW_CONTROLS = 'button, a[href]';
 const JUMP_SETTLE_FRAMES = 6;
 /** Range steps: 0 is every difficulty, then one step per tier. */
 const DIFFICULTY_STEPS = ['', ...DIFFICULTY_LEVELS] as const;
-const DIFFICULTY_NAMES: Record<DifficultyLevel | '', string> = { '': 'Any', easy: 'Easy', medium: 'Medium', hard: 'Hard', expert: 'Expert' };
+const DIFFICULTY_KEYS: Record<DifficultyLevel | '', string> = { '': 'difficulty.anyShort', easy: 'difficulty.easy', medium: 'difficulty.medium', hard: 'difficulty.hard', expert: 'difficulty.expert' };
+
+/** Difficulty tier name in the current language. */
+function difficultyName(level: DifficultyLevel | ''): string {
+  return t(DIFFICULTY_KEYS[level]);
+}
+
+/** A count noun in the current language: English inflects, Japanese does not. */
+function nounFor(kind: 'song' | 'melody', count: number): string {
+  return t(`noun.${kind}${count === 1 ? 'One' : 'Many'}`);
+}
 
 /** A song seal; its tier frame is a decorative overlay outside the slot. */
 function sealHtml(icon: ThreadIcon, level: DifficultyLevel | '', extraClass = ''): string {
@@ -38,7 +49,7 @@ function rankHtml(rank: number): string {
 }
 
 function playsHtml(plays: number): string {
-  const label = playsLabel(plays);
+  const label = playsLabel(plays, getLang());
   return label ? `<span class="popular-plays">${label}</span>` : '';
 }
 
@@ -196,7 +207,7 @@ export class SongbookView {
     });
     this.difficultyRange = root.querySelector('#difficulty-range')!;
     const steps = root.querySelector<HTMLElement>('#difficulty-steps')!;
-    steps.innerHTML = DIFFICULTY_STEPS.map((level, index) => `<span class="difficulty-step" data-step="${index}">${sealHtml(level ? 'music' : 'songbook', level, 'mini-seal')}<span class="difficulty-name stitched-label">${DIFFICULTY_NAMES[level]}</span></span>`).join('');
+    this.renderDifficultySteps(steps);
     this.difficultyFold = new Fold(root.querySelector('#difficulty-toggle')!, root.querySelector('#difficulty-panel')!, root.querySelector('#difficulty-scale')!, '#difficulty-range', () => this.foldOthers(this.difficultyFold));
     this.difficultyRange.addEventListener('input', () => this.setDifficulty(Number(this.difficultyRange.value)));
     let dragging = false;
@@ -311,6 +322,17 @@ export class SongbookView {
   /** Redraw the list after progress changed elsewhere. */
   refresh(): void { this.renderResults(); }
 
+  /** Rebuild every language-dependent label after a language switch. */
+  refreshLanguage(): void {
+    this.renderDifficultySteps(this.root.querySelector<HTMLElement>('#difficulty-steps')!);
+    this.categories.innerHTML = '';
+    this.filterChanged();
+  }
+
+  private renderDifficultySteps(steps: HTMLElement): void {
+    steps.innerHTML = DIFFICULTY_STEPS.map((level, index) => `<span class="difficulty-step" data-step="${index}">${sealHtml(level ? 'music' : 'songbook', level, 'mini-seal')}<span class="difficulty-name stitched-label">${difficultyName(level)}</span></span>`).join('');
+  }
+
   /** Browser storage rejected a write: the count line tells the user nothing will be kept. */
   noteSessionOnly(): void {
     this.sessionOnly = true;
@@ -351,7 +373,7 @@ export class SongbookView {
     if (button.dataset.state === state) return;
     button.dataset.state = state;
     button.innerHTML = threadIcon(sounding ? 'pause' : 'play');
-    button.setAttribute('aria-label', `${sounding ? 'Pause' : 'Play'} ${button.dataset.title}`);
+    button.setAttribute('aria-label', t(sounding ? 'quick.pauseAria' : 'quick.playAria', { title: button.dataset.title ?? '' }));
   }
 
   toggleSaved(id: string): void {
@@ -386,7 +408,7 @@ export class SongbookView {
   private updateSavedCard(): void {
     const count = this.savedCount();
     const label = this.categories.querySelector('[data-saved-filter] .category-count');
-    if (label) label.innerHTML = countHtml(count, count === 1 ? 'song' : 'songs');
+    if (label) label.innerHTML = countHtml(count, nounFor('song', count));
   }
 
   /** Chips for the current category's universes; a universe outside it resets to Every universe. */
@@ -394,11 +416,11 @@ export class SongbookView {
     const groups = listUniverses(this.entries, this.category);
     if (this.universe && !groups.some(group => group.universes.some(option => option.name === this.universe))) this.universe = '';
     const showGroups = this.category === 'All';
-    const face = (label: string, icon: ThreadIcon, count: number) => `<span class="universe-icon" aria-hidden="true">${threadIcon(icon)}</span><span class="universe-name">${escapeHtml(label)}</span>${countHtml(count, count === 1 ? 'melody' : 'melodies')}`;
+    const face = (label: string, icon: ThreadIcon, count: number) => `<span class="universe-icon" aria-hidden="true">${threadIcon(icon)}</span><span class="universe-name">${escapeHtml(label)}</span>${countHtml(count, nounFor('melody', count))}`;
     const chip = (value: string, label: string, icon: ThreadIcon, count: number) => `<label class="universe-chip"><input class="visually-hidden" type="radio" name="universe" value="${escapeHtml(value)}"${value === this.universe ? ' checked' : ''}>${face(label, icon, count)}</label>`;
     const total = groups.reduce((sum, group) => sum + group.universes.reduce((n, option) => n + option.count, 0), 0);
     const focused = this.universes.contains(document.activeElement);
-    this.universes.innerHTML = chip('', 'Every universe', 'songbook', total) + groups.map(group =>
+    this.universes.innerHTML = chip('', t('filter.everyUniverse'), 'songbook', total) + groups.map(group =>
       (showGroups ? `<span class="universe-group" aria-hidden="true">${group.category}</span>` : '')
       + group.universes.map(option => chip(option.name, universeLabel(option.name), option.icon, option.count)).join('')).join('');
     const checked = this.universes.querySelector<HTMLInputElement>('input:checked');
@@ -406,13 +428,13 @@ export class SongbookView {
     const current = groups.flatMap(group => group.universes).find(option => option.name === this.universe);
     this.universeFold.toggle.innerHTML = (current
       ? face(universeLabel(current.name), current.icon, current.count)
-      : face('Every universe', 'songbook', total)) + '<span class="universe-chevron" aria-hidden="true"></span><span class="visually-hidden"> — change universe</span>';
+      : face(t('filter.everyUniverse'), 'songbook', total)) + `<span class="universe-chevron" aria-hidden="true"></span><span class="visually-hidden">${t('filter.changeUniverse')}</span>`;
   }
 
   /** The folded category field shows the chosen card's icon, name and count. */
   private renderCategoryToggle(): void {
     const chosen = this.categories.querySelector('[aria-pressed="true"]');
-    this.categoryFold.toggle.innerHTML = `<span class="universe-icon" aria-hidden="true">${chosen?.querySelector('.category-symbol')?.innerHTML ?? ''}</span><span class="universe-name">${chosen?.querySelector('.category-name')?.textContent ?? 'All songs'}</span>${chosen?.querySelector('.category-count')?.innerHTML ?? ''}<span class="universe-chevron" aria-hidden="true"></span><span class="visually-hidden"> — change category</span>`;
+    this.categoryFold.toggle.innerHTML = `<span class="universe-icon" aria-hidden="true">${chosen?.querySelector('.category-symbol')?.innerHTML ?? ''}</span><span class="universe-name">${chosen?.querySelector('.category-name')?.textContent ?? t('filter.allSongs')}</span>${chosen?.querySelector('.category-count')?.innerHTML ?? ''}<span class="universe-chevron" aria-hidden="true"></span><span class="visually-hidden">${t('filter.changeCategory')}</span>`;
   }
 
   /** Typing paints its character first; the list follows in the next task, once for a burst of keystrokes. */
@@ -425,9 +447,9 @@ export class SongbookView {
     if (!this.categories.childElementCount) this.categories.innerHTML = (Object.keys(CATEGORY_ICONS) as SongCategory[]).map(category => {
       const count = filterSongbook(this.entries, { category }).length;
       if (category === 'Other' && !count) return '';
-      const card = `<button class="category-card" type="button" data-category="${category}" aria-pressed="false"><span class="category-symbol" aria-hidden="true">${threadIcon(CATEGORY_ICONS[category])}</span><span class="category-name stitched-label">${category === 'All' ? 'All songs' : category}</span><span class="category-count">${countHtml(count, count === 1 ? 'melody' : 'melodies')}</span></button>`;
+      const card = `<button class="category-card" type="button" data-category="${category}" aria-pressed="false"><span class="category-symbol" aria-hidden="true">${threadIcon(CATEGORY_ICONS[category])}</span><span class="category-name stitched-label">${category === 'All' ? t('filter.allSongs') : category}</span><span class="category-count">${countHtml(count, nounFor('melody', count))}</span></button>`;
       return category === 'All'
-        ? card + `<button class="category-card saved-card" type="button" data-saved-filter aria-pressed="false"><span class="category-symbol" aria-hidden="true">${threadIcon('heart')}</span><span class="category-name stitched-label">Saved</span><span class="category-count"></span></button>`
+        ? card + `<button class="category-card saved-card" type="button" data-saved-filter aria-pressed="false"><span class="category-symbol" aria-hidden="true">${threadIcon('heart')}</span><span class="category-name stitched-label">${t('common.saved')}</span><span class="category-count"></span></button>`
         : card;
     }).join('');
     this.updateSavedCard();
@@ -447,14 +469,14 @@ export class SongbookView {
     this.root.classList.toggle('has-query', !!this.search.value.trim());
     const step = DIFFICULTY_STEPS.indexOf(this.difficulty);
     this.difficultyRange.value = String(step);
-    this.difficultyRange.setAttribute('aria-valuetext', this.difficulty ? DIFFICULTY_NAMES[this.difficulty] : 'Any difficulty');
+    this.difficultyRange.setAttribute('aria-valuetext', this.difficulty ? difficultyName(this.difficulty) : t('difficulty.any'));
     for (const element of this.root.querySelectorAll<HTMLElement>('.difficulty-step')) element.classList.toggle('is-current', Number(element.dataset.step) === step);
-    const name = DIFFICULTY_NAMES[this.difficulty];
-    this.difficultyFold.toggle.innerHTML = `${sealHtml(this.difficulty ? 'music' : 'songbook', this.difficulty, 'mini-seal')}<span class="universe-name">${this.difficulty ? name : 'Any difficulty'}</span><span class="universe-chevron" aria-hidden="true"></span><span class="visually-hidden"> — change difficulty</span>`;
-    this.filterSummaryDetail.textContent = [this.onlySaved ? 'Saved' : this.category === 'All' ? '' : this.category, this.universe, this.difficulty && DIFFICULTY_NAMES[this.difficulty]].filter(Boolean).map(part => ` · ${part}`).join('');
+    const name = difficultyName(this.difficulty);
+    this.difficultyFold.toggle.innerHTML = `${sealHtml(this.difficulty ? 'music' : 'songbook', this.difficulty, 'mini-seal')}<span class="universe-name">${this.difficulty ? name : t('difficulty.any')}</span><span class="universe-chevron" aria-hidden="true"></span><span class="visually-hidden">${t('filter.changeDifficulty')}</span>`;
+    this.filterSummaryDetail.textContent = [this.onlySaved ? t('common.saved') : this.category === 'All' ? '' : this.category, this.universe, this.difficulty && difficultyName(this.difficulty)].filter(Boolean).map(part => ` · ${part}`).join('');
     const result = filterSongbook(this.entries, { query: this.search.value, category: this.category, universe: this.universe, onlySaved: this.onlySaved, savedIds: this.saved, difficulty: this.difficulty || undefined });
     this.noteSearch(this.search.value, !result.length && !this.universe && !this.onlySaved && this.category === 'All' && !this.difficulty);
-    this.count.textContent = `${result.length} ${result.length === 1 ? 'melody' : 'melodies'}${this.sessionOnly ? ' · Saves last for this session only' : ''}`;
+    this.count.textContent = `${t(result.length === 1 ? 'catalog.countOne' : 'catalog.countMany', { count: result.length })}${this.sessionOnly ? t('catalog.sessionOnly') : ''}`;
     this.reset.hidden = !this.search.value && !this.universe && !this.onlySaved && this.category === 'All' && !this.difficulty;
     const anchors = new Map(letterAnchors(result).map(anchor => [anchor.id, anchor.letter]));
     const progress = this.callbacks.progress();
@@ -462,7 +484,7 @@ export class SongbookView {
     const shelves = this.reset.hidden && result.length > 0;
     this.writeList({
       resume: shelves ? this.resumeShelfHtml(progress, completed) : null,
-      rows: result.length ? [...shelves ? this.featuredShelvesHtml(completed) : [], ...result.map(entry => this.rowHtml(entry, completed, anchors.get(entry.id)))] : [`<p class="empty">${this.onlySaved && !this.savedCount() ? `No saved songs yet. Tap ${threadIcon('heart-empty', 'inline-icon')}<span class="visually-hidden">the heart</span> next to a song to keep it here.` : 'No melodies found. Try another title or clear your filters.'}</p>`],
+      rows: result.length ? [...shelves ? this.featuredShelvesHtml(completed) : [], ...result.map(entry => this.rowHtml(entry, completed, anchors.get(entry.id)))] : [`<p class="empty">${this.onlySaved && !this.savedCount() ? `${t('empty.savedPrefix')}${threadIcon('heart-empty', 'inline-icon')}<span class="visually-hidden">${t('empty.savedHeart')}</span>${t('empty.savedSuffix')}` : t('empty.none')}</p>`],
     });
     if (focused && !focused.isConnected) {
       const buttons = [...this.list.querySelectorAll<HTMLElement>(FOCUSABLE_ROW_CONTROLS)];
@@ -521,11 +543,11 @@ export class SongbookView {
   /** The desktop side panel: the song to resume, then what everyone plays most (or the welcome copy before any ranking). */
   private renderJourney(progress: Progress): void {
     const { resume, popular } = journey(this.entries, progress, this.popular);
-    const resumeMeta = resume && [songMeta(resume.entry), resume.progress.completed && 'Completed', resume.progress.bestCombo > 1 && `Best combo ×${resume.progress.bestCombo}`].filter(Boolean).join(' · ');
-    const resumeHtml = resume ? `<section class="journey-section"><p class="eyebrow stitched-label">Continue</p><button class="song-open" type="button" data-song="${escapeHtml(resume.entry.id)}">${sealHtml(resume.entry.icon, resume.entry.difficulty.level)}<span class="song-copy"><span class="song-title">${escapeHtml(resume.entry.title)}</span><span class="song-meta">${escapeHtml(resumeMeta || '')}<span class="visually-hidden"> · ${DIFFICULTY_NAMES[resume.entry.difficulty.level]} difficulty</span></span></span></button></section>` : '';
+    const resumeMeta = resume && [songMeta(resume.entry), resume.progress.completed && t('common.completed'), resume.progress.bestCombo > 1 && t('lesson.bestCombo', { count: resume.progress.bestCombo })].filter(Boolean).join(' · ');
+    const resumeHtml = resume ? `<section class="journey-section"><p class="eyebrow stitched-label">${t('journey.continue')}</p><button class="song-open" type="button" data-song="${escapeHtml(resume.entry.id)}">${sealHtml(resume.entry.icon, resume.entry.difficulty.level)}<span class="song-copy"><span class="song-title">${escapeHtml(resume.entry.title)}</span><span class="song-meta">${escapeHtml(resumeMeta || '')}<span class="visually-hidden">${t('row.difficultySuffix', { name: difficultyName(resume.entry.difficulty.level) })}</span></span></span></button></section>` : '';
     const body = popular.length
-      ? `<section class="journey-section"><h2 id="journey-title" class="embroidered">Most popular</h2><p class="journey-note">What players have been playing lately.</p><ol class="popular-list">${popular.map(({ entry, plays }, index) => `<li><button class="popular-song" type="button" data-song="${escapeHtml(entry.id)}" title="${escapeHtml(entry.title)} · ${escapeHtml(entry.universe)}">${rankHtml(index + 1)}<span class="popular-copy"><span class="popular-title">${escapeHtml(entry.title)}</span><span class="popular-meta">${escapeHtml(entry.universe)}</span></span>${playsHtml(plays)}</button></li>`).join('')}</ol></section>`
-      : '<h2 id="journey-title" class="embroidered">One passage<br>at a time.</h2><p>Listen to a melody, follow the staff and make it yours on the controller.</p>';
+      ? `<section class="journey-section"><h2 id="journey-title" class="embroidered">${t('journey.popularTitle')}</h2><p class="journey-note">${t('journey.popularNote')}</p><ol class="popular-list">${popular.map(({ entry, plays }, index) => `<li><button class="popular-song" type="button" data-song="${escapeHtml(entry.id)}" title="${escapeHtml(entry.title)} · ${escapeHtml(entry.universe)}">${rankHtml(index + 1)}<span class="popular-copy"><span class="popular-title">${escapeHtml(entry.title)}</span><span class="popular-meta">${escapeHtml(entry.universe)}</span></span>${playsHtml(plays)}</button></li>`).join('')}</ol></section>`
+      : `<h2 id="journey-title" class="embroidered">${t('journey.welcomeTitle')}</h2><p>${t('journey.welcomeBody')}</p>`;
     this.journey.innerHTML = resumeHtml + body;
   }
 
@@ -533,18 +555,18 @@ export class SongbookView {
     const title = escapeHtml(entry.title);
     const saved = this.saved.has(entry.id);
     const rank = ranked ? rankHtml(ranked.rank) : '';
-    const plays = ranked && playsLabel(ranked.plays);
-    return `<article class="song-row"${letter ? ` data-letter="${escapeHtml(letter)}"` : ''}>${rank}<a class="song-open" href="${escapeHtml(songPath(import.meta.env.BASE_URL, entry.id))}" data-song="${escapeHtml(entry.id)}">${ranked ? `<span class="visually-hidden">Number ${ranked.rank}: </span>` : ''}${sealHtml(entry.icon, entry.difficulty.level)}<span class="song-copy"><span class="song-title">${title}</span><span class="song-meta">${escapeHtml(songMeta(entry))}${plays ? ` · ${plays}` : ''}${completed.has(entry.id) ? '<span class="song-done"> · Completed</span>' : ''}<span class="visually-hidden"> · ${DIFFICULTY_NAMES[entry.difficulty.level]} difficulty</span></span></span></a><button class="patch-button quick-play" type="button" data-quick-play="${escapeHtml(entry.id)}" data-title="${title}"></button><button class="save-button" type="button" data-save="${escapeHtml(entry.id)}" aria-label="${saved ? 'Remove' : 'Save'} ${title}${saved ? ' from saved songs' : ''}" aria-pressed="${saved}">${threadIcon(saved ? 'heart-filled' : 'heart-empty')}</button></article>`;
+    const plays = ranked && playsLabel(ranked.plays, getLang());
+    return `<article class="song-row"${letter ? ` data-letter="${escapeHtml(letter)}"` : ''}>${rank}<a class="song-open" href="${escapeHtml(songPath(import.meta.env.BASE_URL, entry.id))}" data-song="${escapeHtml(entry.id)}">${ranked ? `<span class="visually-hidden">${t('row.number', { rank: ranked.rank })}</span>` : ''}${sealHtml(entry.icon, entry.difficulty.level)}<span class="song-copy"><span class="song-title">${title}</span><span class="song-meta">${escapeHtml(songMeta(entry))}${plays ? ` · ${plays}` : ''}${completed.has(entry.id) ? `<span class="song-done">${t('row.completedSuffix')}</span>` : ''}<span class="visually-hidden">${t('row.difficultySuffix', { name: difficultyName(entry.difficulty.level) })}</span></span></span></a><button class="patch-button quick-play" type="button" data-quick-play="${escapeHtml(entry.id)}" data-title="${title}"></button><button class="save-button" type="button" data-save="${escapeHtml(entry.id)}" aria-label="${t(saved ? 'row.removeAria' : 'row.saveAria', { title })}" aria-pressed="${saved}">${threadIcon(saved ? 'heart-filled' : 'heart-empty')}</button></article>`;
   }
 
   /** Shown above the full list while no search or filter is active: the song to resume, then the in-game songs. */
   private resumeShelfHtml(progress: Progress, completed: ReadonlySet<string>): string {
     const resumeId = lastOpened(progress, new Set(this.entries.map(entry => entry.id)));
-    return this.shelfHtml('Continue', this.entries.filter(entry => entry.id === resumeId), completed).join('');
+    return this.shelfHtml(t('journey.continue'), this.entries.filter(entry => entry.id === resumeId), completed).join('');
   }
 
   private featuredShelvesHtml(completed: ReadonlySet<string>): string[] {
-    return [...this.shelfHtml('Songs from the game', gameSongs(this.entries), completed), shelfTitle('All songs')];
+    return [...this.shelfHtml(t('shelf.fromGame'), gameSongs(this.entries), completed), shelfTitle(t('filter.allSongs'))];
   }
 
   private shelfHtml(text: string, songs: readonly SongbookEntry[], completed: ReadonlySet<string>): string[] {
@@ -557,7 +579,7 @@ export class SongbookView {
     this.rail.style.setProperty('--letters', String(letters.length));
     // Knots between the letters are decorative seams; on desktop they stretch so the rail spans the list.
     const markup = this.rail.hidden ? '' : letters.map((letter, index) =>
-      `<button class="letter-slot" type="button" data-letter="${escapeHtml(letter)}" tabindex="${index ? -1 : 0}" aria-label="${letter === '#' ? 'Numbers and symbols' : `Songs starting with ${letter}`}"><span class="stitched-label" aria-hidden="true">${escapeHtml(letter)}</span></button>`).join('<span class="letter-knot" aria-hidden="true"></span>');
+      `<button class="letter-slot" type="button" data-letter="${escapeHtml(letter)}" tabindex="${index ? -1 : 0}" aria-label="${letter === '#' ? t('rail.numbers') : t('rail.startsWith', { letter })}"><span class="stitched-label" aria-hidden="true">${escapeHtml(letter)}</span></button>`).join('<span class="letter-knot" aria-hidden="true"></span>');
     if (markup !== this.shownRail) this.rail.querySelector('.letter-list')!.innerHTML = markup;
     this.shownRail = markup;
     this.markLetterAfterLayout();

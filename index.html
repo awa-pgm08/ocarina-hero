@@ -40,7 +40,7 @@
       <filter id="cord-edge" x="-5%" y="-15%" width="110%" height="130%" color-interpolation-filters="sRGB"><feTurbulence type="fractalNoise" baseFrequency=".23 .62" numOctaves="3" seed="8" result="fibers"/><feDisplacementMap in="SourceGraphic" in2="fibers" scale="1.8" xChannelSelector="R" yChannelSelector="G"/></filter>
       <filter id="soft-thread" x="-6%" y="-15%" width="112%" height="140%" color-interpolation-filters="sRGB"><feTurbulence type="fractalNoise" baseFrequency=".5 .7" numOctaves="2" seed="9" result="fibers"/><feDisplacementMap in="SourceGraphic" in2="fibers" scale=".45" xChannelSelector="R" yChannelSelector="G"/></filter>
     </defs></svg>
-    <a class="skip-link" href="#main-content">Skip to content</a>
+    <a class="skip-link" href="#main-content" data-i18n="skip">Skip to content</a>
     <div class="app">
       <picture class="tapestry-art" aria-hidden="true">
         <source media="(min-width: 800px)" srcset="/art/tree-desktop.webp" width="2172" height="724" />
@@ -52,42 +52,42 @@
         <header class="head">
           <a class="brand" href="#catalog"><img class="brand-icon" src="/icons/app/icon-192.png" data-retro-src="/art/retro/ocarina.svg" width="192" height="192" alt="" aria-hidden="true" draggable="false" /><span class="embroidered">Ocarina Hero</span></a>
           <span class="head-actions">
-          <a class="action settings-link" href="#settings" data-view-link="settings" aria-label="Settings"><span data-thread-icon="settings"></span></a>
-          <a class="action repo-link" href="https://github.com/ArielFalcon/ocarina-hero" target="_blank" rel="noopener" aria-label="Star Ocarina Hero on GitHub (opens in a new tab)"><span data-thread-icon="star"></span><span><span class="repo-long">Star on </span>GitHub</span></a>
+          <a class="action settings-link" href="#settings" data-view-link="settings" aria-label="Settings" data-i18n-aria="settings"><span data-thread-icon="settings"></span></a>
+          <span class="input-frame select-frame lang-select-frame"><select id="lang-select" aria-label="Language" data-i18n-aria="lang.label"><option value="en">English</option><option value="ja">日本語</option></select><span class="select-chevron" aria-hidden="true"></span></span>
           </span>
         </header>
         <section id="catalog-view" class="view" aria-labelledby="catalog-title">
           <div class="catalog-hero">
             <div class="hero-copy">
-              <p class="eyebrow stitched-label">Ocarina of Time tabs</p>
-              <h1 id="catalog-title" class="embroidered">Zelda ocarina<br>songs</h1>
-              <p class="subtitle stitched-label">Game, anime, film and pop melodies.</p>
+              <p class="eyebrow stitched-label" data-i18n="catalog.eyebrow">Ocarina of Time tabs</p>
+              <h1 id="catalog-title" class="embroidered"><span data-i18n="catalog.titleA">Zelda ocarina</span><br><span data-i18n="catalog.titleB">songs</span></h1>
+              <p class="subtitle stitched-label" data-i18n="catalog.subtitle">Game, anime, film and pop melodies.</p>
             </div>
           </div>
           <div class="catalog-content">
             <div class="field search-field">
-              <label for="song-search" class="stitched-label">Find a melody</label>
-              <span class="input-frame"><input id="song-search" type="search" placeholder="Song, artist or universe…" autocomplete="off" /></span>
+              <label for="song-search" class="stitched-label" data-i18n="catalog.searchLabel">Find a melody</label>
+              <span class="input-frame"><input id="song-search" type="search" placeholder="Song, artist or universe…" data-i18n-placeholder="catalog.searchPlaceholder" autocomplete="off" /></span>
             </div>
             <details id="catalog-filters" class="catalog-filters" open>
-            <summary id="filter-summary" class="stitched-label"><span>Filters<span id="filter-summary-detail" class="filter-summary-detail"></span></span></summary>
+            <summary id="filter-summary" class="stitched-label"><span data-i18n="catalog.filters">Filters</span><span id="filter-summary-detail" class="filter-summary-detail"></span></summary>
             <div class="filter-grid">
             <fieldset class="category-selector">
-              <legend class="stitched-label">Category</legend>
+              <legend class="stitched-label" data-i18n="catalog.category">Category</legend>
               <button id="category-toggle" class="universe-chip universe-toggle" type="button" aria-expanded="false" aria-controls="category-panel"></button>
               <div id="category-panel" class="universe-panel category-panel" inert><div class="universe-panel-inner"><div id="categories" class="category-grid"></div></div></div>
             </fieldset>
             <div class="catalog-facets">
               <fieldset class="universe-filter">
-                <legend class="stitched-label">Universe</legend>
+                <legend class="stitched-label" data-i18n="catalog.universe">Universe</legend>
                 <button id="universe-toggle" class="universe-chip universe-toggle" type="button" aria-expanded="false" aria-controls="universe-panel"></button>
                 <div id="universe-panel" class="universe-panel" inert><div class="universe-panel-inner"><div id="universes" class="universe-row"></div></div></div>
               </fieldset>
               <fieldset class="difficulty-filter">
-                <legend class="stitched-label">Difficulty</legend>
+                <legend class="stitched-label" data-i18n="catalog.difficulty">Difficulty</legend>
                 <button id="difficulty-toggle" class="universe-chip universe-toggle" type="button" aria-expanded="false" aria-controls="difficulty-panel"></button>
                 <div id="difficulty-panel" class="universe-panel" inert><div class="universe-panel-inner"><div id="difficulty-scale" class="difficulty-scale">
-                  <label for="difficulty-range" class="visually-hidden">Difficulty</label>
+                  <label for="difficulty-range" class="visually-hidden" data-i18n="catalog.difficulty">Difficulty</label>
                   <input id="difficulty-range" type="range" min="0" max="4" step="1" value="0" />
                   <div id="difficulty-steps" class="difficulty-steps" aria-hidden="true"></div>
                 </div></div></div>
@@ -97,152 +97,152 @@
             </details>
             <div class="catalog-layout">
               <div>
-                <div class="catalog-count"><p id="catalog-count" role="status" aria-live="polite"></p><button id="reset-search" type="button" class="text-button" hidden>Clear filters</button></div>
+                <div class="catalog-count"><p id="catalog-count" role="status" aria-live="polite"></p><button id="reset-search" type="button" class="text-button" data-i18n="catalog.clearFilters" hidden>Clear filters</button></div>
                 <div class="song-index">
                   <div id="demos" class="song-list"></div>
-                  <nav id="letter-rail" class="letter-rail" aria-label="Jump to letter" hidden><div class="letter-list"></div><span id="letter-bubble" class="letter-bubble" aria-hidden="true"></span></nav>
+                  <nav id="letter-rail" class="letter-rail" aria-label="Jump to letter" data-i18n-aria="catalog.jumpToLetter" hidden><div class="letter-list"></div><span id="letter-bubble" class="letter-bubble" aria-hidden="true"></span></nav>
                 </div>
               </div>
               <aside class="catalog-aside" aria-labelledby="journey-title">
                 <div id="journey" class="journey"></div>
-                <button class="action" type="button" data-view-link="free"><span class="stitched-label">Try free play</span></button>
+                <button class="action" type="button" data-view-link="free"><span class="stitched-label" data-i18n="catalog.tryFreePlay">Try free play</span></button>
               </aside>
             </div>
           </div>
         </section>
 
         <section id="lesson-view" class="view lesson-view" aria-labelledby="lesson-title" hidden>
-          <div class="lesson-top"><button class="text-button back-link" type="button" data-view-link="catalog"><span data-thread-icon="back"></span><span class="back-label"> Songbook</span></button><span class="lesson-actions"><button id="share-song" class="text-button" type="button" aria-label="Share link to this song" hidden><span data-thread-icon="share"></span><span class="share-label">Share</span></button><button id="save-song" class="text-button" type="button" aria-pressed="false" hidden>Save song</button></span></div>
+          <div class="lesson-top"><button class="text-button back-link" type="button" data-view-link="catalog"><span data-thread-icon="back"></span><span class="back-label"> <span data-i18n="nav.songbook">Songbook</span></span></button><span class="lesson-actions"><button id="share-song" class="text-button" type="button" aria-label="Share link to this song" data-i18n-aria="lesson.shareAria" hidden><span data-thread-icon="share"></span><span class="share-label">Share</span></button><button id="save-song" class="text-button" type="button" aria-pressed="false" hidden>Save song</button></span></div>
           <div class="lesson-heading"><p id="lesson-universe" class="eyebrow stitched-label">Your instrument</p><h1 id="lesson-title" class="embroidered">Free play</h1><p id="lesson-meta" class="subtitle stitched-label">Make a little music.</p></div>
-          <div id="song-modes" class="mode-switch" role="group" aria-label="Learning mode" hidden>
-            <button id="listen-mode" class="action" type="button" aria-pressed="true"><span class="stitched-label">Listen</span></button>
-            <button id="practice-mode" class="action" type="button" aria-pressed="false"><span class="stitched-label">Practice</span></button>
+          <div id="song-modes" class="mode-switch" role="group" aria-label="Learning mode" data-i18n-aria="lesson.modeAria" hidden>
+            <button id="listen-mode" class="action" type="button" aria-pressed="true"><span class="stitched-label" data-i18n="lesson.listen">Listen</span></button>
+            <button id="practice-mode" class="action" type="button" aria-pressed="false"><span class="stitched-label" data-i18n="lesson.practice">Practice</span></button>
           </div>
           <div class="lesson-layout">
             <div class="score-panel">
               <div id="passage-controls" class="passage-controls">
-                <button id="previous-passage" class="action passage-arrow" type="button" aria-label="Previous passage"><span data-thread-icon="previous"></span><span class="stitched-label">Previous</span></button>
-                <div class="field passage-field"><label for="passage">Passage</label><span class="input-frame select-frame"><select id="passage"></select><span class="select-chevron" aria-hidden="true"></span></span></div>
-                <button id="next-passage" class="action passage-arrow" type="button" aria-label="Next passage"><span class="stitched-label">Next</span><span data-thread-icon="next"></span></button>
+                <button id="previous-passage" class="action passage-arrow" type="button" aria-label="Previous passage" data-i18n-aria="lesson.previousPassage"><span data-thread-icon="previous"></span><span class="stitched-label" data-i18n="lesson.previous">Previous</span></button>
+                <div class="field passage-field"><label for="passage" data-i18n="lesson.passage">Passage</label><span class="input-frame select-frame"><select id="passage"></select><span class="select-chevron" aria-hidden="true"></span></span></div>
+                <button id="next-passage" class="action passage-arrow" type="button" aria-label="Next passage" data-i18n-aria="lesson.nextPassage"><span class="stitched-label" data-i18n="lesson.next">Next</span><span data-thread-icon="next"></span></button>
               </div>
               <div id="tab" class="tab"></div>
-              <div id="song-progress" hidden><div class="progress-heading"><span id="progress-caption" class="stitched-label">Song progress</span><span id="progress-percent">0%</span></div><div class="progress-track"><progress id="progress" value="0" max="1" aria-label="Song position"></progress></div><p id="progress-label" class="meta"></p></div>
-              <div class="practice-line"><div class="status-slot"><p id="practice-status" class="practice-status" role="status" aria-live="polite">Play any note.</p></div><p id="combo" class="combo-badge" data-tier="0" aria-hidden="true" hidden><span class="combo-count embroidered">×0</span><span class="combo-label">combo</span></p></div>
+              <div id="song-progress" hidden><div class="progress-heading"><span id="progress-caption" class="stitched-label" data-i18n="progress.song">Song progress</span><span id="progress-percent">0%</span></div><div class="progress-track"><progress id="progress" value="0" max="1" aria-label="Song position" data-i18n-aria="progress.positionAria"></progress></div><p id="progress-label" class="meta"></p></div>
+              <div class="practice-line"><div class="status-slot"><p id="practice-status" class="practice-status" role="status" aria-live="polite" data-i18n="status.playAnyNote">Play any note.</p></div><p id="combo" class="combo-badge" data-tier="0" aria-hidden="true" hidden><span class="combo-count embroidered">×0</span><span class="combo-label" data-i18n="combo.label">combo</span></p></div>
               <div id="song-complete" class="song-complete" hidden>
-                <button id="practice-again" class="action" type="button"><span data-thread-icon="reset"></span><span class="stitched-label">Retry</span></button>
+                <button id="practice-again" class="action" type="button"><span data-thread-icon="reset"></span><span class="stitched-label" data-i18n="lesson.retry">Retry</span></button>
                 <button id="next-song" class="action primary" type="button"><span class="stitched-label">Next song</span><span data-thread-icon="next"></span></button>
               </div>
               <div class="playback-controls">
                 <button id="play" class="action primary" type="button" disabled><span class="play-icon" data-thread-icon="play"></span><span class="stitched-label">Play</span></button>
-                <button id="restart" class="action" type="button" aria-label="Reset"><span data-thread-icon="reset"></span><span class="stitched-label">Reset</span></button>
-                <span class="input-frame select-frame rate-field"><span class="rate-icon" data-thread-icon="speed" aria-hidden="true"></span><select id="playback-rate" aria-label="Playback speed" title="Playback speed"><option value="1">100%</option><option value="0.75">75%</option><option value="0.5">50%</option></select><span class="select-chevron" aria-hidden="true"></span></span>
-                <label class="toggle repeat-toggle"><input id="repeat-passage" type="checkbox" /><span data-thread-icon="repeat"></span><span class="stitched-label">Repeat passage</span></label>
+                <button id="restart" class="action" type="button" aria-label="Reset" data-i18n-aria="lesson.reset"><span data-thread-icon="reset"></span><span class="stitched-label" data-i18n="lesson.reset">Reset</span></button>
+                <span class="input-frame select-frame rate-field"><span class="rate-icon" data-thread-icon="speed" aria-hidden="true"></span><select id="playback-rate" aria-label="Playback speed" data-i18n-aria="lesson.playbackSpeed" title="Playback speed" data-i18n-title="lesson.playbackSpeed"><option value="1">100%</option><option value="0.75">75%</option><option value="0.5">50%</option></select><span class="select-chevron" aria-hidden="true"></span></span>
+                <label class="toggle repeat-toggle"><input id="repeat-passage" type="checkbox" /><span data-thread-icon="repeat"></span><span class="stitched-label" data-i18n="lesson.repeatPassage">Repeat passage</span></label>
               </div>
               <details class="lesson-options">
-                <summary>Arrangement</summary>
+                <summary data-i18n="lesson.arrangement">Arrangement</summary>
                 <p id="tab-text" class="tab-text"></p>
-                <label class="toggle"><input id="bends" type="checkbox" checked /><span class="stitched-label">Use bends</span></label>
-                <label class="toggle"><input id="simplify" type="checkbox" /><span class="stitched-label">Simplify ornaments</span></label>
-                <button id="clear" class="text-button" type="button">Clear and start free play</button>
+                <label class="toggle"><input id="bends" type="checkbox" checked /><span class="stitched-label" data-i18n="lesson.useBends">Use bends</span></label>
+                <label class="toggle"><input id="simplify" type="checkbox" /><span class="stitched-label" data-i18n="lesson.simplify">Simplify ornaments</span></label>
+                <button id="clear" class="text-button" type="button" data-i18n="lesson.clearFreePlay">Clear and start free play</button>
               </details>
               <p id="song-hint" class="visually-hidden" role="status" aria-live="polite"></p>
             </div>
             <section class="controller-panel" aria-labelledby="controller-title">
-              <h2 id="controller-title" class="stitched-label">Your controller</h2>
+              <h2 id="controller-title" class="stitched-label" data-i18n="lesson.controller">Your controller</h2>
               <div id="pad" class="pad"></div><div id="bend-pad" class="bends"></div>
-              <p id="hint" class="hint" aria-live="off">Press a note to begin.</p>
-              <p id="gamepad-status" class="hint desktop-only" role="status" aria-live="polite">Connect a controller and press any of its buttons to play with it.</p>
-              <a class="text-button keyboard-link desktop-only" href="#settings" data-view-link="settings"><span data-thread-icon="keyboard"></span><span>Change keyboard keys</span></a>
+              <p id="hint" class="hint" aria-live="off" data-i18n="lesson.pressNote">Press a note to begin.</p>
+              <p id="gamepad-status" class="hint desktop-only" role="status" aria-live="polite" data-i18n="gamepad.default">Connect a controller and press any of its buttons to play with it.</p>
+              <a class="text-button keyboard-link desktop-only" href="#settings" data-view-link="settings"><span data-thread-icon="keyboard"></span><span data-i18n="lesson.changeKeys">Change keyboard keys</span></a>
             </section>
           </div>
         </section>
 
         <section id="popular-view" class="view padded-view" aria-labelledby="popular-title" hidden>
           <div id="popular-pull" class="pull-refresh" aria-hidden="true"><svg class="pull-stitches" viewBox="0 0 48 48"><defs><mask id="pull-stitch-mask"><circle class="pull-stitch-reveal" cx="24" cy="24" r="18" pathLength="16" transform="rotate(-90 24 24)"/></mask></defs><circle class="pull-stitch-holes" cx="24" cy="24" r="18" pathLength="16" transform="rotate(-90 24 24)"/><circle class="pull-stitch-thread" cx="24" cy="24" r="18" pathLength="16" transform="rotate(-90 24 24)" mask="url(#pull-stitch-mask)"/></svg><svg class="pull-notes" viewBox="0 0 48 48"><g class="pull-note" style="--i:1" transform="translate(24 9)"><g class="pull-note-face" stroke="#120e08" stroke-width="1.2"><circle r="5.6" fill="#2d5bd2"/><text stroke="none" y="2.1" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="6" fill="#f3ecd2">A</text></g></g><g class="pull-note" style="--i:2" transform="translate(38.27 19.36)"><g class="pull-note-face" stroke="#120e08" stroke-width="1.2"><circle r="5.6" fill="#f4c315"/><path d="M0 -2.7 2.5 1.6 -2.5 1.6Z" fill="#5a4300" transform="rotate(90)"/></g></g><g class="pull-note" style="--i:3" transform="translate(32.82 36.14)"><g class="pull-note-face" stroke="#120e08" stroke-width="1.2"><circle r="5.6" fill="#f4c315"/><path d="M0 -2.7 2.5 1.6 -2.5 1.6Z" fill="#5a4300" transform="rotate(180)"/></g></g><g class="pull-note" style="--i:4" transform="translate(15.18 36.14)"><g class="pull-note-face" stroke="#120e08" stroke-width="1.2"><circle r="5.6" fill="#f4c315"/><path d="M0 -2.7 2.5 1.6 -2.5 1.6Z" fill="#5a4300" transform="rotate(270)"/></g></g><g class="pull-note" style="--i:5" transform="translate(9.73 19.36)"><g class="pull-note-face" stroke="#120e08" stroke-width="1.2"><circle r="5.6" fill="#f4c315"/><path d="M0 -2.7 2.5 1.6 -2.5 1.6Z" fill="#5a4300" transform="rotate(0)"/></g></g></svg></div>
-          <div class="section-art"><p class="eyebrow stitched-label">Everyone's songbook</p><h1 id="popular-title" class="embroidered">Most popular</h1><p class="subtitle stitched-label">What players have been playing lately.</p><div class="popular-actions"><button id="refresh-popular" class="text-button" type="button"><span data-thread-icon="repeat"></span><span>Refresh</span></button><p id="popular-status" class="visually-hidden" role="status" aria-live="polite"></p></div></div>
+          <div class="section-art"><p class="eyebrow stitched-label" data-i18n="popular.eyebrow">Everyone's songbook</p><h1 id="popular-title" class="embroidered" data-i18n="journey.popularTitle">Most popular</h1><p class="subtitle stitched-label" data-i18n="journey.popularNote">What players have been playing lately.</p><div class="popular-actions"><button id="refresh-popular" class="text-button" type="button"><span data-thread-icon="repeat"></span><span data-i18n="popular.refresh">Refresh</span></button><p id="popular-status" class="visually-hidden" role="status" aria-live="polite"></p></div></div>
           <div id="popular-list" class="song-list"></div>
         </section>
 
         <section id="workshop-view" class="view padded-view workshop" aria-labelledby="workshop-title" hidden>
-          <div class="section-art"><p class="eyebrow stitched-label">Experimental workshop</p><h1 id="workshop-title" class="embroidered">Your own melody</h1><p class="subtitle stitched-label">Bring a recording. Explore its tune.</p></div>
+          <div class="section-art"><p class="eyebrow stitched-label" data-i18n="workshop.eyebrow">Experimental workshop</p><h1 id="workshop-title" class="embroidered" data-i18n="workshop.title">Your own melody</h1><p class="subtitle stitched-label" data-i18n="workshop.subtitle">Bring a recording. Explore its tune.</p></div>
           <ol class="workshop-steps">
             <li class="workshop-step">
-              <h2 class="workshop-step-title"><span class="step-number" aria-hidden="true">1</span><span class="stitched-label">Choose a recording</span></h2>
+              <h2 class="workshop-step-title"><span class="step-number" aria-hidden="true">1</span><span class="stitched-label" data-i18n="workshop.step1">Choose a recording</span></h2>
               <div class="file-picker">
-                <label class="action primary" for="file"><span data-thread-icon="music"></span><span class="stitched-label">Choose audio or MIDI</span></label>
+                <label class="action primary" for="file"><span data-thread-icon="music"></span><span class="stitched-label" data-i18n="workshop.chooseFile">Choose audio or MIDI</span></label>
                 <input id="file" type="file" accept=".mid,.midi,audio/*" class="visually-hidden" />
                 <span id="file-name" class="file-name">No file selected</span>
               </div>
-              <p class="meta">Any length works: you will pick up to 15 seconds next. MIDI files import directly. Everything runs on this device.</p>
+              <p class="meta" data-i18n="workshop.step1Meta">Any length works: you will pick up to 15 seconds next. MIDI files import directly. Everything runs on this device.</p>
             </li>
             <li class="workshop-step workshop-step-fragment">
-              <h2 class="workshop-step-title"><span class="step-number" aria-hidden="true">2</span><span class="stitched-label">Pick the fragment</span></h2>
-              <p class="step-placeholder meta">The waveform appears here after you choose an audio file. MIDI files skip this step.</p>
+              <h2 class="workshop-step-title"><span class="step-number" aria-hidden="true">2</span><span class="stitched-label" data-i18n="workshop.step2">Pick the fragment</span></h2>
+              <p class="step-placeholder meta" data-i18n="workshop.step2Placeholder">The waveform appears here after you choose an audio file. MIDI files skip this step.</p>
               <div id="audio-editor"></div>
             </li>
             <li class="workshop-step">
-              <h2 class="workshop-step-title"><span class="step-number" aria-hidden="true">3</span><span class="stitched-label">Find the melody</span></h2>
+              <h2 class="workshop-step-title"><span class="step-number" aria-hidden="true">3</span><span class="stitched-label" data-i18n="workshop.step3">Find the melody</span></h2>
               <div class="analysis-controls">
-                <p class="analysis-note meta">The melody is found in your browser. It is most accurate with a single instrument or voice; with accompaniment, some notes can come from other instruments.</p>
-                <button id="analyze" class="action primary analyze-button" type="button" disabled><span data-thread-icon="play"></span><span class="stitched-label">Analyze fragment</span></button>
+                <p class="analysis-note meta" data-i18n="workshop.analysisNote">The melody is found in your browser. It is most accurate with a single instrument or voice; with accompaniment, some notes can come from other instruments.</p>
+                <button id="analyze" class="action primary analyze-button" type="button" disabled><span data-thread-icon="play"></span><span class="stitched-label" data-i18n="workshop.analyze">Analyze fragment</span></button>
               </div>
               <div id="analysis-progress" class="analysis-progress" hidden>
                 <span class="thread-spinner" aria-hidden="true"></span>
-                <div class="analysis-progress-copy"><p id="analysis-progress-label" class="analysis-progress-label">Analysing the fragment…</p><p class="meta"><span id="analysis-elapsed" aria-hidden="true">0 s</span> · Usually takes a few seconds.</p></div>
-                <button id="cancel-analysis" class="text-button" type="button">Cancel</button>
+                <div class="analysis-progress-copy"><p id="analysis-progress-label" class="analysis-progress-label">Analysing the fragment…</p><p class="meta"><span id="analysis-elapsed" aria-hidden="true">0 s</span><span data-i18n="workshop.usually"> · Usually takes a few seconds.</span></p></div>
+                <button id="cancel-analysis" class="text-button" type="button" data-i18n="workshop.cancel">Cancel</button>
               </div>
-              <p id="workshop-status" class="song-hint" role="status" aria-live="polite">Choose a recording to begin.</p>
-              <div class="workshop-actions"><button id="open-import" class="action" type="button" disabled><span class="stitched-label">Open melody</span></button><button id="analysis-download" class="action" type="button" disabled><span class="stitched-label">Download analysis</span></button></div>
-              <p class="notice">Audio extraction is experimental. Some notes may be missed or misidentified; review the result before practicing.</p>
+              <p id="workshop-status" class="song-hint" role="status" aria-live="polite" data-i18n="workshop.statusStart">Choose a recording to begin.</p>
+              <div class="workshop-actions"><button id="open-import" class="action" type="button" disabled><span class="stitched-label" data-i18n="workshop.openMelody">Open melody</span></button><button id="analysis-download" class="action" type="button" disabled><span class="stitched-label" data-i18n="workshop.download">Download analysis</span></button></div>
+              <p class="notice" data-i18n="workshop.notice">Audio extraction is experimental. Some notes may be missed or misidentified; review the result before practicing.</p>
             </li>
           </ol>
         </section>
 
         <section id="settings-view" class="view padded-view settings-view" aria-labelledby="settings-title" hidden>
-          <div class="section-art"><p class="eyebrow stitched-label">Settings</p><h1 id="settings-title" class="embroidered">Make it yours</h1><p class="subtitle stitched-label">Choose your look and your keys.</p></div>
+          <div class="section-art"><p class="eyebrow stitched-label" data-i18n="settings">Settings</p><h1 id="settings-title" class="embroidered" data-i18n="settings.title">Make it yours</h1><p class="subtitle stitched-label" data-i18n="settings.subtitle">Choose your look and your keys.</p></div>
           <details class="settings-section" name="settings-panel" open>
-            <summary class="settings-heading"><span data-thread-icon="palette"></span><span class="stitched-label">Look</span></summary>
+            <summary class="settings-heading"><span data-thread-icon="palette"></span><span class="stitched-label" data-i18n="settings.look">Look</span></summary>
             <div class="settings-body">
               <fieldset id="theme-picker" class="theme-picker">
-                <legend class="visually-hidden">Look</legend>
-                <label class="universe-chip theme-card"><input class="visually-hidden" type="radio" name="theme" value="tapestry" /><img class="theme-card-art" src="/art/theme/keycard-large.svg" width="88" height="88" alt="" draggable="false" /><span class="theme-card-copy"><span class="theme-card-title stitched-label">2026 remake</span><span class="theme-card-detail">Woven tapestry with Switch 2 controls</span></span></label>
-                <label class="universe-chip theme-card"><input class="visually-hidden" type="radio" name="theme" value="retro" /><img class="theme-card-art" src="/art/theme/cartridge-large.svg" width="88" height="88" alt="" draggable="false" /><span class="theme-card-copy"><span class="theme-card-title stitched-label">1998 original</span><span class="theme-card-detail">Stone subscreen with N64 controls</span></span></label>
+                <legend class="visually-hidden" data-i18n="settings.look">Look</legend>
+                <label class="universe-chip theme-card"><input class="visually-hidden" type="radio" name="theme" value="tapestry" /><img class="theme-card-art" src="/art/theme/keycard-large.svg" width="88" height="88" alt="" draggable="false" /><span class="theme-card-copy"><span class="theme-card-title stitched-label">2026 remake</span><span class="theme-card-detail" data-i18n="settings.theme2026Detail">Woven tapestry with Switch 2 controls</span></span></label>
+                <label class="universe-chip theme-card"><input class="visually-hidden" type="radio" name="theme" value="retro" /><img class="theme-card-art" src="/art/theme/cartridge-large.svg" width="88" height="88" alt="" draggable="false" /><span class="theme-card-copy"><span class="theme-card-title stitched-label">1998 original</span><span class="theme-card-detail" data-i18n="settings.theme1998Detail">Stone subscreen with N64 controls</span></span></label>
               </fieldset>
             </div>
           </details>
           <details class="settings-section" name="settings-panel">
-            <summary class="settings-heading"><span data-thread-icon="songbook"></span><span class="stitched-label">Lessons</span></summary>
+            <summary class="settings-heading"><span data-thread-icon="songbook"></span><span class="stitched-label" data-i18n="settings.lessons">Lessons</span></summary>
             <div class="settings-body">
-            <p class="meta">Every lesson opens with these. Changing them inside a lesson updates them here too.</p>
-            <label class="toggle"><input id="pref-bends" type="checkbox" /><span class="stitched-label">Use bends</span></label>
-            <label class="toggle"><input id="pref-simplify" type="checkbox" /><span class="stitched-label">Simplify ornaments</span></label>
-            <div class="field settings-rate"><label for="pref-rate">Playback speed</label><span class="input-frame select-frame"><select id="pref-rate"><option value="1">100%</option><option value="0.75">75%</option><option value="0.5">50%</option></select><span class="select-chevron" aria-hidden="true"></span></span></div>
+            <p class="meta" data-i18n="settings.lessonsMeta">Every lesson opens with these. Changing them inside a lesson updates them here too.</p>
+            <label class="toggle"><input id="pref-bends" type="checkbox" /><span class="stitched-label" data-i18n="lesson.useBends">Use bends</span></label>
+            <label class="toggle"><input id="pref-simplify" type="checkbox" /><span class="stitched-label" data-i18n="lesson.simplify">Simplify ornaments</span></label>
+            <div class="field settings-rate"><label for="pref-rate" data-i18n="lesson.playbackSpeed">Playback speed</label><span class="input-frame select-frame"><select id="pref-rate"><option value="1">100%</option><option value="0.75">75%</option><option value="0.5">50%</option></select><span class="select-chevron" aria-hidden="true"></span></span></div>
             </div>
           </details>
           <details class="settings-section" name="settings-panel">
-            <summary class="settings-heading"><span data-thread-icon="star"></span><span class="stitched-label">Practice feedback</span></summary>
+            <summary class="settings-heading"><span data-thread-icon="star"></span><span class="stitched-label" data-i18n="settings.feedback">Practice feedback</span></summary>
             <div class="settings-body">
-            <p class="meta">The status line always tells you how you did; these only add to it.</p>
-            <label class="toggle"><input id="pref-effects" type="checkbox" /><span class="stitched-label">Celebration effects (sparks, ribbons)</span></label>
-            <label class="toggle"><input id="pref-haptics" type="checkbox" /><span class="stitched-label">Vibration on hits and milestones</span></label>
+            <p class="meta" data-i18n="settings.feedbackMeta">The status line always tells you how you did; these only add to it.</p>
+            <label class="toggle"><input id="pref-effects" type="checkbox" /><span class="stitched-label" data-i18n="settings.effects">Celebration effects (sparks, ribbons)</span></label>
+            <label class="toggle"><input id="pref-haptics" type="checkbox" /><span class="stitched-label" data-i18n="settings.haptics">Vibration on hits and milestones</span></label>
             <p id="preferences-status" class="meta" role="status" aria-live="polite"></p>
             </div>
           </details>
           <details id="keyboard-settings" class="settings-section keyboard-settings desktop-only" name="settings-panel">
-            <summary class="settings-heading"><span data-thread-icon="keyboard"></span><span class="stitched-label">Keyboard mapping</span></summary>
+            <summary class="settings-heading"><span data-thread-icon="keyboard"></span><span class="stitched-label" data-i18n="settings.keyboard">Keyboard mapping</span></summary>
             <div class="settings-body">
-            <p class="meta">Choose a control, then press its new key. Each key can control one action.</p><div id="keyboard-bindings" class="keyboard-bindings"></div><p id="keyboard-status" class="meta" role="status" aria-live="polite">Changes are saved in this browser. Escape cancels an assignment.</p><button id="reset-bindings" class="text-button" type="button">Restore default keys</button>
+            <p class="meta" data-i18n="settings.keyboardMeta">Choose a control, then press its new key. Each key can control one action.</p><div id="keyboard-bindings" class="keyboard-bindings"></div><p id="keyboard-status" class="meta" role="status" aria-live="polite" data-i18n="settings.keyboardStatus">Changes are saved in this browser. Escape cancels an assignment.</p><button id="reset-bindings" class="text-button" type="button" data-i18n="settings.resetKeys">Restore default keys</button>
             </div>
           </details>
           <details class="settings-section" name="settings-panel">
-            <summary class="settings-heading"><span data-thread-icon="collection"></span><span class="stitched-label">Your data</span></summary>
+            <summary class="settings-heading"><span data-thread-icon="collection"></span><span class="stitched-label" data-i18n="settings.data">Your data</span></summary>
             <div class="settings-body">
-            <p class="meta">Everything stays in this browser. Export your saved songs to move them to another device.</p>
+            <p class="meta" data-i18n="settings.dataMeta">Everything stays in this browser. Export your saved songs to move them to another device.</p>
             <div class="settings-actions">
-              <button id="export-saved" class="action" type="button"><span data-thread-icon="share"></span><span class="stitched-label">Export saved songs</span></button>
-              <label class="action" for="import-saved"><span data-thread-icon="heart"></span><span class="stitched-label">Import saved songs</span></label>
+              <button id="export-saved" class="action" type="button"><span data-thread-icon="share"></span><span class="stitched-label" data-i18n="settings.export">Export saved songs</span></button>
+              <label class="action" for="import-saved"><span data-thread-icon="heart"></span><span class="stitched-label" data-i18n="settings.import">Import saved songs</span></label>
               <input id="import-saved" type="file" accept="application/json,.json" class="visually-hidden" />
-              <button id="clear-data" class="text-button" type="button">Clear local data</button>
+              <button id="clear-data" class="text-button" type="button" data-i18n="settings.clear">Clear local data</button>
             </div>
             <p id="data-status" class="meta" role="status" aria-live="polite"></p>
             </div>
@@ -253,17 +253,17 @@
       </main>
       <footer class="menu-footer">
         <img class="menu-ornament" src="/art/sword-triforce-v2.webp" data-retro-src="/art/retro/sword-triforce.svg" width="1280" height="546" alt="" aria-hidden="true" draggable="false" decoding="async" />
-        <section id="mini-player" class="mini-player" aria-label="Quick play" hidden>
+        <section id="mini-player" class="mini-player" aria-label="Quick play" data-i18n-aria="mini.aria" hidden>
           <div class="mini-head">
-            <button id="mini-toggle" class="patch-button mini-toggle" type="button" aria-label="Play"></button>
-            <button id="mini-open" class="mini-open" type="button" aria-describedby="mini-open-hint"><span class="mini-title"></span><span class="mini-meta"></span><span id="mini-open-hint" class="visually-hidden">Open the full lesson</span></button>
-            <button id="mini-expand" class="action mini-expand" type="button" aria-label="Open lesson"><span class="stitched-label">Open</span><span data-thread-icon="next"></span></button>
-            <button id="mini-close" class="patch-button" type="button" aria-label="Close quick play"><span data-thread-icon="close"></span></button>
+            <button id="mini-toggle" class="patch-button mini-toggle" type="button" aria-label="Play" data-i18n-aria="mini.playAriaInitial"></button>
+            <button id="mini-open" class="mini-open" type="button" aria-describedby="mini-open-hint"><span class="mini-title"></span><span class="mini-meta"></span><span id="mini-open-hint" class="visually-hidden" data-i18n="mini.openHint">Open the full lesson</span></button>
+            <button id="mini-expand" class="action mini-expand" type="button" aria-label="Open lesson" data-i18n-aria="mini.openLessonAria"><span class="stitched-label" data-i18n="mini.open">Open</span><span data-thread-icon="next"></span></button>
+            <button id="mini-close" class="patch-button" type="button" aria-label="Close quick play" data-i18n-aria="mini.closeAria"><span data-thread-icon="close"></span></button>
           </div>
           <div class="mini-staff" aria-hidden="true" inert><div class="tab"></div></div>
           <p id="mini-status" class="visually-hidden" role="status" aria-live="polite"></p>
         </section>
-        <nav class="app-nav" aria-label="Main navigation"><a href="#catalog" data-view-link="catalog" aria-current="page"><span data-thread-icon="songbook"></span><span>Songbook</span></a><a class="nav-saved" href="#saved" data-view-link="saved"><span data-thread-icon="heart"></span><span>Saved</span></a><a class="nav-popular" href="#popular" data-view-link="popular"><span data-thread-icon="star"></span><span>Popular</span></a><a href="#free" data-view-link="free"><span data-thread-icon="music"></span><span>Free play</span></a><a href="#workshop" data-view-link="workshop"><span data-thread-icon="waveform"></span><span>Workshop</span></a></nav>
+        <nav class="app-nav" aria-label="Main navigation" data-i18n-aria="nav.main"><a href="#catalog" data-view-link="catalog" aria-current="page"><span data-thread-icon="songbook"></span><span data-i18n="nav.songbook">Songbook</span></a><a class="nav-saved" href="#saved" data-view-link="saved"><span data-thread-icon="heart"></span><span data-i18n="common.saved">Saved</span></a><a class="nav-popular" href="#popular" data-view-link="popular"><span data-thread-icon="star"></span><span data-i18n="nav.popular">Popular</span></a><a href="#free" data-view-link="free"><span data-thread-icon="music"></span><span data-i18n="nav.freeplay">Free play</span></a><a href="#workshop" data-view-link="workshop"><span data-thread-icon="waveform"></span><span data-i18n="nav.workshop">Workshop</span></a></nav>
       </footer>
     </div>
     <script type="module" src="/src/ui/main.ts"></script>

@@ -96,6 +96,10 @@ p { margin: 10px 0; }
 .settings-link { min-width: 44px; min-height: 44px; margin-block: -6px; padding: 6px 10px; }
 .settings-link .thread-icon { width: 22px; height: 22px; }
 .settings-link[aria-current='page'] { background-color: #604620; background-image: var(--weave), var(--selected-cloth); box-shadow: var(--slot-raised); }
+/* Header language selector: the corded select frame at header height. */
+.lang-select-frame { width: auto; flex-shrink: 0; margin-block: -6px; }
+.lang-select-frame select { min-height: 44px; padding: 6px 40px 6px 12px; font-size: 16px; }
+.lang-select-frame .select-chevron { right: 14px; }
 @media (max-width: 399px) { .head-actions { gap: 8px; } }
 @media (max-width: 399px) {
   .head:has(.repo-link) { gap: 10px; }

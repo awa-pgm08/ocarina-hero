@@ -35,8 +35,9 @@ export function advancePractice(notes: readonly Note[], cursor: number, button: 
     : cursor;
 }
 
-/** What a lesson states under its title, apart from the player's progress. */
-export function lessonDetails(version: string | undefined, noteCount: number, passageCount: number): string[] {
+/** What a lesson states under its title, apart from the player's progress. English unless a language is given, so prerendered pages and tests keep the source wording. */
+export function lessonDetails(version: string | undefined, noteCount: number, passageCount: number, lang: 'en' | 'ja' = 'en'): string[] {
+  if (lang === 'ja') return [version, `${noteCount}音`, `${passageCount}パッセージ`].filter((part): part is string => !!part);
   return [version, `${noteCount} notes`, `${passageCount} ${passageCount === 1 ? 'passage' : 'passages'}`].filter((part): part is string => !!part);
 }
 
