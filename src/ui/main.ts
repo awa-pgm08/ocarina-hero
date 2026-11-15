@@ -1052,7 +1052,6 @@ function practiceNote(button: ControllerButton): void {
   const result = scoreCombo(combo, next !== practiceCursor);
   combo = result.combo;
   if (next === practiceCursor) {
-    retrigger(pad.querySelector(`[data-button="${button}"]`), 'is-miss');
     if (result.broken) haptic(24);
     renderCombo(result.broken);
     practiceStatus.textContent = t(result.broken ? 'status.comboBroken' : 'status.keepPlace', { instruction: noteInstruction(pitchById(expected.pitch).button, expected.bend ?? 0, controlScheme()) });

@@ -408,18 +408,6 @@ progress::-moz-progress-bar { background: transparent; }
 
 .key-ripple { position: absolute; inset: -1px; border: 2px dashed var(--text); border-radius: 8px; pointer-events: none; animation: key-ripple .45s ease-out forwards; }
 @keyframes key-ripple { from { scale: .96; opacity: .95; } to { scale: 1.24; opacity: 0; } }
-.key.is-miss { animation: key-miss .32s ease-in-out; }
-@keyframes key-miss { 20% { translate: -4px 0; } 45% { translate: 4px 0; } 70% { translate: -2px 0; } }
-/* Controller-pad keys are centred with translate: -50% -50%; the plain shake
-   overwrites that centring, so a missed note throws the button half its own
-   size down-right for the length of the shake. Shake around the centred
-   position instead. This only ever fires in practice mode, on a wrong note. */
-.pad--controller .key.is-miss { animation-name: key-miss-centred; }
-@keyframes key-miss-centred {
-  20% { translate: calc(-50% - 4px) -50%; }
-  45% { translate: calc(-50% + 4px) -50%; }
-  70% { translate: calc(-50% - 2px) -50%; }
-}
 .progress-track.is-hit::after { animation: needle-stitch .34s cubic-bezier(.3, 1.3, .5, 1); }
 .progress-track.is-swept::before { animation: thread-sheen .7s ease-out; }
 @keyframes needle-stitch { 38% { translate: 0 -6px; rotate: 90deg; scale: 1.3; } 78% { translate: 0 1px; rotate: 180deg; scale: .9; } 100% { rotate: 180deg; } }
@@ -458,10 +446,9 @@ progress::-moz-progress-bar { background: transparent; }
 .key.is-active, .bend-key.is-active { filter: brightness(1.12); }
 /* List pad: the next button pulses gold in practice, so the direction is
    animated whichever pad style is used. The photo pad has its own part pulse;
-   the retro theme keeps its still yellow frame instead of a glow. A missed
-   note keeps its shake: the pulse steps aside while is-miss is set. */
-:root:not([data-theme='retro']) .pad:not(.pad--controller) .key.is-expected:not(.is-miss),
-:root:not([data-theme='retro']) #bend-pad .bend-key.is-expected:not(.is-miss) { animation: key-expected-pulse 1.6s ease-in-out infinite alternate; }
+   the retro theme keeps its still yellow frame instead of a glow. */
+:root:not([data-theme='retro']) .pad:not(.pad--controller) .key.is-expected,
+:root:not([data-theme='retro']) #bend-pad .bend-key.is-expected { animation: key-expected-pulse 1.6s ease-in-out infinite alternate; }
 @keyframes key-expected-pulse {
   from { filter: brightness(1.05) drop-shadow(0 0 4px #ffcd5540); }
   to { filter: brightness(1.25) drop-shadow(0 0 14px #ffcd55cc); }
@@ -919,7 +906,7 @@ input[type='range']::-moz-range-thumb { width: 17px; height: 17px; border: 3px s
 }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; }
-  .combo-badge, .combo-count, .key.is-miss, .progress-track::before, .progress-track::after { animation: none !important; }
+  .combo-badge, .combo-count, .progress-track::before, .progress-track::after { animation: none !important; }
   .combo-ribbon { animation: ribbon-fade 1.25s linear forwards; }
 }
 @keyframes ribbon-fade { 0%, 80% { opacity: 1; } 100% { opacity: 0; } }
