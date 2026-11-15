@@ -450,8 +450,11 @@ progress::-moz-progress-bar { background: transparent; }
 .ghost { display: flex; align-items: center; justify-content: center; color: #bba67166; border: 1px dashed #a2824933; border-radius: 5px; }
 .bends { display: flex; justify-content: center; gap: 10px; margin-top: 12px; touch-action: none; }
 .bend-key { min-width: 53px; min-height: 64px; padding: 4px; display: flex; flex-direction: column; align-items: center; justify-content: center; touch-action: none; user-select: none; }
-/* Controller pad style: the user's controller photo is the pad; the same actions sit
-   on it as transparent overlays (positions measured from the photo, % of its frame). */
+/* Controller pad style: the user's controller photo is the pad's base layer, and
+   its controls — cut out of the photo as separate images — are reassembled over
+   it at their measured positions (% of the photo frame), so each part can light
+   up on its own. Interactive parts live inside their buttons; the stick and
+   D-pad parts sit loose under their bend hit areas. */
 .pad--controller { display: block; }
 .gamepad { position: relative; width: min(340px, 100%); aspect-ratio: 780 / 543; margin-inline: auto; }
 .gamepad-photo { position: absolute; inset: 0; width: 100%; height: 100%; border-radius: 6px; pointer-events: none; user-select: none; -webkit-user-select: none; }
@@ -463,37 +466,52 @@ progress::-moz-progress-bar { background: transparent; }
 /* The photo already prints the letters and glyphs; keep the DOM labels for bindings
    and screen readers, but show none of them over the picture. */
 .pad--controller .control-icon, .pad--controller .key-ref { display: none; }
-/* Feedback on a transparent button: no drawn frame — the printed control itself
-   lights up. A soft warm light, shaped by the overlay's own border-radius (disc,
-   tab, half-disc, D-pad arm) and screen-blended into the photo beneath it; the
-   gradient is fully transparent before the edges, so no light spills outside the
-   printed shape. The base seam-frame ::after is suppressed in both themes. */
+/* The base seam-frame ::after is suppressed in both themes: no drawn frame. */
 .pad--controller .key::after, .pad--controller .bend-key::after { display: none; }
-.pad--controller .key.is-active, .pad--controller .bend-key.is-active,
-.pad--controller .key.is-expected, .pad--controller .bend-key.is-expected {
-  box-shadow: none;
-  background-color: transparent;
-  background-image: radial-gradient(ellipse at center, #fff6d8f2 0%, #ffdf8fd9 38%, #ffca5580 62%, transparent 78%);
-  mix-blend-mode: screen;
+/* The button itself stays invisible; its photo part carries the feedback, so the
+   base active brightness on the button is neutralised here. */
+.pad--controller .key.is-active, .pad--controller .bend-key.is-active { filter: none; }
+/* Photo parts. Loose parts are centred on their measured position; parts inside
+   buttons are sized to their natural share of the photo within the hit area. */
+.gp-part { pointer-events: none; user-select: none; -webkit-user-select: none; }
+.gp-part-static { position: absolute; translate: -50% -50%; }
+.gp-at-stick-left { left: 24.4%; top: 37.9%; width: 13.7%; }
+.gp-at-stick-right { left: 59.4%; top: 55.1%; width: 12.4%; }
+.gp-at-dpad { left: 36.9%; top: 56.5%; width: 12.2%; }
+.gp-at-b { left: 71%; top: 43.5%; width: 8.6%; }
+.gp-in-l { width: 91%; }
+.gp-in-r { width: 89%; }
+.gp-in-disc { width: 84%; }
+.gp-in-b { width: 82%; }
+/* Part feedback: the filter follows the PNG alpha, so a disc glows as a disc and
+   the cross as a cross. Expected parts pulse gently; active parts burn brighter
+   and press in slightly. The clusters mirror their bend keys' states onto the
+   shared stick / D-pad part via :has(). */
+@keyframes gp-part-pulse {
+  from { filter: brightness(1.1) drop-shadow(0 0 3px #ffcd55a0); }
+  to { filter: brightness(1.34) drop-shadow(0 0 9px #ffcd55e6); }
 }
-.pad--controller .key.is-expected, .pad--controller .bend-key.is-expected {
-  animation: pad-glow-pulse 1.6s ease-in-out infinite alternate;
+.pad--controller .key.is-expected .gp-part,
+.gp-cluster:has(.bend-key.is-expected) .gp-part { animation: gp-part-pulse 1.6s ease-in-out infinite alternate; }
+.pad--controller .key.is-active .gp-part,
+.gp-cluster:has(.bend-key.is-active) .gp-part {
+  animation: none;
+  filter: brightness(1.48) drop-shadow(0 0 10px #ffcd55f2);
+  transform: scale(.96);
 }
-.pad--controller .key.is-active, .pad--controller .bend-key.is-active {
-  animation: none; opacity: 1;
-}
-@keyframes pad-glow-pulse { from { opacity: .38; } to { opacity: .88; } }
-.gp-pos-l { left: 19%; top: 15%; width: 20%; height: 13%; border-radius: 12px; }
-.gp-pos-r { left: 73%; top: 11.5%; width: 22%; height: 13%; border-radius: 12px; }
-.gp-pos-rb { left: 71.7%; top: 46.8%; width: 10.5%; aspect-ratio: 1; border-radius: 50%; }
-.gp-pos-x { left: 71.5%; top: 26.8%; width: 10.5%; aspect-ratio: 1; border-radius: 50%; }
-.gp-pos-y { left: 65.5%; top: 38%; width: 10.5%; aspect-ratio: 1; border-radius: 50%; }
-.gp-pos-a { left: 80%; top: 38.5%; width: 10.5%; aspect-ratio: 1; border-radius: 50%; }
-.gp-pos-sup { left: 25%; top: 36.6%; width: 12%; height: 8.6%; border-radius: 999px 999px 6px 6px; }
-.gp-pos-sdown { left: 25%; top: 44.5%; width: 12%; height: 8.6%; border-radius: 6px 6px 999px 999px; }
-.gp-pos-dup { left: 36%; top: 54%; width: 7%; height: 11%; border-radius: 5px 5px 0 0; }
-.gp-pos-ddown { left: 36%; top: 64%; width: 7%; height: 11%; border-radius: 0 0 5px 5px; }
-/* Songs without bends hide the bend overlays, as the list pad hides its bend row. */
+/* Hit areas, centred on the corrected part positions; at least as large as the
+   overlays they replace, and large enough to cover each part. */
+.gp-pos-l { left: 20.5%; top: 19.5%; width: 21%; height: 17.5%; border-radius: 12px; }
+.gp-pos-r { left: 73.6%; top: 15.9%; width: 22%; height: 16.5%; border-radius: 12px; }
+.gp-pos-rb { left: 71%; top: 43.5%; width: 10.5%; aspect-ratio: 1; border-radius: 50%; }
+.gp-pos-x { left: 70.3%; top: 26.2%; width: 10.5%; aspect-ratio: 1; border-radius: 50%; }
+.gp-pos-y { left: 64.6%; top: 35.4%; width: 10.5%; aspect-ratio: 1; border-radius: 50%; }
+.gp-pos-a { left: 76.7%; top: 34.6%; width: 10.5%; aspect-ratio: 1; border-radius: 50%; }
+.gp-pos-sup { left: 24.4%; top: 33%; width: 13.5%; height: 9.9%; border-radius: 999px 999px 6px 6px; }
+.gp-pos-sdown { left: 24.4%; top: 42.8%; width: 13.5%; height: 9.9%; border-radius: 6px 6px 999px 999px; }
+.gp-pos-dup { left: 36.9%; top: 50.8%; width: 8%; height: 10.5%; border-radius: 5px 5px 0 0; }
+.gp-pos-ddown { left: 36.9%; top: 62.2%; width: 8%; height: 10.5%; border-radius: 0 0 5px 5px; }
+/* Songs without bends hide the bend hit areas, as the list pad hides its bend row. */
 .pad--controller.is-bends-hidden .bend-key { visibility: hidden; pointer-events: none; }
 .hint { font-size: 14px; text-align: center; margin: 9px 0 2px; color: var(--muted); }
 .settings-section { max-width: 760px; font-size: 16px; border-bottom: 1px dashed #a2824959; }

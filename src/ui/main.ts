@@ -37,6 +37,15 @@ import { DEFAULT_PREFERENCES, PREFERENCES_STORAGE, readPreferences, type PadStyl
 import { LOCAL_DATA_KEYS, parseSavedExport, savedExport } from './local-data';
 import { displaySubtitle, displayTitle, getLang, initI18n, t } from './i18n';
 import gamepadPhotoUrl from './gamepad-photo.jpg?url';
+import partLUrl from './parts/part-l.png?url';
+import partRUrl from './parts/part-r.png?url';
+import partStickLeftUrl from './parts/part-stick-left.png?url';
+import partStickRightUrl from './parts/part-stick-right.png?url';
+import partDpadUrl from './parts/part-dpad.png?url';
+import partXUrl from './parts/part-x.png?url';
+import partYUrl from './parts/part-y.png?url';
+import partAUrl from './parts/part-a.png?url';
+import partBUrl from './parts/part-b.png?url';
 
 const APP_BASE = import.meta.env.BASE_URL;
 const engine = new OcarinaEngine();
@@ -207,14 +216,20 @@ function must<T extends HTMLElement = HTMLElement>(selector: string): T {
   return element;
 }
 
-function keyHtml(pitch: PitchSpec, extraClass = ''): string {
+function keyHtml(pitch: PitchSpec, extraClass = '', partImg = ''): string {
   return `
     <button class="key${extraClass ? ` ${extraClass}` : ''}" type="button" data-button="${pitch.button}"
       aria-label="${t('pad.playAria', { button: buttonLabel(pitch.button, controlScheme()), key: keyLabel(bindings[pitch.button]) })}"
       title="${t('pad.keyTitle', { pitch: pitch.id, key: keyLabel(bindings[pitch.button]) })}">
+      ${partImg}
       ${buttonIcon(pitch.button)}
       <kbd class="key-ref">${keyLabel(bindings[pitch.button])}</kbd>
     </button>`;
+}
+
+/** A control cut out of the controller photo, reassembled over the photo itself. */
+function partImg(url: string, cls: string): string {
+  return `<img class="gp-part ${cls}" src="${url}" alt="" aria-hidden="true" draggable="false" />`;
 }
 
 function bendKeyHtml(value: number, extraClass = ''): string {
@@ -238,23 +253,36 @@ let padStyle: PadStyle = (() => {
 function buildPad(): void {
   const retro = currentTheme() === 'retro';
   if (padStyle === 'controller') {
-    // The photo is the pad: the same buttons sit transparently over the printed
-    // controls (positions measured from the photo; see .gp-pos-* in styles.css).
-    // B is printed on the photo but has no action, so it gets no overlay — except
-    // in the retro scheme, where R lives at the diamond centre, over the B disc.
+    // The photo is the pad's base; its controls, cut out as separate images, are
+    // reassembled over it at their measured positions (see .gp-* in styles.css),
+    // so state feedback can light up each real part. Interactive parts live inside
+    // their buttons; the stick and D-pad parts sit under their two bend hit areas
+    // in a .gp-cluster, whose :has() rules glow the whole part. B has no action,
+    // so it is a loose part — except in the retro scheme, where R's button sits
+    // over the B disc and carries the part itself.
     pad.classList.add('pad--controller');
     pad.innerHTML = `
       <div class="gamepad" role="group" aria-label="${t('lesson.controller')}">
         <img class="gamepad-photo" src="${gamepadPhotoUrl}" alt="" aria-hidden="true" draggable="false" />
-        ${keyHtml(pitchForButton('L'), 'gp-pos gp-pos-l')}
-        ${retro ? keyHtml(pitchForButton('R'), 'gp-pos gp-pos-rb') : keyHtml(pitchForButton('R'), 'gp-pos gp-pos-r')}
-        ${bendKeyHtml(2, 'gp-pos gp-pos-sup')}
-        ${bendKeyHtml(-2, 'gp-pos gp-pos-sdown')}
-        ${bendKeyHtml(1, 'gp-pos gp-pos-dup')}
-        ${bendKeyHtml(-1, 'gp-pos gp-pos-ddown')}
-        ${keyHtml(pitchForButton('X'), 'gp-pos gp-pos-x')}
-        ${keyHtml(pitchForButton('Y'), 'gp-pos gp-pos-y')}
-        ${keyHtml(pitchForButton('A'), 'gp-pos gp-pos-a')}
+        ${keyHtml(pitchForButton('L'), 'gp-pos gp-pos-l', partImg(partLUrl, 'gp-in-l'))}
+        ${retro
+          ? keyHtml(pitchForButton('R'), 'gp-pos gp-pos-rb', partImg(partBUrl, 'gp-in-b'))
+          : `${keyHtml(pitchForButton('R'), 'gp-pos gp-pos-r', partImg(partRUrl, 'gp-in-r'))}
+             ${partImg(partBUrl, 'gp-part-static gp-at-b')}`}
+        <div class="gp-cluster">
+          ${partImg(partStickLeftUrl, 'gp-part-static gp-at-stick-left')}
+          ${bendKeyHtml(2, 'gp-pos gp-pos-sup')}
+          ${bendKeyHtml(-2, 'gp-pos gp-pos-sdown')}
+        </div>
+        <div class="gp-cluster">
+          ${partImg(partDpadUrl, 'gp-part-static gp-at-dpad')}
+          ${bendKeyHtml(1, 'gp-pos gp-pos-dup')}
+          ${bendKeyHtml(-1, 'gp-pos gp-pos-ddown')}
+        </div>
+        ${partImg(partStickRightUrl, 'gp-part-static gp-at-stick-right')}
+        ${keyHtml(pitchForButton('X'), 'gp-pos gp-pos-x', partImg(partXUrl, 'gp-in-disc'))}
+        ${keyHtml(pitchForButton('Y'), 'gp-pos gp-pos-y', partImg(partYUrl, 'gp-in-disc'))}
+        ${keyHtml(pitchForButton('A'), 'gp-pos gp-pos-a', partImg(partAUrl, 'gp-in-disc'))}
       </div>`;
     bends.innerHTML = '';
     return;
