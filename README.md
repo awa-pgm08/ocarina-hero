@@ -6,7 +6,7 @@
 
 <p align="center">
   <em>Learn a melody on the ocarina, be the hylian rockstar.</em><br />
-  <a href="https://ocarinahero.app/"><strong>Play it in your browser →</strong></a>
+  <a href="https://awa-pgm08.github.io/ocarina-hero/"><strong>Play it in your browser →</strong></a>
 </p>
 
 ---
@@ -31,6 +31,11 @@ npm run dev   # http://localhost:5173
 ## Learn more
 
 [Project notes](docs/project-notes.md) · [Product objective](docs/objetivo.md) · [Design system](docs/design-system.md)
+
+## Contributors
+
+- [awa](https://github.com/awa-pgm08)
+- Claude
 
 ---
 
