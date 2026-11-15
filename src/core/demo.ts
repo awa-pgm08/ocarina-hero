@@ -71,6 +71,8 @@ export interface DemoTrack {
   readonly id: string;
   readonly title: string;
   readonly subtitle: string;
+  readonly titleJa?: string;
+  readonly subtitleJa?: string;
   readonly tempoBpm: number;
   readonly beatsPerBar?: number;
   readonly melody: readonly MelodyNote[];
@@ -86,6 +88,8 @@ export interface TrackSummary {
   readonly id: string;
   readonly title: string;
   readonly subtitle: string;
+  readonly titleJa?: string;
+  readonly subtitleJa?: string;
   readonly tempoBpm: number;
   readonly beatsPerBar?: number;
   readonly difficulty: Difficulty;
@@ -97,6 +101,8 @@ export const INLINE_DEMOS: readonly DemoTrack[] = [
     id: 'lullaby-game',
     title: 'Lullaby (complete, adapted)',
     subtitle: 'Y X A trigger twice · automatic melody transposed down 5 semitones',
+    titleJa: 'ゼルダの子守唄（完全版）',
+    subtitleJa: 'Y・X・Aを2回 · 自動メロディは5半音下げ',
     tempoBpm: 60,
     phraseStarts: [0, 3, 6, 9, 12],
     fixedNotes: LULLABY_GAME,
@@ -108,6 +114,8 @@ export const INLINE_DEMOS: readonly DemoTrack[] = [
     id: 'lullaby-trigger',
     title: 'Lullaby (Ocarina of Time theme)',
     subtitle: 'First theme period, bars 1-8 · transposed up 5 semitones',
+    titleJa: 'ゼルダの子守唄（時のオカリナのテーマ）',
+    subtitleJa: 'テーマの最初（1〜8小節）· 5半音上げ',
     tempoBpm: lullabyComplete.tempoBpm,
     phraseStarts: lullabyComplete.phraseStarts,
     fixedNotes: lullabyComplete.fixedNotes as readonly Note[],
@@ -117,6 +125,8 @@ export const INLINE_DEMOS: readonly DemoTrack[] = [
     id: 'ode',
     title: 'Ode to Joy',
     subtitle: 'Beethoven, arranged',
+    titleJa: '歓喜の歌',
+    subtitleJa: 'ベートーヴェン、アレンジ',
     tempoBpm: 100,
     melody: ODE_TO_JOY,
   },
@@ -124,6 +134,8 @@ export const INLINE_DEMOS: readonly DemoTrack[] = [
     id: 'birthday',
     title: 'Happy Birthday',
     subtitle: 'Public domain, arranged',
+    titleJa: 'ハッピーバースデー',
+    subtitleJa: 'パブリックドメイン、アレンジ',
     tempoBpm: 108,
     melody: HAPPY_BIRTHDAY,
   },
@@ -131,6 +143,8 @@ export const INLINE_DEMOS: readonly DemoTrack[] = [
     id: 'twinkle',
     title: 'Twinkle Twinkle',
     subtitle: 'Public domain, arranged',
+    titleJa: 'きらきら星',
+    subtitleJa: 'パブリックドメイン、アレンジ',
     tempoBpm: 100,
     melody: TWINKLE,
   },
@@ -143,6 +157,8 @@ export const INLINE_DEMOS: readonly DemoTrack[] = [
       id: demo.id,
       title: demo.title,
       subtitle: 'From a gameplay capture',
+      titleJa: 'イン・ジ・エンド',
+      subtitleJa: 'ゲームプレイ録画から',
       tempoBpm: demo.tempoBpm,
       melody: demo.notes,
     })),
@@ -150,6 +166,8 @@ export const INLINE_DEMOS: readonly DemoTrack[] = [
     id: 'littleroot',
     title: littleroot.title,
     subtitle: 'Opening, from MIDI',
+    titleJa: 'ミシロタウン',
+    subtitleJa: '冒頭、MIDIから',
     tempoBpm: littleroot.tempoBpm,
     beatsPerBar: littleroot.beatsPerBar,
     melody: littleroot.notes,

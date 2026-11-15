@@ -1,6 +1,8 @@
 /**
- * UI language: English and Japanese chrome around the song data, which always
- * keeps its own names (song titles, artists, universes, note and button names).
+ * UI language: English and Japanese chrome around the song data. Song titles
+ * and subtitles carry Japanese forms (`titleJa`/`subtitleJa`, see
+ * `displayTitle`/`displaySubtitle`); artists, universes, note and button
+ * names always keep their own names.
  *
  * The choice persists in localStorage under `ocarina.lang`. A first visit in
  * the browser defaults to Japanese; outside the browser (tests, prerendering)
@@ -534,6 +536,16 @@ export function getLang(): Lang {
 export function t(key: string, params: Record<string, string | number> = {}): string {
   const template = DICT[current][key] ?? DICT.en[key] ?? key;
   return template.replace(/\{(\w+)\}/g, (match, name: string) => name in params ? String(params[name]) : match);
+}
+
+/** A song's title in the current language: its Japanese form when the UI is Japanese and one is known. */
+export function displayTitle(entry: { title: string; titleJa?: string }): string {
+  return current === 'ja' && entry.titleJa ? entry.titleJa : entry.title;
+}
+
+/** A song's subtitle in the current language: its Japanese form when the UI is Japanese and one is known. */
+export function displaySubtitle(entry: { subtitle: string; subtitleJa?: string }): string {
+  return current === 'ja' && entry.subtitleJa ? entry.subtitleJa : entry.subtitle;
 }
 
 /**

@@ -13,6 +13,10 @@ export interface SongbookEntry {
   track: DemoTrack | TrackSummary;
   id: string;
   title: string;
+  /** The track title's Japanese form, shown instead of `title` in the Japanese UI. */
+  titleJa?: string;
+  /** The track subtitle's Japanese form. */
+  subtitleJa?: string;
   universe: string;
   categories: readonly EntryCategory[];
   icon: ThreadIcon;
@@ -458,6 +462,8 @@ export function createSongbookEntries(tracks: readonly (DemoTrack | TrackSummary
     track, id: track.id,
     difficulty: 'melody' in track ? rateDifficulty(openingNotes(track), track.tempoBpm) : track.difficulty,
     ...(metadata.get(track.id) ?? { title: track.title, universe: 'Other melodies', categories: ['Other'] as const, icon: 'music', universeIcon: 'music', aliases: [] }),
+    titleJa: track.titleJa,
+    subtitleJa: track.subtitleJa,
   }));
 }
 
@@ -502,7 +508,7 @@ export function filterSongbook(entries: readonly SongbookEntry[], options: {
     return true;
   });
   if (!words.length) return candidates;
-  const searchable = (entry: SongbookEntry) => normalizeSearch([entry.title, entry.track.title, entry.universe, entry.artist ?? '', entry.version ?? '', ...entry.aliases].join(' '));
+  const searchable = (entry: SongbookEntry) => normalizeSearch([entry.title, entry.track.title, entry.track.titleJa ?? '', entry.track.subtitleJa ?? '', entry.universe, entry.artist ?? '', entry.version ?? '', ...entry.aliases].join(' '));
   const found = candidates.filter((entry) => matchesSearch(searchable(entry), words));
   // Typos are forgiven only when nothing matched, so they never reorder or pad a normal result.
   return found.length ? found : candidates.filter((entry) => matchesSearch(searchable(entry), words, true));

@@ -9,7 +9,7 @@ import { missedSearchNoter } from '../core/search-text';
 import { reportMissedSearch, type PopularEntry } from './popularity';
 import { SAVED_STORAGE } from './local-data';
 import { songPath } from './route';
-import { getLang, t } from './i18n';
+import { displayTitle, getLang, t } from './i18n';
 
 /** Below this many results the list is short enough to scan, so the letter rail is hidden. */
 const RAIL_MIN_RESULTS = 12;
@@ -544,15 +544,15 @@ export class SongbookView {
   private renderJourney(progress: Progress): void {
     const { resume, popular } = journey(this.entries, progress, this.popular);
     const resumeMeta = resume && [songMeta(resume.entry), resume.progress.completed && t('common.completed'), resume.progress.bestCombo > 1 && t('lesson.bestCombo', { count: resume.progress.bestCombo })].filter(Boolean).join(' · ');
-    const resumeHtml = resume ? `<section class="journey-section"><p class="eyebrow stitched-label">${t('journey.continue')}</p><button class="song-open" type="button" data-song="${escapeHtml(resume.entry.id)}">${sealHtml(resume.entry.icon, resume.entry.difficulty.level)}<span class="song-copy"><span class="song-title">${escapeHtml(resume.entry.title)}</span><span class="song-meta">${escapeHtml(resumeMeta || '')}<span class="visually-hidden">${t('row.difficultySuffix', { name: difficultyName(resume.entry.difficulty.level) })}</span></span></span></button></section>` : '';
+    const resumeHtml = resume ? `<section class="journey-section"><p class="eyebrow stitched-label">${t('journey.continue')}</p><button class="song-open" type="button" data-song="${escapeHtml(resume.entry.id)}">${sealHtml(resume.entry.icon, resume.entry.difficulty.level)}<span class="song-copy"><span class="song-title">${escapeHtml(displayTitle(resume.entry))}</span><span class="song-meta">${escapeHtml(resumeMeta || '')}<span class="visually-hidden">${t('row.difficultySuffix', { name: difficultyName(resume.entry.difficulty.level) })}</span></span></span></button></section>` : '';
     const body = popular.length
-      ? `<section class="journey-section"><h2 id="journey-title" class="embroidered">${t('journey.popularTitle')}</h2><p class="journey-note">${t('journey.popularNote')}</p><ol class="popular-list">${popular.map(({ entry, plays }, index) => `<li><button class="popular-song" type="button" data-song="${escapeHtml(entry.id)}" title="${escapeHtml(entry.title)} · ${escapeHtml(entry.universe)}">${rankHtml(index + 1)}<span class="popular-copy"><span class="popular-title">${escapeHtml(entry.title)}</span><span class="popular-meta">${escapeHtml(entry.universe)}</span></span>${playsHtml(plays)}</button></li>`).join('')}</ol></section>`
+      ? `<section class="journey-section"><h2 id="journey-title" class="embroidered">${t('journey.popularTitle')}</h2><p class="journey-note">${t('journey.popularNote')}</p><ol class="popular-list">${popular.map(({ entry, plays }, index) => `<li><button class="popular-song" type="button" data-song="${escapeHtml(entry.id)}" title="${escapeHtml(displayTitle(entry))} · ${escapeHtml(entry.universe)}">${rankHtml(index + 1)}<span class="popular-copy"><span class="popular-title">${escapeHtml(displayTitle(entry))}</span><span class="popular-meta">${escapeHtml(entry.universe)}</span></span>${playsHtml(plays)}</button></li>`).join('')}</ol></section>`
       : `<h2 id="journey-title" class="embroidered">${t('journey.welcomeTitle')}</h2><p>${t('journey.welcomeBody')}</p>`;
     this.journey.innerHTML = resumeHtml + body;
   }
 
   private rowHtml(entry: SongbookEntry, completed: ReadonlySet<string>, letter?: string, ranked?: { rank: number; plays: number }): string {
-    const title = escapeHtml(entry.title);
+    const title = escapeHtml(displayTitle(entry));
     const saved = this.saved.has(entry.id);
     const rank = ranked ? rankHtml(ranked.rank) : '';
     const plays = ranked && playsLabel(ranked.plays, getLang());

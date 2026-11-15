@@ -6,6 +6,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-tetris",
     "title": "Tetris — Music A",
     "subtitle": "First two complete phrases",
+    "titleJa": "Tetris — ミュージックA",
+    "subtitleJa": "最初の2つの完全なフレーズ",
     "tempoBpm": 150,
     "beatsPerBar": 4,
     "difficulty": {
@@ -17,6 +19,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-pokemon-route1",
     "title": "Pokémon — Route 1",
     "subtitle": "First two phrases of the lead channel",
+    "titleJa": "Pokémon — 1番道路",
+    "subtitleJa": "リードチャンネルの最初の2フレーズ",
     "tempoBpm": 130.00013000013,
     "beatsPerBar": 4,
     "difficulty": {
@@ -28,6 +32,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-megalovania",
     "title": "Undertale — Megalovania",
     "subtitle": "Four-bar opening riff with its four bass-note variants",
+    "titleJa": "Undertale — メガロバニア",
+    "subtitleJa": "4つのベース音バリエーション付き、冒頭4小節のリフ",
     "tempoBpm": 120,
     "beatsPerBar": 4,
     "difficulty": {
@@ -39,6 +45,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-naruto",
     "title": "Naruto — Sadness and Sorrow",
     "subtitle": "First main-theme phrase, after the string introduction",
+    "titleJa": "Naruto — 悲しみと哀しみ",
+    "subtitleJa": "ストリングスの導入後のメインテーマ最初のフレーズ",
     "tempoBpm": 72.00002880001152,
     "beatsPerBar": 4,
     "difficulty": {
@@ -50,6 +58,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-evangelion",
     "title": "Evangelion — A Cruel Angel’s Thesis",
     "subtitle": "Opening vocal phrase",
+    "titleJa": "Evangelion — 残酷な天使のテーゼ",
+    "subtitleJa": "冒頭のボーカルフレーズ",
     "tempoBpm": 76.00006586672374,
     "beatsPerBar": 4,
     "difficulty": {
@@ -61,6 +71,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-lilium",
     "title": "Elfen Lied — Lilium",
     "subtitle": "First vocal phrase",
+    "titleJa": "Elfen Lied — リリウム",
+    "subtitleJa": "最初のボーカルフレーズ",
     "tempoBpm": 60,
     "beatsPerBar": 4,
     "difficulty": {
@@ -72,6 +84,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-never-gonna",
     "title": "Never Gonna Give You Up",
     "subtitle": "First chorus phrase",
+    "titleJa": "ネバー・ゴナ・ギヴ・ユー・アップ",
+    "subtitleJa": "サビの最初のフレーズ",
     "tempoBpm": 118.00338276363922,
     "beatsPerBar": 4,
     "difficulty": {
@@ -83,6 +97,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-take-on-me",
     "title": "Take On Me",
     "subtitle": "Main synth riff",
+    "titleJa": "テイク・オン・ミー",
+    "subtitleJa": "メインのシンセリフ",
     "tempoBpm": 169.0002788504601,
     "beatsPerBar": 4,
     "difficulty": {
@@ -94,6 +110,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-final-countdown",
     "title": "The Final Countdown",
     "subtitle": "First synth riff phrase",
+    "titleJa": "ザ・ファイナル・カウントダウン",
+    "subtitleJa": "最初のシンセリフフレーズ",
     "tempoBpm": 118.00106200955808,
     "beatsPerBar": 4,
     "difficulty": {
@@ -105,6 +123,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-numb",
     "title": "Linkin Park — Numb",
     "subtitle": "Opening keyboard hook",
+    "titleJa": "Linkin Park — ナム",
+    "subtitleJa": "冒頭のキーボードフック",
     "tempoBpm": 109.99990833340972,
     "beatsPerBar": 4,
     "difficulty": {
@@ -116,6 +136,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-imperial-march",
     "title": "Star Wars — Imperial March",
     "subtitle": "First march phrase",
+    "titleJa": "Star Wars — 帝国のマーチ",
+    "subtitleJa": "行進曲の最初のフレーズ",
     "tempoBpm": 102.0000510000255,
     "beatsPerBar": 4,
     "difficulty": {
@@ -127,6 +149,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-once-upon-a-time",
     "title": "Undertale — Once Upon a Time",
     "subtitle": "First opening phrase",
+    "titleJa": "Undertale — むかしむかし",
+    "subtitleJa": "最初のフレーズ",
     "tempoBpm": 140.00014000014,
     "beatsPerBar": 4,
     "difficulty": {
@@ -138,6 +162,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-fallen-down",
     "title": "Undertale — Fallen Down",
     "subtitle": "First main melody phrase",
+    "titleJa": "Undertale — フォールン・ダウン",
+    "subtitleJa": "メインメロディの最初のフレーズ",
     "tempoBpm": 100.00016666694445,
     "beatsPerBar": 4,
     "difficulty": {
@@ -149,6 +175,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-all-star",
     "title": "Smash Mouth — All Star",
     "subtitle": "First chorus phrase",
+    "titleJa": "Smash Mouth — オール・スター",
+    "subtitleJa": "サビの最初のフレーズ",
     "tempoBpm": 108.000108000108,
     "beatsPerBar": 4,
     "difficulty": {
@@ -160,6 +188,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-pirate",
     "title": "Pirates of the Caribbean — He’s a Pirate",
     "subtitle": "First lead theme phrase",
+    "titleJa": "Pirates of the Caribbean — 彼こそが海賊",
+    "subtitleJa": "リードテーマの最初のフレーズ",
     "tempoBpm": 200,
     "beatsPerBar": 4,
     "difficulty": {
@@ -171,6 +201,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-laputa",
     "title": "Castle in the Sky — Main Theme",
     "subtitle": "First lyrical theme phrase",
+    "titleJa": "Castle in the Sky — メインテーマ",
+    "subtitleJa": "叙情的なテーマの最初のフレーズ",
     "tempoBpm": 96,
     "beatsPerBar": 4,
     "difficulty": {
@@ -182,6 +214,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-l-theme",
     "title": "Death Note — L’s Theme",
     "subtitle": "Piano motif",
+    "titleJa": "Death Note — Lのテーマ",
+    "subtitleJa": "ピアノのモチーフ",
     "tempoBpm": 139.97988955586715,
     "beatsPerBar": 4,
     "difficulty": {
@@ -193,6 +227,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-always-with-me",
     "title": "Spirited Away — Always With Me",
     "subtitle": "First vocal phrase",
+    "titleJa": "Spirited Away — いつも何度でも",
+    "subtitleJa": "最初のボーカルフレーズ",
     "tempoBpm": 130.00013000013,
     "beatsPerBar": 3,
     "difficulty": {
@@ -204,6 +240,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-merry-go-round",
     "title": "Howl’s Moving Castle — Merry-Go-Round of Life",
     "subtitle": "First main waltz phrase",
+    "titleJa": "Howl's Moving Castle — 人生のメリーゴーランド",
+    "subtitleJa": "メインのワルツの最初のフレーズ",
     "tempoBpm": 180.00018000018,
     "beatsPerBar": 3,
     "difficulty": {
@@ -215,6 +253,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-moonlight",
     "title": "Sailor Moon — Moonlight Densetsu",
     "subtitle": "First vocal hook",
+    "titleJa": "Sailor Moon — ムーンライト伝説",
+    "subtitleJa": "最初のボーカルフック",
     "tempoBpm": 140.00014000014,
     "beatsPerBar": 4,
     "difficulty": {
@@ -226,6 +266,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-tapion",
     "title": "Dragon Ball Z — Tapion’s Theme",
     "subtitle": "Opening solo phrase",
+    "titleJa": "Dragon Ball Z — タピオンのテーマ",
+    "subtitleJa": "冒頭のソロフレーズ",
     "tempoBpm": 78.000078000078,
     "beatsPerBar": 4,
     "difficulty": {
@@ -237,6 +279,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-pallet-town",
     "title": "Pokémon — Pallet Town",
     "subtitle": "First main-theme phrase",
+    "titleJa": "Pokémon — マサラタウン",
+    "subtitleJa": "メインテーマの最初のフレーズ",
     "tempoBpm": 116.95245298024088,
     "beatsPerBar": 4,
     "difficulty": {
@@ -248,6 +292,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-lavender-town",
     "title": "Pokémon — Lavender Town",
     "subtitle": "First complete theme phrase",
+    "titleJa": "Pokémon — シオンタウン",
+    "subtitleJa": "テーマの最初の完全なフレーズ",
     "tempoBpm": 119.99928000431997,
     "beatsPerBar": 4,
     "difficulty": {
@@ -259,6 +305,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-green-hill",
     "title": "Sonic — Green Hill Zone",
     "subtitle": "First lead phrase",
+    "titleJa": "Sonic — グリーンヒルゾーン",
+    "subtitleJa": "リードの最初のフレーズ",
     "tempoBpm": 151.99185323666651,
     "beatsPerBar": 4,
     "difficulty": {
@@ -270,6 +318,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-ff7-victory",
     "title": "Final Fantasy VII — Victory Fanfare",
     "subtitle": "Opening fanfare",
+    "titleJa": "Final Fantasy VII — 勝利のファンファーレ",
+    "subtitleJa": "冒頭のファンファーレ",
     "tempoBpm": 129.96014555536303,
     "beatsPerBar": 4,
     "difficulty": {
@@ -281,6 +331,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-wind-scene",
     "title": "Chrono Trigger — Wind Scene",
     "subtitle": "First lyrical melody phrase",
+    "titleJa": "Chrono Trigger — 風の憧憬",
+    "subtitleJa": "叙情的なメロディの最初のフレーズ",
     "tempoBpm": 80,
     "beatsPerBar": 4,
     "difficulty": {
@@ -292,6 +344,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-gerudo-valley",
     "title": "Zelda — Gerudo Valley",
     "subtitle": "First main-theme phrase",
+    "titleJa": "Zelda — ゲルドの谷",
+    "subtitleJa": "メインテーマの最初のフレーズ",
     "tempoBpm": 119.99928000431997,
     "beatsPerBar": 4,
     "difficulty": {
@@ -303,6 +357,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-blue-bird",
     "title": "Naruto Shippuden — Blue Bird",
     "subtitle": "Complete opening chorus: four lines, from the Habataitara pickup to the held tonic F-sharp",
+    "titleJa": "Naruto Shippuden — ブルーバード",
+    "subtitleJa": "冒頭のサビ全4行（完全版）",
     "tempoBpm": 150,
     "beatsPerBar": 4,
     "difficulty": {
@@ -314,6 +370,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-totoro",
     "title": "My Neighbor Totoro — Tonari no Totoro",
     "subtitle": "Title chorus melody",
+    "titleJa": "My Neighbor Totoro — となりのトトロ",
+    "subtitleJa": "タイトルコーラスのメロディ",
     "tempoBpm": 119.99928000431997,
     "beatsPerBar": 4,
     "difficulty": {
@@ -325,6 +383,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-mii-channel",
     "title": "Wii — Mii Channel",
     "subtitle": "Opening motif",
+    "titleJa": "Wii — Miiチャンネル",
+    "subtitleJa": "冒頭のモチーフ",
     "tempoBpm": 114.0001710002565,
     "beatsPerBar": 4,
     "difficulty": {
@@ -336,6 +396,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-hedwig",
     "title": "Hedwig’s Theme — Harry Potter",
     "subtitle": "Complete opening celesta statement through its low-B cadence (14 melody attacks)",
+    "titleJa": "ヘドウィグのテーマ — Harry Potter",
+    "subtitleJa": "冒頭のチェレスタの完全な一節",
     "tempoBpm": 89.00004005001803,
     "beatsPerBar": 3,
     "difficulty": {
@@ -347,6 +409,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-fairy-fountain",
     "title": "Great Fairy Fountain — Zelda",
     "subtitle": "Complete first descending lead cycle over eight bars; accompaniment arpeggios excluded",
+    "titleJa": "大妖精の泉 — Zelda",
+    "subtitleJa": "テーマの最初の完全な一節（8小節）",
     "tempoBpm": 80,
     "beatsPerBar": 4,
     "difficulty": {
@@ -358,6 +422,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-dire-dire-docks",
     "title": "Dire, Dire Docks — Super Mario 64",
     "subtitle": "First complete lead call and response, from the ascending D pickup through the answering G cadence",
+    "titleJa": "ダイア・ダイア・ドックス — Super Mario 64",
+    "subtitleJa": "リードの最初の完全なコール＆レスポンス",
     "tempoBpm": 130.00041166797027,
     "beatsPerBar": 4,
     "difficulty": {
@@ -369,6 +435,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-wet-hands",
     "title": "Wet Hands — Minecraft",
     "subtitle": "Complete first eight-bar lead sentence, bars5–12, including its answering A cadence",
+    "titleJa": "ウェット・ハンズ — Minecraft",
+    "subtitleJa": "最初の8小節のリードフレーズ（完全版）",
     "tempoBpm": 72.00002880001152,
     "beatsPerBar": 4,
     "difficulty": {
@@ -380,6 +448,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-sweden",
     "title": "Sweden — Minecraft",
     "subtitle": "First complete eight-bar upper melody, including both question and response, score bars27–34",
+    "titleJa": "スウェーデン — Minecraft",
+    "subtitleJa": "上部メロディの最初の8小節（完全版）",
     "tempoBpm": 88.00002346667293,
     "beatsPerBar": 4,
     "difficulty": {
@@ -391,6 +461,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-shinzou",
     "title": "Shinzou wo Sasageyo! — Attack on Titan",
     "subtitle": "Complete first refrain call: both Sasageyo calls and their Shinzou response, score bars35–38",
+    "titleJa": "心臓を捧げよ！ — Attack on Titan",
+    "subtitleJa": "最初のリフレインのコール（完全版）",
     "tempoBpm": 160,
     "beatsPerBar": 4,
     "difficulty": {
@@ -402,6 +474,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-fate-of-ophelia",
     "title": "The Fate of Ophelia — Taylor Swift",
     "subtitle": "Complete first chorus, from All that time through the title cadence, with its pickup",
+    "titleJa": "ザ・フェイト・オブ・オフィーリア — Taylor Swift",
+    "subtitleJa": "最初のサビ（完全版）",
     "tempoBpm": 124.000248000496,
     "beatsPerBar": 4,
     "difficulty": {
@@ -413,6 +487,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-golden",
     "title": "Golden — HUNTR/X · KPop Demon Hunters",
     "subtitle": "Complete main chorus with pickup, both Golden answers and the closing Oh cadence",
+    "titleJa": "ゴールデン — HUNTR/X · KPop Demon Hunters",
+    "subtitleJa": "メインのサビ（完全版）",
     "tempoBpm": 123.00022140039852,
     "beatsPerBar": 4,
     "difficulty": {
@@ -424,6 +500,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-stateside",
     "title": "Stateside — PinkPantheress + Zara Larsson",
     "subtitle": "Full first PinkPantheress chorus, What can I say pickup through final three ha attacks before next singer lyric pickup",
+    "titleJa": "ステイトサイド — PinkPantheress + Zara Larsson",
+    "subtitleJa": "最初のコーラス（完全版）",
     "tempoBpm": 123.00022140039852,
     "beatsPerBar": 4,
     "difficulty": {
@@ -435,6 +513,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-man-i-need",
     "title": "Man I Need — Olivia Dean",
     "subtitle": "Full Tell me chorus through the complete tied title cadence, before Talk to me lead-out",
+    "titleJa": "マン・アイ・ニード — Olivia Dean",
+    "subtitleJa": "サビ（完全版）",
     "tempoBpm": 119.00016065021688,
     "beatsPerBar": 4,
     "difficulty": {
@@ -446,6 +526,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-iris-out",
     "title": "IRIS OUT — Kenshi Yonezu",
     "subtitle": "Complete recognizable chorus through its final three A attacks",
+    "titleJa": "IRIS OUT — 米津玄師",
+    "subtitleJa": "サビ（完全版）",
     "tempoBpm": 135.000135000135,
     "beatsPerBar": 4,
     "difficulty": {
@@ -457,6 +539,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-kaiju",
     "title": "Kaiju — Sakanaction",
     "subtitle": "Kaiju — complete F chorus through bar82 beat2, before G pickup",
+    "titleJa": "怪獣 — サカナクション",
+    "subtitleJa": "サビ（完全版）",
     "tempoBpm": 180.00018000018,
     "beatsPerBar": 4,
     "difficulty": {
@@ -468,6 +552,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-aizo",
     "title": "AIZO — King Gnu",
     "subtitle": "Complete first chorus through the natural lyric cadence, before the instrumental descent",
+    "titleJa": "AIZO — King Gnu",
+    "subtitleJa": "最初のサビ（完全版）",
     "tempoBpm": 190.0002850004275,
     "beatsPerBar": 4,
     "difficulty": {
@@ -479,6 +565,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-kakumei-douchuu",
     "title": "Kakumei Douchuu — AiNA THE END",
     "subtitle": "First E chorus with bar54beat3 pickup through bar69 ending before bar70 instrumental fill",
+    "titleJa": "革命道中 — アイナ・ジ・エンド",
+    "subtitleJa": "最初のサビ",
     "tempoBpm": 186.000372000744,
     "beatsPerBar": 4,
     "difficulty": {
@@ -490,6 +578,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-x-files",
     "title": "The X-Files Theme",
     "subtitle": "Opening whistle call and answering variation, including both cadences (score bars 2–7)",
+    "titleJa": "Xファイルのテーマ",
+    "subtitleJa": "冒頭の口笛のコールと応答",
     "tempoBpm": 120,
     "beatsPerBar": 4,
     "difficulty": {
@@ -501,6 +591,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-mission-impossible",
     "title": "Mission: Impossible Theme",
     "subtitle": "Complete two-bar principal riff in 5/4",
+    "titleJa": "ミッション：インポッシブルのテーマ",
+    "subtitleJa": "5/4拍子の主要リフ2小節（完全版）",
     "tempoBpm": 180.00018000018,
     "beatsPerBar": 5,
     "difficulty": {
@@ -512,6 +604,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-pink-panther",
     "title": "The Pink Panther Theme",
     "subtitle": "Opening saxophone phrase through the tied cadence",
+    "titleJa": "ピンクパンサーのテーマ",
+    "subtitleJa": "冒頭のサックスフレーズ",
     "tempoBpm": 111.000111000111,
     "beatsPerBar": 4,
     "difficulty": {
@@ -523,6 +617,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-chariots-of-fire",
     "title": "Chariots of Fire",
     "subtitle": "First piano theme statement through its cadence",
+    "titleJa": "炎のランナー",
+    "subtitleJa": "ピアノテーマの最初の一節",
     "tempoBpm": 72.00002880001152,
     "beatsPerBar": 4,
     "difficulty": {
@@ -534,6 +630,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-james-bond",
     "title": "James Bond Theme",
     "subtitle": "Complete two-bar guitar riff",
+    "titleJa": "ジェームズ・ボンドのテーマ",
+    "subtitleJa": "ギターリフ2小節（完全版）",
     "tempoBpm": 140.00014000014,
     "beatsPerBar": 4,
     "difficulty": {
@@ -545,6 +643,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-raiders-march",
     "title": "The Raiders March",
     "subtitle": "First complete brass theme statement",
+    "titleJa": "レイダース・マーチ",
+    "subtitleJa": "金管テーマの最初の完全な一節",
     "tempoBpm": 120,
     "beatsPerBar": 4,
     "difficulty": {
@@ -556,6 +656,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-gonna-fly-now",
     "title": "Gonna Fly Now",
     "subtitle": "First principal trumpet statement and cadence",
+    "titleJa": "ロッキーのテーマ",
+    "subtitleJa": "トランペットの最初の一節",
     "tempoBpm": 96,
     "beatsPerBar": 4,
     "difficulty": {
@@ -567,6 +669,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-mandalorian",
     "title": "The Mandalorian",
     "subtitle": "Two-part opening bass-recorder ostinato",
+    "titleJa": "マンダロリアンのテーマ",
+    "subtitleJa": "冒頭のベースリコーダーのオスティナート",
     "tempoBpm": 80,
     "beatsPerBar": 4,
     "difficulty": {
@@ -578,6 +682,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-cornfield-chase",
     "title": "Cornfield Chase",
     "subtitle": "Complete principal theme statement",
+    "titleJa": "コーンフィールド・チェイス",
+    "subtitleJa": "主要テーマ（完全版）",
     "tempoBpm": 80,
     "beatsPerBar": 3,
     "difficulty": {
@@ -589,6 +695,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-seven-nation-army",
     "title": "Seven Nation Army",
     "subtitle": "Complete principal guitar riff",
+    "titleJa": "セブン・ネイション・アーミー",
+    "subtitleJa": "主要ギターリフ（完全版）",
     "tempoBpm": 124.000248000496,
     "beatsPerBar": 4,
     "difficulty": {
@@ -600,6 +708,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-another-one-bites-the-dust",
     "title": "Another One Bites the Dust",
     "subtitle": "Complete bass riff",
+    "titleJa": "地獄へ道づれ",
+    "subtitleJa": "ベースリフ（完全版）",
     "tempoBpm": 110.00011000011,
     "beatsPerBar": 4,
     "difficulty": {
@@ -611,6 +721,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-blinding-lights",
     "title": "Blinding Lights",
     "subtitle": "Complete synth hook",
+    "titleJa": "ブラインディング・ライツ",
+    "subtitleJa": "シンセフック（完全版）",
     "tempoBpm": 171.00009405005173,
     "beatsPerBar": 4,
     "difficulty": {
@@ -622,6 +734,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-sandstorm",
     "title": "Sandstorm",
     "subtitle": "Complete principal lead hook",
+    "titleJa": "サンドストーム",
+    "subtitleJa": "主要リードフック（完全版）",
     "tempoBpm": 136.0001450668214,
     "beatsPerBar": 4,
     "difficulty": {
@@ -633,6 +747,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-astronomia",
     "title": "Astronomia / Coffin Dance",
     "subtitle": "Complete principal lead refrain",
+    "titleJa": "アストロノミア／コフィン・ダンス",
+    "subtitleJa": "主要リードリフレイン（完全版）",
     "tempoBpm": 126.000126000126,
     "beatsPerBar": 4,
     "difficulty": {
@@ -644,6 +760,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-children",
     "title": "Children",
     "subtitle": "Complete principal piano motif",
+    "titleJa": "チルドレン",
+    "subtitleJa": "主要ピアノモチーフ（完全版）",
     "tempoBpm": 130.00013000013,
     "beatsPerBar": 4,
     "difficulty": {
@@ -655,6 +773,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-pokemon-caught",
     "title": "Wild Pokémon Caught",
     "subtitle": "Complete original event fanfare",
+    "titleJa": "野生ポケモンを捕まえた！",
+    "subtitleJa": "オリジナルのイベントファンファーレ（完全版）",
     "tempoBpm": 154.000154000154,
     "beatsPerBar": 4,
     "difficulty": {
@@ -666,6 +786,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-sonic-extra-life",
     "title": "Extra Life / 1UP",
     "subtitle": "Complete original event fanfare",
+    "titleJa": "エクストラライフ／1UP",
+    "subtitleJa": "オリジナルのイベントファンファーレ（完全版）",
     "tempoBpm": 122.0000691333725,
     "beatsPerBar": 4,
     "difficulty": {
@@ -677,6 +799,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-sonic3-act-complete",
     "title": "Act Complete",
     "subtitle": "Complete original event fanfare",
+    "titleJa": "アクトクリア",
+    "subtitleJa": "オリジナルのイベントファンファーレ（完全版）",
     "tempoBpm": 130.00013000013,
     "beatsPerBar": 4,
     "difficulty": {
@@ -688,6 +812,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-super-metroid-item",
     "title": "Item Acquisition",
     "subtitle": "Complete original item-acquisition soprano fanfare",
+    "titleJa": "アイテム取得",
+    "subtitleJa": "アイテム取得ファンファーレ（完全版）",
     "tempoBpm": 200,
     "beatsPerBar": 4,
     "difficulty": {
@@ -699,6 +825,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-smb-world-clear",
     "title": "Super Mario Bros. — Castle Clear",
     "subtitle": "Complete original NES event fanfare, including its terminal cadence",
+    "titleJa": "Super Mario Bros. — 城クリア",
+    "subtitleJa": "NES版イベントファンファーレ（完全版）",
     "tempoBpm": 225.3707348588428,
     "beatsPerBar": 3,
     "difficulty": {
@@ -710,6 +838,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-smb-game-over",
     "title": "Super Mario Bros. — Game Over",
     "subtitle": "Complete original NES event fanfare, including its terminal cadence",
+    "titleJa": "Super Mario Bros. — ゲームオーバー",
+    "subtitleJa": "NES版イベントファンファーレ（完全版）",
     "tempoBpm": 200.32987653001942,
     "beatsPerBar": 4,
     "difficulty": {
@@ -721,6 +851,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-pokemon-gym-victory",
     "title": "Pokémon Gold / Silver — Gym Battle Victory",
     "subtitle": "Opening fanfare and complete first eight-bar principal melody statement, through its D cadence",
+    "titleJa": "Pokémon Gold / Silver — ジム戦勝利",
+    "subtitleJa": "冒頭のファンファーレと主要メロディ8小節",
     "tempoBpm": 164.89994695718372,
     "beatsPerBar": 4,
     "difficulty": {
@@ -732,6 +864,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-concerning-hobbits",
     "title": "Concerning Hobbits",
     "subtitle": "Complete opening Shire statement through its held cadence (Patrat score bars 3-12)",
+    "titleJa": "ホビットについて",
+    "subtitleJa": "冒頭の一節（完全版）",
     "tempoBpm": 103.0000480666891,
     "beatsPerBar": 4,
     "difficulty": {
@@ -743,6 +877,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-evenstar",
     "title": "Evenstar",
     "subtitle": "Complete first melodic statement, 16 bars through the tonic cadence (Trumpet Man sheet bars 5-20)",
+    "titleJa": "宵の明星",
+    "subtitleJa": "最初のメロディ16小節（完全版）",
     "tempoBpm": 54.00000540000054,
     "beatsPerBar": 3,
     "difficulty": {
@@ -754,6 +890,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-may-it-be",
     "title": "May It Be",
     "subtitle": "Complete vocal refrain \"Mornië utúlië ... a promise lives within you now\" (first ending)",
+    "titleJa": "メイ・イット・ビー",
+    "subtitleJa": "ボーカルリフレイン（完全版）",
     "tempoBpm": 90.00009000009,
     "beatsPerBar": 3,
     "difficulty": {
@@ -765,6 +903,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-jurassic-park",
     "title": "Theme from Jurassic Park",
     "subtitle": "Complete first main-theme statement (Sweeney score m9-17)",
+    "titleJa": "ジュラシック・パークのテーマ",
+    "subtitleJa": "メインテーマの最初の一節（完全版）",
     "tempoBpm": 108.000108000108,
     "beatsPerBar": 4,
     "difficulty": {
@@ -776,6 +916,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-knight-rider",
     "title": "Knight Rider Main Theme",
     "subtitle": "Lead synth riff, one complete three-call statement (lead sheet bars 9-11)",
+    "titleJa": "ナイトライダーのテーマ",
+    "subtitleJa": "リードシンセリフ",
     "tempoBpm": 110.00011000011,
     "beatsPerBar": 4,
     "difficulty": {
@@ -787,6 +929,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-simpsons",
     "title": "The Simpsons Theme",
     "subtitle": "Complete opening melodic phrase through the Bb-B resolution (piano score bars 8-12)",
+    "titleJa": "ザ・シンプソンズのテーマ",
+    "subtitleJa": "冒頭のメロディフレーズ（完全版）",
     "tempoBpm": 171.00009405005173,
     "beatsPerBar": 4,
     "difficulty": {
@@ -798,6 +942,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-smooth-criminal",
     "title": "Smooth Criminal",
     "subtitle": "Complete opening instrumental riff",
+    "titleJa": "スムーズ・クリミナル",
+    "subtitleJa": "冒頭のインストリフ（完全版）",
     "tempoBpm": 118.0001337334849,
     "beatsPerBar": 4,
     "difficulty": {
@@ -809,6 +955,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-eye-of-the-tiger",
     "title": "Eye of the Tiger",
     "subtitle": "Complete vocal chorus with pickup",
+    "titleJa": "アイ・オブ・ザ・タイガー",
+    "subtitleJa": "ボーカルコーラス（完全版）",
     "tempoBpm": 108.000108000108,
     "beatsPerBar": 4,
     "difficulty": {
@@ -820,6 +968,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-gimme-gimme-gimme",
     "title": "Gimme! Gimme! Gimme!",
     "subtitle": "Complete flute/synth hook",
+    "titleJa": "ギミ！ギミ！ギミ！",
+    "subtitleJa": "フルート／シンセフック（完全版）",
     "tempoBpm": 117.99990166674861,
     "beatsPerBar": 4,
     "difficulty": {
@@ -831,6 +981,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-everybody-wants-to-rule-the-world",
     "title": "Everybody Wants to Rule the World",
     "subtitle": "Complete chorus phrase",
+    "titleJa": "エブリバディ・ウォンツ・トゥ・ルール・ザ・ワールド",
+    "subtitleJa": "サビのフレーズ（完全版）",
     "tempoBpm": 112.00005973336519,
     "beatsPerBar": 4,
     "difficulty": {
@@ -842,6 +994,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-dkc-bonus-win",
     "title": "Bonus Win",
     "subtitle": "Complete original bonus/boss victory fanfare lead, through its terminal tonic",
+    "titleJa": "ボーナス・ウィン",
+    "subtitleJa": "ボーナス勝利ファンファーレ（完全版）",
     "tempoBpm": 90.23438381195155,
     "beatsPerBar": 4,
     "difficulty": {
@@ -853,6 +1007,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-wind-of-change-whistle",
     "title": "Wind of Change",
     "subtitle": "Complete whistled intro: four two-bar calls and the climbing answer, ending on the held B before the first verse (publisher score bars 1-7)",
+    "titleJa": "ウィンド・オブ・チェンジ",
+    "subtitleJa": "口笛のイントロ（完全版）",
     "tempoBpm": 75,
     "beatsPerBar": 4,
     "difficulty": {
@@ -864,6 +1020,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-hall-of-the-mountain-king",
     "title": "In the Hall of the Mountain King",
     "subtitle": "First complete statement of the theme, bars 2-5, ending on the accented A",
+    "titleJa": "山の魔王の宮殿にて",
+    "subtitleJa": "テーマの最初の完全な一節（2〜5小節）",
     "tempoBpm": 138.00019320027047,
     "beatsPerBar": 4,
     "difficulty": {
@@ -875,6 +1033,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-fur-elise",
     "title": "Für Elise",
     "subtitle": "Opening A section from the E-D# pickup through the first-ending A (bars 0-8, right hand)",
+    "titleJa": "エリーゼのために",
+    "subtitleJa": "冒頭のAセクション",
     "tempoBpm": 72.00002880001152,
     "beatsPerBar": 4,
     "difficulty": {
@@ -886,6 +1046,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-eine-kleine-nachtmusik",
     "title": "Eine kleine Nachtmusik",
     "subtitle": "Opening first-theme call and answer, bars 1-4, ending on D before bar 5",
+    "titleJa": "アイネ・クライネ・ナハトムジーク",
+    "subtitleJa": "冒頭の第1テーマ（1〜4小節）",
     "tempoBpm": 144.00023040036865,
     "beatsPerBar": 4,
     "difficulty": {
@@ -897,6 +1059,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-cant-help-falling-in-love",
     "title": "Can't Help Falling in Love",
     "subtitle": "First complete vocal period of the verse, ending on the held F (publisher score bars 1-8 after the intro)",
+    "titleJa": "好きにならずにいられない",
+    "subtitleJa": "バースの最初の完全な一節",
     "tempoBpm": 80,
     "beatsPerBar": 4,
     "difficulty": {
@@ -908,6 +1072,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-hey-jude-opening",
     "title": "Hey Jude",
     "subtitle": "Opening two vocal lines, from the title pickup to the held A that closes the second line",
+    "titleJa": "ヘイ・ジュード",
+    "subtitleJa": "冒頭のボーカル2行",
     "tempoBpm": 73.99998273333736,
     "beatsPerBar": 4,
     "difficulty": {
@@ -919,6 +1085,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-good-bad-ugly-main-theme",
     "title": "The Good, the Bad and the Ugly",
     "subtitle": "Opening theme statement: four calls with their answers (Valleau tab bars 3-10)",
+    "titleJa": "続・夕陽のガンマン",
+    "subtitleJa": "冒頭のテーマ",
     "tempoBpm": 107.0001266168165,
     "beatsPerBar": 4,
     "difficulty": {
@@ -930,6 +1098,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-godfather-love-theme",
     "title": "Love Theme from The Godfather",
     "subtitle": "Complete first period of the love theme (violin score pickup and bars 1-8)",
+    "titleJa": "ゴッドファーザー 愛のテーマ",
+    "subtitleJa": "愛のテーマの最初の部分（完全版）",
     "tempoBpm": 72.00002880001152,
     "beatsPerBar": 4,
     "difficulty": {
@@ -941,6 +1111,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-el-chavo-del-ocho-theme",
     "title": "El Chavo del Ocho",
     "subtitle": "Complete A section of the show theme (notation video bars 1-8)",
+    "titleJa": "エル・チャボ・デル・オチョ",
+    "subtitleJa": "テーマのAセクション（完全版）",
     "tempoBpm": 96.54016151169021,
     "beatsPerBar": 2,
     "difficulty": {
@@ -952,6 +1124,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-meet-the-flintstones",
     "title": "Meet the Flintstones",
     "subtitle": "Opening A section, both statements ending on the tonic (trumpet score bars 1-8)",
+    "titleJa": "ミート・ザ・フリントストーンズ",
+    "subtitleJa": "冒頭のAセクション",
     "tempoBpm": 140.00014000014,
     "beatsPerBar": 4,
     "difficulty": {
@@ -963,6 +1137,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-zelda-secret-discovered",
     "title": "Secret Discovered",
     "subtitle": "Complete A Link to the Past secret jingle: 8 sixteenths ending on the held (fermata) final note",
+    "titleJa": "ひみつ発見",
+    "subtitleJa": "秘密発見ジングル（完全版）",
     "tempoBpm": 115.00002875000719,
     "beatsPerBar": 2,
     "difficulty": {
@@ -974,6 +1150,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-earthbound-eight-melodies",
     "title": "Eight Melodies",
     "subtitle": "One complete 8-bar statement of the melody (lead sheet section B, the loop), D-G-A pickup to the closing G",
+    "titleJa": "エイトメロディーズ",
+    "subtitleJa": "メロディの8小節（完全版）",
     "tempoBpm": 70.00007000007,
     "beatsPerBar": 4,
     "difficulty": {
@@ -985,6 +1163,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-castlevania-ii-bloody-tears",
     "title": "Bloody Tears",
     "subtitle": "Complete repeated A section with both endings (intro arpeggio excluded)",
+    "titleJa": "ブラッディ・ティアーズ",
+    "subtitleJa": "Aセクション（完全版、繰り返し付き）",
     "tempoBpm": 120,
     "beatsPerBar": 4,
     "difficulty": {
@@ -996,6 +1176,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-lambada",
     "title": "Lambada",
     "subtitle": "Chorus hook with single pickup, closing on the held A",
+    "titleJa": "ランバダ",
+    "subtitleJa": "サビのフック",
     "tempoBpm": 104.00001386666851,
     "beatsPerBar": 4,
     "difficulty": {
@@ -1007,6 +1189,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-mononoke-hime-song",
     "title": "Mononoke Hime",
     "subtitle": "Complete chorus, ending on the long tonic (Yayoi score bars 25-36)",
+    "titleJa": "もののけ姫",
+    "subtitleJa": "サビ（完全版）",
     "tempoBpm": 84.000084000084,
     "beatsPerBar": 4,
     "difficulty": {
@@ -1018,6 +1202,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-path-of-the-wind-totoro",
     "title": "Path of the Wind",
     "subtitle": "First complete A section to the long Eb cadence (violin score bars 4-12)",
+    "titleJa": "風のとおり道",
+    "subtitleJa": "最初のAセクション（完全版）",
     "tempoBpm": 80,
     "beatsPerBar": 4,
     "difficulty": {
@@ -1029,6 +1215,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-detective-conan-main-theme",
     "title": "Main Theme",
     "subtitle": "First statement of the saxophone theme, from the Ab-G pickup to the long Ab (alto sax score bars 8-16)",
+    "titleJa": "名探偵コナン メインテーマ",
+    "subtitleJa": "サックステーマの最初の一節",
     "tempoBpm": 138.00019320027047,
     "beatsPerBar": 4,
     "difficulty": {
@@ -1040,6 +1228,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-nausicaa-legend-of-the-wind",
     "title": "Legend of the Wind",
     "subtitle": "Main theme statement: two calls, the answer to the long A and the D-Eb-F climax descending to G (flute score bars 4-24)",
+    "titleJa": "風の伝説",
+    "subtitleJa": "メインテーマの一節",
     "tempoBpm": 82.00003553334874,
     "beatsPerBar": 4,
     "difficulty": {
@@ -1051,6 +1241,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-bare-necessities",
     "title": "The Bare Necessities",
     "subtitle": "Complete refrain, both halves to the tonic (C-instrument score bars 3-18)",
+    "titleJa": "ザ・ベア・ネセシティ",
+    "subtitleJa": "リフレイン（完全版）",
     "tempoBpm": 208.00038826739143,
     "beatsPerBar": 4,
     "difficulty": {
@@ -1062,6 +1254,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-its-a-small-world",
     "title": "It's a Small World",
     "subtitle": "Complete refrain: three title lines and the closing line (flute score bars 10-17)",
+    "titleJa": "小さな世界",
+    "subtitleJa": "リフレイン（完全版）",
     "tempoBpm": 114.0001710002565,
     "beatsPerBar": 4,
     "difficulty": {
@@ -1073,6 +1267,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-animaniacs-theme",
     "title": "Animaniacs",
     "subtitle": "Opening strophe of the main title, pickup to the tonic before the key change",
+    "titleJa": "アニマニアックスのテーマ",
+    "subtitleJa": "メインタイトルの冒頭",
     "tempoBpm": 166.00035966744593,
     "beatsPerBar": 4,
     "difficulty": {
@@ -1084,6 +1280,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-winnie-the-pooh-theme",
     "title": "Winnie the Pooh",
     "subtitle": "Complete refrain from \"Winnie the Pooh\" to \"silly old bear\"",
+    "titleJa": "くまのプーさんのテーマ",
+    "subtitleJa": "リフレイン（完全版）",
     "tempoBpm": 120,
     "beatsPerBar": 4,
     "difficulty": {
@@ -1095,6 +1293,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-vivaldi-spring-ritornello",
     "title": "Spring",
     "subtitle": "Opening ritornello: pickup E, the two G#-G#-G#-F#-E-B calls with their B-A turn, then the G#-A-B-A-G#-F#-D#-B descent to B, before the piano echo",
+    "titleJa": "春（四季）",
+    "subtitleJa": "冒頭のリトルネッロ",
     "tempoBpm": 115.00002875000719,
     "beatsPerBar": 4,
     "difficulty": {
@@ -1106,6 +1306,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-mozart-rondo-alla-turca",
     "title": "Rondo alla Turca",
     "subtitle": "Complete eight-bar A period: the B-A-G#-A turn to C, D-C-B-C to E, F-E-D#-E and the B-A-G#-A sequence to the C6 quarter, then the upper voice A-C, B-A-G-A twice and B-A-G-F# to the half cadence on E",
+    "titleJa": "トルコ行進曲",
+    "subtitleJa": "A部分8小節（完全版）",
     "tempoBpm": 107.0001266168165,
     "beatsPerBar": 2,
     "difficulty": {
@@ -1117,6 +1319,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-bach-minuet-in-g",
     "title": "Minuet in G",
     "subtitle": "First eight-bar phrase: the D-G-A-B-C-D call and G-G, the E-C-D-E-F#-G answer and G-G, the stepwise descents and F#-G-A-B-G to the half cadence on a held A",
+    "titleJa": "メヌエット ト長調",
+    "subtitleJa": "最初の8小節のフレーズ",
     "tempoBpm": 132.000132000132,
     "beatsPerBar": 3,
     "difficulty": {
@@ -1128,6 +1332,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-greensleeves-verse",
     "title": "Greensleeves",
     "subtitle": "Complete verse: pickup A, the first line C-D-E-F-E-D-B-G-A-B-C-A-A-G#-A-B-G#-E, and the answering line to the A cadence",
+    "titleJa": "グリーンスリーブス",
+    "subtitleJa": "バース（完全版）",
     "tempoBpm": 150,
     "beatsPerBar": 3,
     "difficulty": {
@@ -1139,6 +1345,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-brahms-lullaby",
     "title": "Lullaby",
     "subtitle": "First half of the stanza: the rocking G-G-Bb calls, the rise to the E-flat peak and fall to B-flat, the F-G-A-flat answers and the D-E-flat cadence on the tonic",
+    "titleJa": "ブラームスの子守歌",
+    "subtitleJa": "最初の半分",
     "tempoBpm": 60,
     "beatsPerBar": 3,
     "difficulty": {
@@ -1150,6 +1358,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-swan-lake-theme",
     "title": "Swan Lake",
     "subtitle": "First oboe statement of the swan theme: the held F#, the B-C#-D-E rise, three dotted F# calls answered by D, and the B-D-B-G-D descent to the held B",
+    "titleJa": "白鳥の湖",
+    "subtitleJa": "オーボエによる白鳥のテーマの最初の一節",
     "tempoBpm": 80,
     "beatsPerBar": 4,
     "difficulty": {
@@ -1161,6 +1371,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-we-wish-you-a-merry-christmas",
     "title": "We Wish You a Merry Christmas",
     "subtitle": "Opening refrain: the three rising \"we wish you\" lines and the cadence to the held G (score pickup to bar 8)",
+    "titleJa": "ウィー・ウィッシュ・ユー・ア・メリー・クリスマス",
+    "subtitleJa": "冒頭のリフレイン",
     "tempoBpm": 76.00035466832179,
     "beatsPerBar": 4,
     "difficulty": {
@@ -1172,6 +1384,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-joy-to-the-world",
     "title": "Joy to the World",
     "subtitle": "Opening two lines of the hymn tune Antioch: the descending octave scale and the rising answer to the held tonic",
+    "titleJa": "もろびとこぞりて",
+    "subtitleJa": "賛美歌の冒頭2行",
     "tempoBpm": 60,
     "beatsPerBar": 2,
     "difficulty": {
@@ -1183,6 +1397,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-deck-the-halls",
     "title": "Deck the Halls",
     "subtitle": "First line with its fa-la answer, ending on the held F (score bars 1-4)",
+    "titleJa": "ひいらぎかざろう",
+    "subtitleJa": "最初の1行（ファララ付き）",
     "tempoBpm": 140.00046666822223,
     "beatsPerBar": 4,
     "difficulty": {
@@ -1194,6 +1410,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-pachelbel-canon",
     "title": "Canon in D",
     "subtitle": "First violin entrance: the two four-bar statements of the canon melody in quarter notes, from F# down to the closing E (bars 3-6)",
+    "titleJa": "カノン ニ長調",
+    "subtitleJa": "最初のバイオリンのカノン旋律",
     "tempoBpm": 55.00000458333371,
     "beatsPerBar": 4,
     "difficulty": {
@@ -1205,6 +1423,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-auld-lang-syne",
     "title": "Auld Lang Syne",
     "subtitle": "Complete first verse: the rising question to the high D and the answer back to the held tonic F (pickup to bar 8)",
+    "titleJa": "蛍の光",
+    "subtitleJa": "最初のバース（完全版）",
     "tempoBpm": 110.00091667430561,
     "beatsPerBar": 4,
     "difficulty": {
@@ -1216,6 +1436,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-ww-title-theme",
     "title": "Title Theme",
     "subtitle": "Complete section A of the slip jig: the two Ab pickups through the two dotted-quarter Db at the end of bar 8, before the repeat",
+    "titleJa": "タイトルテーマ（風のタクト）",
+    "subtitleJa": "Aセクション（完全版）",
     "tempoBpm": 180.00018000018,
     "beatsPerBar": 4.5,
     "difficulty": {
@@ -1227,6 +1449,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-mm-clock-town-day1",
     "title": "Clock Town, First Day",
     "subtitle": "First complete 4-bar statement of section A (12/8): staccato D, the descending D-C#-B-A figure, ending on the held tonic D",
+    "titleJa": "クロックタウン・初日",
+    "subtitleJa": "Aセクションの最初の4小節",
     "tempoBpm": 164.00029520053135,
     "beatsPerBar": 6,
     "difficulty": {
@@ -1238,6 +1462,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-alttp-kakariko-village",
     "title": "Kakariko Village",
     "subtitle": "Section A to the first ending: F pickup, the rising Bb-F-D answer twice to the held F, then the G-A-G-F-D descent to the held Bb",
+    "titleJa": "カカリコ村",
+    "subtitleJa": "Aセクション（第1エンディングまで）",
     "tempoBpm": 102.0000510000255,
     "beatsPerBar": 3,
     "difficulty": {
@@ -1249,6 +1475,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-oot-bolero-of-fire",
     "title": "Bolero of Fire",
     "subtitle": "Complete taught phrase: F-D-F-D-A-F-A-F, then the same figure a step higher on G-E-G-E-Bb-G-Bb-G",
+    "titleJa": "炎のボレロ",
+    "subtitleJa": "教わるフレーズ（完全版）",
     "tempoBpm": 62.00005993339127,
     "beatsPerBar": 3,
     "difficulty": {
@@ -1260,6 +1488,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-oot-minuet-of-forest",
     "title": "Minuet of Forest",
     "subtitle": "Complete taught phrase: the D-D octave leap, B-A-B-A, then the answer E-A-G-A, the G-A-G triplet, F# and the closing E",
+    "titleJa": "森のメヌエット",
+    "subtitleJa": "教わるフレーズ（完全版）",
     "tempoBpm": 100,
     "beatsPerBar": 3,
     "difficulty": {
@@ -1271,6 +1501,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-smw-overworld",
     "title": "Overworld",
     "subtitle": "Section A, one complete statement (7 bars) from the A-F-C opening to the held tonic F",
+    "titleJa": "地上テーマ（スーパーマリオワールド）",
+    "subtitleJa": "Aセクション（7小節）",
     "tempoBpm": 132.000132000132,
     "beatsPerBar": 2,
     "difficulty": {
@@ -1282,6 +1514,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-kirby-butter-building",
     "title": "Butter Building",
     "subtitle": "Complete section A (8 bars), from the D#-D#-C# opening to the rising D#-E-E#-F# lift",
+    "titleJa": "バタービルディング",
+    "subtitleJa": "Aセクション8小節（完全版）",
     "tempoBpm": 145.00003625000906,
     "beatsPerBar": 4,
     "difficulty": {
@@ -1293,6 +1527,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-pokemon-rby-bicycle",
     "title": "Cycling",
     "subtitle": "First section of the cycling loop (pickup + 9 bars): from the pickup C to the held B (half cadence)",
+    "titleJa": "じてんしゃ",
+    "subtitleJa": "ループの最初のセクション",
     "tempoBpm": 132.72779961641666,
     "beatsPerBar": 4,
     "difficulty": {
@@ -1304,6 +1540,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-pokemon-rby-celadon-city",
     "title": "Celadon City",
     "subtitle": "Section A of the loop (8 bars) after the intro run: from B-G-B-G to the D cadence and its octave D",
+    "titleJa": "タマムシシティ",
+    "subtitleJa": "ループのAセクション（8小節）",
     "tempoBpm": 132.72779961641666,
     "beatsPerBar": 4,
     "difficulty": {
@@ -1315,6 +1553,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-layton-theme",
     "title": "Professor Layton’s Theme",
     "subtitle": "Complete section A (8 bars), from the D-Eb-F opening to the closing F",
+    "titleJa": "レイトン教授のテーマ",
+    "subtitleJa": "Aセクション8小節（完全版）",
     "tempoBpm": 110.00011000011,
     "beatsPerBar": 4,
     "difficulty": {
@@ -1326,6 +1566,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-sonic2-emerald-hill",
     "title": "Emerald Hill Zone",
     "subtitle": "Complete section A (8 bars, two 4-bar statements), each ending on the held A",
+    "titleJa": "エメラルドヒルゾーン",
+    "subtitleJa": "Aセクション8小節（完全版）",
     "tempoBpm": 140.00014000014,
     "beatsPerBar": 4,
     "difficulty": {
@@ -1337,6 +1579,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-morrowind-nerevar-rising",
     "title": "Nerevar Rising",
     "subtitle": "First complete statement of the oboe theme: C-D pickup, the two Eb-G-Bb rises, the F-G-F-Eb-D turn, the climb to C and Eb, the Eb-D-C-Bb-Ab-G-F descent and the cadence on the held C",
+    "titleJa": "ネレヴァル・ライジング",
+    "subtitleJa": "オーボエテーマの最初の一節（完全版）",
     "tempoBpm": 80,
     "beatsPerBar": 3,
     "difficulty": {
@@ -1348,6 +1592,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-oblivion-reign-of-the-septims",
     "title": "Reign of the Septims",
     "subtitle": "Phrase A of the Elder Scrolls theme in the horns at the title: D-E pickup, F-F-G, A-A-C, G and the A-G-F-E turn to D, the D-E pickup again, F-F-G, A-A-C and the held high D",
+    "titleJa": "レイン・オブ・ザ・セプティムズ",
+    "subtitleJa": "テーマのフレーズA",
     "tempoBpm": 85.50004702502586,
     "beatsPerBar": 3,
     "difficulty": {
@@ -1359,6 +1605,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-duel-of-the-fates-brass",
     "title": "Duel of the Fates",
     "subtitle": "Horn statement of the Duel of the Fates countermelody: four 9-note phrases built on the octave drop (E-F#-G-A to low B twice, D#-E-F#-G to low A then high B, D#-E-F#-G to low A then high A), resolving on the tonic E",
+    "titleJa": "運命の闘い",
+    "subtitleJa": "ホルンによるカウンターメロディ",
     "tempoBpm": 160,
     "beatsPerBar": 4,
     "difficulty": {
@@ -1370,6 +1618,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-naruto-hokage-funeral",
     "title": "Naruto — Grief and Sorrow",
     "subtitle": "Main violin theme, both statements: A5 B5 A5 G5 E5 G5 D5 C5 D5 C5 A4, twice, ending on the held tonic A4",
+    "titleJa": "Naruto — 悲しみと悲哀",
+    "subtitleJa": "バイオリンのメインテーマ（2回）",
     "tempoBpm": 68.0000725334107,
     "beatsPerBar": 4,
     "difficulty": {
@@ -1381,6 +1631,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-naruto-raising-fighting-spirit",
     "title": "Naruto — The Raising Fighting Spirit",
     "subtitle": "The two-bar riff: E E E G F# E B A G A G F#, then E E E G F# E and the closing D and A below the riff",
+    "titleJa": "Naruto — 闘志",
+    "subtitleJa": "2小節のリフ",
     "tempoBpm": 225.00056250140625,
     "beatsPerBar": 6,
     "difficulty": {
@@ -1392,6 +1644,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-hobbit-misty-mountains",
     "title": "The Hobbit — Misty Mountains",
     "subtitle": "Sung stanza, first two lines: D F G B-flat C D C B-flat A G, then D G A A B-flat C B-flat A G, each ending on the tonic G",
+    "titleJa": "The Hobbit — 霧ふり山脈",
+    "subtitleJa": "歌の最初の2行",
     "tempoBpm": 69.99998833333528,
     "beatsPerBar": 4,
     "difficulty": {
@@ -1403,6 +1657,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-chopin-nocturne-op9-no2-opening",
     "title": "Nocturne in E-flat major",
     "subtitle": "Opening statement of the Nocturne: B-flat pickup, then bars 1-4 (G-F-G-F-E-flat-B-flat, the C-turn-C-G-B-flat-A-flat-G rise, F-G-D-E-flat-C-B-flat, the D-C-B-flat-A-flat-G-A-flat descent and the cadence on the held E-flat before the rest)",
+    "titleJa": "夜想曲 変ホ長調",
+    "subtitleJa": "冒頭の一節（1〜4小節）",
     "tempoBpm": 66.000066000066,
     "beatsPerBar": 6,
     "difficulty": {
@@ -1414,6 +1670,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-tide-is-high-chorus",
     "title": "The Tide Is High",
     "subtitle": "Chorus of The Tide Is High (Atomic Kitten version): the high G-E-D-C descent with the D-E rise, the E-D-C-B-C-D-D-E answer, and the last line G-G-F-E-F-G",
+    "titleJa": "ザ・タイド・イズ・ハイ",
+    "subtitleJa": "サビ",
     "tempoBpm": 104.00001386666851,
     "beatsPerBar": 4,
     "difficulty": {
@@ -1425,6 +1683,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-next-episode-riff",
     "title": "The Next Episode",
     "subtitle": "The instrumental riff of The Next Episode, one complete 12-attack cycle (two bars): A-E-E-D-E-D-C-D-D-C-A-C in the MIDI key (D#-A#-A#-G#-A#-G#-F#-G#-G#-F#-D#-F# in the recording key D# minor)",
+    "titleJa": "ザ・ネクスト・エピソード",
+    "subtitleJa": "インストリフ（1サイクル）",
     "tempoBpm": 100,
     "beatsPerBar": 4,
     "difficulty": {
@@ -1436,6 +1696,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-hips-dont-lie-horn-riff",
     "title": "Hips Don't Lie",
     "subtitle": "Intro horn riff, four bars and the held tail: C#-C-A#-F# | F#-G#-A#-F# | C-A#-G#-F | F-F#-G#-F | A#-G#-F#-C | A#-G#-A# (held). Instrumental, no lyric.",
+    "titleJa": "ヒップス・ドント・ライ",
+    "subtitleJa": "イントロのホーンリフ（4小節）",
     "tempoBpm": 102.0000510000255,
     "beatsPerBar": 4,
     "difficulty": {
@@ -1447,6 +1709,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-oot-song-of-time",
     "title": "Song of Time",
     "subtitle": "First complete statement: A-D-F-A-D-F (the in-game ocarina song), then A-C-B-G-F-G-A-D-C-E and the long closing D",
+    "titleJa": "時の歌",
+    "subtitleJa": "最初の一節（完全版、ゲーム内のオカリナ曲）",
     "tempoBpm": 120,
     "beatsPerBar": 4,
     "difficulty": {
@@ -1458,6 +1722,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-mm-elegy-of-emptiness",
     "title": "Elegy of Emptiness",
     "subtitle": "The complete seven-note ocarina song A-B-A-F-A-D-B (high D), closing on a held B",
+    "titleJa": "虚無のエレジー",
+    "subtitleJa": "オカリナ曲7音（完全版）",
     "tempoBpm": 88.00002346667293,
     "beatsPerBar": 4,
     "difficulty": {
@@ -1469,6 +1735,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-ss-ballad-of-the-goddess",
     "title": "Ballad of the Goddess",
     "subtitle": "The whole eight-bar section: D-E-F-G, C-D, G-E, D, then G-E, D-C-D, G-E",
+    "titleJa": "女神のバラッド",
+    "subtitleJa": "8小節のセクション全体",
     "tempoBpm": 132.000132000132,
     "beatsPerBar": 3,
     "difficulty": {
@@ -1480,6 +1748,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-fire-emblem-theme",
     "title": "Main Theme",
     "subtitle": "First 8-bar period of the Fire Emblem series theme: C F A A D D E F G F E, then C F A C(high) B-flat A D E F G G, ending on the G held four beats",
+    "titleJa": "メインテーマ（ファイアーエムブレム）",
+    "subtitleJa": "最初の8小節",
     "tempoBpm": 120,
     "beatsPerBar": 4,
     "difficulty": {
@@ -1491,6 +1761,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-undertale-hopes-and-dreams",
     "title": "Hopes and Dreams",
     "subtitle": "The 16-beat guitar riff cycle: F high, B-flat C B-flat F(low) B-flat C D, C B-flat F B-flat C E-flat D E-flat D C B-flat F, played once",
+    "titleJa": "希望と夢",
+    "subtitleJa": "16拍のギターリフ",
     "tempoBpm": 174.44395987788923,
     "beatsPerBar": 4,
     "difficulty": {
@@ -1502,6 +1774,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-chrono-trigger-main-theme",
     "title": "Main Theme",
     "subtitle": "The Chrono Trigger opening theme first statement: pickup B, then E F-sharp G B F-sharp D, A B E A B B A G-sharp, ending on the E held five and a half beats (E minor)",
+    "titleJa": "メインテーマ（クロノ・トリガー）",
+    "subtitleJa": "オープニングテーマの最初の一節",
     "tempoBpm": 135.000135000135,
     "beatsPerBar": 4,
     "difficulty": {
@@ -1513,6 +1787,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-sm64-select-a-file",
     "title": "Select a File",
     "subtitle": "The complete Select a File piano loop: G D D A D B D B C D | G D D A D B, then the same figures over a held D, ending on G A G A G B G",
+    "titleJa": "ファイルセレクト",
+    "subtitleJa": "ピアノループ（完全版）",
     "tempoBpm": 203.00034510058669,
     "beatsPerBar": 4,
     "difficulty": {
@@ -1524,6 +1800,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-forrest-gump-feather-theme",
     "title": "Feather Theme",
     "subtitle": "Feather theme statement in C: E F G G E G C G E F G A A F A | F G A A F A D B G E F G G C G | A B C C A C A C A | F G A A F A | F G A A F D E F D, closing on the tonic C (55 notes, Hooktheory 54 plus the tonic confirmed by the free score and the MIDI)",
+    "titleJa": "フェザー・テーマ（フォレスト・ガンプ）",
+    "subtitleJa": "フェザーテーマの一節",
     "tempoBpm": 100,
     "beatsPerBar": 4,
     "difficulty": {
@@ -1535,6 +1813,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-stranger-things-arpeggio",
     "title": "Main Title",
     "subtitle": "Synth arpeggio of the main title in C: four cycles of C E G B C B G E in sixteenth notes (32 attacks, two bars of 4/4, one Hooktheory chord segment), instrumental",
+    "titleJa": "メインタイトル（ストレンジャー・シングス）",
+    "subtitleJa": "メインタイトルのシンセアルペジオ",
     "tempoBpm": 82.99983538365983,
     "beatsPerBar": 4,
     "difficulty": {
@@ -1546,6 +1826,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-eleanor-rigby-verse",
     "title": "Eleanor Rigby",
     "subtitle": "First verse couplet of Eleanor Rigby in E minor: the A-A-B-G-E-G opening, the rising B-D then C-sharp/B/C-sharp/B/A/B/A descent to the held A, then (after the rest) the answering G-A-B-C-B",
+    "titleJa": "エリナー・リグビー",
+    "subtitleJa": "最初のバース",
     "tempoBpm": 138.00082800496804,
     "beatsPerBar": 4,
     "difficulty": {
@@ -1557,6 +1839,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-yesterday-first-line",
     "title": "Yesterday",
     "subtitle": "First sentence of the Yesterday verse: the G-F-F call with its long held F, the rising A-B-C-sharp-D-E-F answer that falls back E-D to the held D, then the second line D-D-C-B-flat-A-G that turns up to B-flat and settles on A-A",
+    "titleJa": "イエスタデイ",
+    "subtitleJa": "バースの最初の一文",
     "tempoBpm": 89.9999550000225,
     "beatsPerBar": 4,
     "difficulty": {
@@ -1568,6 +1852,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-obladi-chorus",
     "title": "Ob-La-Di, Ob-La-Da",
     "subtitle": "Chorus line of Ob-La-Di, Ob-La-Da in the original key family: three rising B-flat/D/F figures (the third held), the leap up to the high B-flat, the F-E-flat-D-E-flat-D-C stepwise descent and the closing B-flat pair",
+    "titleJa": "オブ・ラ・ディ、オブ・ラ・ダ",
+    "subtitleJa": "サビの1行",
     "tempoBpm": 117.000117000117,
     "beatsPerBar": 4,
     "difficulty": {
@@ -1579,6 +1865,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-come-as-you-are-riff",
     "title": "Come As You Are",
     "subtitle": "Main riff of Come As You Are: one 8-beat guitar cycle in E minor, E G E G E E | D# D A D D A D D# (14 attacks, five pitches), the loop that repeats under the whole intro and verse",
+    "titleJa": "カム・アズ・ユー・アー",
+    "subtitleJa": "メインリフ",
     "tempoBpm": 119.00016065021688,
     "beatsPerBar": 4,
     "difficulty": {
@@ -1590,6 +1878,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-beat-it-bass-riff",
     "title": "Beat It",
     "subtitle": "Opening riff of Beat It: D#2 F#2 A#2 (rise), F#3 (octave-plus leap), D#3 F3 D#3 C#3 C#3 (stepwise fall), then the second statement without its last C#3 (17 attacks, two 8-beat statements, D# minor)",
+    "titleJa": "ビート・イット",
+    "subtitleJa": "冒頭のリフ",
     "tempoBpm": 139.00021776700783,
     "beatsPerBar": 4,
     "difficulty": {
@@ -1601,6 +1891,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-yellow-submarine-verse",
     "title": "Yellow Submarine",
     "subtitle": "Verse couplet of Yellow Submarine: the A-sharp-B-C-sharp rise with its held C-sharp, A-sharp-G-sharp-A-sharp falling to the held F-sharp, then the second line A-sharp-A-sharp-G-sharp-F-sharp down to the low D-sharp pair and back up to A-sharp-A-sharp-G-sharp",
+    "titleJa": "イエロー・サブマリン",
+    "subtitleJa": "バースの2行",
     "tempoBpm": 108.00108001080011,
     "beatsPerBar": 4,
     "difficulty": {
@@ -1612,6 +1904,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-dont-look-back-in-anger-chorus",
     "title": "Don’t Look Back in Anger",
     "subtitle": "Closing line of the Don't Look Back in Anger chorus: G3 pickup, then G4 F4 G4 E4 (held), E4 A4 E4 G4 E4 D4 C4 and the C4 D4 E4 C4 tag (16 attacks, C major, resolving on the held tonic)",
+    "titleJa": "ドント・ルック・バック・イン・アンガー",
+    "subtitleJa": "サビの最後の1行",
     "tempoBpm": 82.00003553334874,
     "beatsPerBar": 4,
     "difficulty": {
@@ -1623,6 +1917,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-shape-of-you-marimba",
     "title": "Shape of You",
     "subtitle": "Marimba riff of Shape of You: C#4 E4 C#4 | C#4 E4 C#4 | C#4 E4 C#4 D#4 C#4 B3, the two-bar loop of the intro (12 attacks, C# minor, four pitches)",
+    "titleJa": "シェイプ・オブ・ユー",
+    "subtitleJa": "マリンバのリフ",
     "tempoBpm": 96,
     "beatsPerBar": 4,
     "difficulty": {
@@ -1634,6 +1930,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-we-are-the-champions-chorus",
     "title": "We Are the Champions",
     "subtitle": "Chorus of We Are the Champions: the full 41-attack melody over its four phrases in F major (F E F E C A D A | C F G A C A D E D | D C D C Bb Bb A Bb A G A F Bb A F Bb Ab F Bb Ab F | Eb C F), 12/8 ballad feel",
+    "titleJa": "伝説のチャンピオン",
+    "subtitleJa": "サビ（完全版）",
     "tempoBpm": 93.00004185001883,
     "beatsPerBar": 3,
     "difficulty": {
@@ -1645,6 +1943,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-air-on-the-g-string",
     "title": "Air on the G String",
     "subtitle": "First section of the Air (bars 1-6): the long high F-sharp, the B-G-F-sharp-E-D-C-sharp-D-C-sharp-B-A descent with its graces, the A-F-sharp-C-B-E-D-sharp-A-G rising-falling bar over the long G, the E-B-A-D-C-sharp-G-F-sharp run into the F-sharp, G-sharp-A, and the cadential run D-F-sharp-E to the closing A",
+    "titleJa": "G線上のアリア",
+    "subtitleJa": "最初のセクション（1〜6小節）",
     "tempoBpm": 72.00002880001152,
     "beatsPerBar": 4,
     "difficulty": {
@@ -1656,6 +1956,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-fix-you-chorus",
     "title": "Fix You",
     "subtitle": "Falling chorus line of Fix You, stated twice: Ab5 G5 F5 Eb5 D5 C5 Bb4 C5 Eb5 (held) | Ab5 G5 F5 Eb5 D5 C5 Bb4 C5 Eb5 (held) (18 attacks, E-flat major, a stepwise descent of a sixth-plus then a turn back up to the tonic)",
+    "titleJa": "フィックス・ユー",
+    "subtitleJa": "サビの1行（2回）",
     "tempoBpm": 137.00006393336318,
     "beatsPerBar": 4,
     "difficulty": {
@@ -1667,6 +1969,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-oot-eponas-song",
     "title": "Epona’s Song",
     "subtitle": "Complete taught phrase: D-B-A twice (the in-game ocarina song), then D-B-A-B and the long closing A",
+    "titleJa": "エポナの歌",
+    "subtitleJa": "教わるフレーズ（完全版、ゲーム内のオカリナ曲）",
     "tempoBpm": 96,
     "beatsPerBar": 3,
     "difficulty": {
@@ -1678,6 +1982,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-oot-sarias-song",
     "title": "Saria’s Song",
     "subtitle": "Complete taught phrase: F-A-B twice (the in-game ocarina song), then F-A-B-E-D, B-C-B-G-E and the closing D-E-G-E",
+    "titleJa": "サリアの歌",
+    "subtitleJa": "教わるフレーズ（完全版、ゲーム内のオカリナ曲）",
     "tempoBpm": 140.00014000014,
     "beatsPerBar": 4,
     "difficulty": {
@@ -1689,6 +1995,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-oot-song-of-storms",
     "title": "Song of Storms",
     "subtitle": "Complete taught phrase: D-F-D twice (the in-game ocarina song), then E-F-E-F-E-C-A and the answers A-D-F-G-A and A-D-F-G-E",
+    "titleJa": "嵐の歌",
+    "subtitleJa": "教わるフレーズ（完全版、ゲーム内のオカリナ曲）",
     "tempoBpm": 200,
     "beatsPerBar": 3,
     "difficulty": {
@@ -1700,6 +2008,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-oot-serenade-of-water",
     "title": "Serenade of Water",
     "subtitle": "Complete taught phrase: D-F-A-A-B (the in-game ocarina song), then the answer A-D-F-G-F-E-G and the closing F#",
+    "titleJa": "水のセレナーデ",
+    "subtitleJa": "教わるフレーズ（完全版、ゲーム内のオカリナ曲）",
     "tempoBpm": 96,
     "beatsPerBar": 3,
     "difficulty": {
@@ -1711,6 +2021,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-oot-nocturne-of-shadow",
     "title": "Nocturne of Shadow",
     "subtitle": "Complete ocarina line of the duet: B-A-A-D-B-A-F (the in-game ocarina song), a rest while the strings answer, then G#-F#-F#-C#-G#-F# and the closing F",
+    "titleJa": "闇のノクターン",
+    "subtitleJa": "オカリナの旋律（完全版、ゲーム内のオカリナ曲）",
     "tempoBpm": 80,
     "beatsPerBar": 4,
     "difficulty": {
@@ -1722,6 +2034,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-sonic1-marble-zone",
     "title": "Marble Zone",
     "subtitle": "Lead A half of the Marble Zone loop (A-B-C-E lead-in, the B-B-A pulse riff, the A-A-G run and the held E), 33 notes",
+    "titleJa": "マーブルゾーン",
+    "subtitleJa": "リードの前半",
     "tempoBpm": 130.00013000013,
     "beatsPerBar": 4,
     "difficulty": {
@@ -1733,6 +2047,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-sonic1-scrap-brain-zone",
     "title": "Scrap Brain Zone",
     "subtitle": "First statement of the Scrap Brain Zone lead (A-G-F-G-E, G-F-E-F-D, F-D#-D-D#-C-D, E-F-E held), 19 notes",
+    "titleJa": "スクラップブレインゾーン",
+    "subtitleJa": "リードの最初の一節",
     "tempoBpm": 120,
     "beatsPerBar": 4,
     "difficulty": {
@@ -1744,6 +2060,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-earthbound-onett",
     "title": "Onett",
     "subtitle": "Trumpet statement of the Onett theme: A-B-C-D, E-C-E-D, C-D-E-C, A-G, held E (4 bars)",
+    "titleJa": "オネット",
+    "subtitleJa": "トランペットによるオネットのテーマ",
     "tempoBpm": 109.99990833340972,
     "beatsPerBar": 4,
     "difficulty": {
@@ -1755,6 +2073,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-oot-kokiri-forest",
     "title": "Kokiri Forest",
     "subtitle": "Flute statement of the Kokiri Forest theme: G-C-G-E-D-E-F, G-A-G-F-G-F-E-D-E, held C (17 notes)",
+    "titleJa": "コキリの森",
+    "subtitleJa": "フルートによるコキリの森のテーマ",
     "tempoBpm": 145.00003625000906,
     "beatsPerBar": 4,
     "difficulty": {
@@ -1766,6 +2086,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-bubble-bobble-main-stage-theme",
     "title": "Main Theme",
     "subtitle": "The first 16-beat statement of the Bubble Bobble stage theme: (A#5 A5 G5 F5 A5 G5 F5 D#5 G5 F5 D#5 D5 F5 D5 C5 A#4 | C5 D5 D#5 C5 D5 D#5 F5 F5 G5 A5 G5 F5 F5 G5 A5), 31 attacks, played once",
+    "titleJa": "メインテーマ（バブルボブル）",
+    "subtitleJa": "ステージテーマの最初の16拍",
     "tempoBpm": 130.00013000013,
     "beatsPerBar": 4,
     "difficulty": {
@@ -1777,6 +2099,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-sf2-kens-theme",
     "title": "Ken's Theme",
     "subtitle": "The Ken stage lead played twice (22 attacks): F G G# A# G# G F C#4 C5 A# C5, then the same eleven notes again, each statement 24 beats long",
+    "titleJa": "ケンのテーマ",
+    "subtitleJa": "リード（2回）",
     "tempoBpm": 180.00018000018,
     "beatsPerBar": 4,
     "difficulty": {
@@ -1788,6 +2112,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-fzero-mute-city",
     "title": "Mute City",
     "subtitle": "The F-Zero Mute City main line, 26 attacks: F D# D C D D# F D# D C | C D D# F G F A# G# G F G F D# D C A# (one pass, the opening four-note run excluded)",
+    "titleJa": "ミュートシティ",
+    "subtitleJa": "メインライン",
     "tempoBpm": 95.00014250021376,
     "beatsPerBar": 2,
     "difficulty": {
@@ -1799,6 +2125,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-mm2-wood-man-stage",
     "title": "Wood Man Stage",
     "subtitle": "The Wood Man stage verse, one pass of 8 bars (29 attacks): B B B B A (long) A G# A F# F# A C#5 | B B A C#5 B B A B B C#5 B A G# G# A G# F#",
+    "titleJa": "ウッドマンステージ",
+    "subtitleJa": "バース（8小節）",
     "tempoBpm": 182.000182000182,
     "beatsPerBar": 4,
     "difficulty": {
@@ -1810,6 +2138,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-kid-icarus-underworld",
     "title": "Underworld",
     "subtitle": "The Underworld opening arpeggio phrase (14 attacks): G# D# G# C G# C D# C G# C# C A# G# A#",
+    "titleJa": "冥界",
+    "subtitleJa": "冒頭のアルペジオフレーズ",
     "tempoBpm": 104.00001386666851,
     "beatsPerBar": 2,
     "difficulty": {
@@ -1821,6 +2151,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-kh-traverse-town",
     "title": "Traverse Town",
     "subtitle": "The Traverse Town loop (17 attacks): F# G# B A# G# A# F# C#4 | D# F# F G# D# F# F F# G#, four bars with a triplet figure at the end",
+    "titleJa": "トラヴァースタウン",
+    "subtitleJa": "ループ",
     "tempoBpm": 111.80013117882058,
     "beatsPerBar": 4,
     "difficulty": {
@@ -1832,6 +2164,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-doom-at-dooms-gate",
     "title": "At Doom's Gate",
     "subtitle": "The E1M1 riff cycle (28 attacks): E E E' E E D' E E C' E E A#' E E B' C' | E E E' E E D' E E C' E E A#' (E2 pedal under an octave jump and a chromatic descent)",
+    "titleJa": "アット・ドゥームズ・ゲート",
+    "subtitleJa": "E1M1のリフ",
     "tempoBpm": 221.00017311680227,
     "beatsPerBar": 4,
     "difficulty": {
@@ -1843,6 +2177,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-smash-melee-menu",
     "title": "Menu",
     "subtitle": "The Melee menu opening statement (17 attacks, 16 beats): B F# B F#5 B F#5 A G# E | B B C# D B D F# E (E held 4 beats)",
+    "titleJa": "メニュー（スマブラDX）",
+    "subtitleJa": "メニューの冒頭",
     "tempoBpm": 154.99990958338608,
     "beatsPerBar": 4,
     "difficulty": {
@@ -1854,6 +2190,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-moon-river",
     "title": "Moon River",
     "subtitle": "First complete period of the song in C (3/4): G D C B A G F G C | B A G F G C D E C G E D C G E D C E G C B A B A G A G, sixteen bars from the opening G to the held G of \"day\" before the next line begins (36 notes)",
+    "titleJa": "ムーン・リバー",
+    "subtitleJa": "最初の完全な一節",
     "tempoBpm": 78.000078000078,
     "beatsPerBar": 3,
     "difficulty": {
@@ -1865,6 +2203,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-my-favorite-things",
     "title": "My Favorite Things",
     "subtitle": "Verse theme in E minor (waltz): E B B F# E E B3 E E F# E | E B B F# E E B3 E E F# E | E B A E F# D D A G C | B3 C D E F# G A B A D#, three lyric lines and the rising scale (42 notes) ending on the held D#4",
+    "titleJa": "私のお気に入り",
+    "subtitleJa": "バースのテーマ（ワルツ）",
     "tempoBpm": 220.00022000022,
     "beatsPerBar": 6,
     "difficulty": {
@@ -1876,6 +2216,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-belle-beauty-and-the-beast",
     "title": "Belle",
     "subtitle": "First complete statement of the Belle theme in C: E F A G E F D E G E G | C D F E C D A G (19 notes, two lines of eighth-note steps ending on the held G)",
+    "titleJa": "朝の風景",
+    "subtitleJa": "テーマの最初の一節（完全版）",
     "tempoBpm": 241.00063463500453,
     "beatsPerBar": 8,
     "difficulty": {
@@ -1887,6 +2229,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-prince-ali",
     "title": "Prince Ali",
     "subtitle": "First two lines of the chorus in F: F4 F4 F5 D#5 F5 D#5 C#5 C5 C#5 C5 A#4 F4 | E4 F4 A#4 G#4 A#4 G#4 F#4 F4 F#4 F4 D#4 (23 notes: an octave leap and descending call ending on a held F4, then its answer ending on the held D#4)",
+    "titleJa": "プリンス・アリ",
+    "subtitleJa": "サビの最初の2行",
     "tempoBpm": 177.0235264266621,
     "beatsPerBar": 4,
     "difficulty": {
@@ -1898,6 +2242,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-just-around-the-riverbend",
     "title": "Just Around the Riverbend",
     "subtitle": "Complete verse in C: E G E D D C G3 C D | E G E D D C G3 C D | E G E D C G3 C D C D E | C A A E D C G3 C D E G E D C E | E F G G G G G C C D D G (56 notes in four lines: the question-like opening motif twice, its continuation, a contrasting line and the closing repeated-note line ending on the held G)",
+    "titleJa": "川の向こうで",
+    "subtitleJa": "バース（完全版）",
     "tempoBpm": 100,
     "beatsPerBar": 4,
     "difficulty": {
@@ -1909,6 +2255,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-saja-boys-soda-pop-chorus",
     "title": "Soda Pop",
     "subtitle": "Complete chorus in C: E G E D C A | E G E D C A | E E C C D | E E E C C C, stated twice back to back (46 notes: two descending lines on the E G E D C A figure and two repeated-note lines, each statement of four 2-bar lines)",
+    "titleJa": "ソーダ・ポップ",
+    "subtitleJa": "サビ（完全版）",
     "tempoBpm": 126.000126000126,
     "beatsPerBar": 4,
     "difficulty": {
@@ -1920,6 +2268,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-cotton-eye-joe-fiddle",
     "title": "Cotton Eye Joe",
     "subtitle": "First complete 16-beat cycle of the Cotton Eye Joe fiddle tune in A mixolydian: the A-G-A-G (with its G-sharp slide) A-C#-E-C#-A-C#-A figure, the same figure a tone higher (D-C#-D-C#-D-E-D-C#-B), the chromatic B-A#-B-A# turn and D#-E run, the E-D#-E-F# climb and the descent E-D-C#-B",
+    "titleJa": "コットン・アイ・ジョー",
+    "subtitleJa": "最初の16拍のフィドル",
     "tempoBpm": 132.00158401900822,
     "beatsPerBar": 4,
     "difficulty": {
@@ -1931,6 +2281,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-the-sign-synth-hook",
     "title": "The Sign",
     "subtitle": "Complete instrumental synthesizer hook of The Sign: four statements of the G-F-G-F-A#-G-F-G figure (the fourth with a G-G-G tail), and the rising D#6-D6-C6-D6 tag that closes it",
+    "titleJa": "ザ・サイン",
+    "subtitleJa": "シンセフック（完全版）",
     "tempoBpm": 97.00010993345792,
     "beatsPerBar": 4,
     "difficulty": {
@@ -1942,6 +2294,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-what-is-love-chorus",
     "title": "What Is Love",
     "subtitle": "First complete statement of the What Is Love chorus line: the D#-F#-G# rise, the D#-E-D#-F#-D# answer, the D#-F#-D# echo and the D#-C# close on the held C#4",
+    "titleJa": "ホワット・イズ・ラブ",
+    "subtitleJa": "サビの最初の一節（完全版）",
     "tempoBpm": 126.000126000126,
     "beatsPerBar": 4,
     "difficulty": {
@@ -1953,6 +2307,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-let-it-be-verse",
     "title": "Let It Be",
     "subtitle": "Complete first verse sentence of Let It Be in C major, three lines: the G-G-G-G-A-E-G-G climb to C-D, the E-E-E-D-D-C-C answer, and the E-E-F-E-E-D-E-D-D-C close on the held C",
+    "titleJa": "レット・イット・ビー",
+    "subtitleJa": "最初のバース（完全版）",
     "tempoBpm": 72.000288001152,
     "beatsPerBar": 4,
     "difficulty": {
@@ -1964,6 +2320,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-bohemian-rhapsody-mama",
     "title": "Bohemian Rhapsody",
     "subtitle": "Opening stanza of the Bohemian Rhapsody ballad section in B-flat major: the D4-D4 call, the A#3-C4-D4-D4 answer, the D-D-D#-F-D#-D-C rise and fall, and its repeat C-D-D#-F-D#-D-C to the held C4",
+    "titleJa": "ボヘミアン・ラプソディ",
+    "subtitleJa": "バラード部分の冒頭",
     "tempoBpm": 73.0006935065883,
     "beatsPerBar": 4,
     "difficulty": {
@@ -1975,6 +2333,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-time-after-time-chorus",
     "title": "Time After Time",
     "subtitle": "Complete chorus of Time After Time: the rising D-G-G figure stated three times with the A-E answer and the E-E-D-E tag, then a fourth statement that climbs to C5 (C B A C A) and cadences on the held E (62 attacks, C major, 131 BPM)",
+    "titleJa": "タイム・アフター・タイム",
+    "subtitleJa": "サビ（完全版）",
     "tempoBpm": 131.00007641671124,
     "beatsPerBar": 4,
     "difficulty": {
@@ -1986,6 +2346,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-lean-on-me-opening",
     "title": "Lean on Me",
     "subtitle": "Opening vocal line of Lean on Me: the held C, C-D-E-F, the F-E-D-C descent and the C-D-E-B-C close (14 attacks, C major, two rest-separated bars before the second line)",
+    "titleJa": "リーン・オン・ミー",
+    "subtitleJa": "冒頭のボーカルライン",
     "tempoBpm": 73.00140406033809,
     "beatsPerBar": 4,
     "difficulty": {
@@ -1997,6 +2359,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-have-you-ever-seen-the-rain-verse",
     "title": "Have You Ever Seen the Rain?",
     "subtitle": "Complete first verse line of Have You Ever Seen the Rain: the G-A-C-A-E-C-C figure twice, the G climb on five attacks and the stepwise F-F-E-E descent (23 attacks, C major)",
+    "titleJa": "雨を見たかい",
+    "subtitleJa": "最初のバース（完全版）",
     "tempoBpm": 115.00002875000719,
     "beatsPerBar": 4,
     "difficulty": {
@@ -2008,6 +2372,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-enter-sandman-riff",
     "title": "Enter Sandman",
     "subtitle": "Opening clean-guitar riff of Enter Sandman: the six-note cell E2 E3 G3 A#2 A2 E3 stated four times (24 attacks, E minor, the first four bars of the intro)",
+    "titleJa": "エンター・サンドマン",
+    "subtitleJa": "冒頭のギターリフ",
     "tempoBpm": 123.00123001230013,
     "beatsPerBar": 4,
     "difficulty": {
@@ -2019,6 +2385,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-aqua-barbie-girl-verse",
     "title": "Barbie Girl",
     "subtitle": "First verse call of Barbie Girl: the rising E-F#-G# cell three times, A-G#-F#, D#-E-F# twice and the F#-G#-F#-E close (22 attacks, C-sharp minor)",
+    "titleJa": "バービー・ガール",
+    "subtitleJa": "最初のバース",
     "tempoBpm": 126.000126000126,
     "beatsPerBar": 4,
     "difficulty": {
@@ -2030,6 +2398,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-ewf-september-chorus",
     "title": "September",
     "subtitle": "Complete chorus of September: three C#-D-C# lines, the C#-D-C#-B-A-B turns and the F#-B-A close held for six beats (29 attacks, A major)",
+    "titleJa": "セプテンバー",
+    "subtitleJa": "サビ（完全版）",
     "tempoBpm": 126.000126000126,
     "beatsPerBar": 4,
     "difficulty": {
@@ -2041,6 +2411,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-pokemon-rby-trainer-battle",
     "title": "Trainer Battle",
     "subtitle": "The trainer battle theme's first 64-beat statement: the B-F# pedal phrase, the A-section answer and the rising run that resolves on a held F#5 (28 attacks)",
+    "titleJa": "トレーナー戦",
+    "subtitleJa": "テーマの最初の64拍",
     "tempoBpm": 180.00018000018,
     "beatsPerBar": 4,
     "difficulty": {
@@ -2052,6 +2424,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-pokemon-rby-mt-moon",
     "title": "Mt. Moon",
     "subtitle": "Mt. Moon cave theme, A and B sections (37 attacks, 32 beats): D#5 C#5 B4 C#5 D#5 G5 D#5 C#5 B4 C#5 D#5 G5 D#5 C#5 B4 A#4 B4 C#5 | G#5 F#5 E5 F#5 G#5 C6 G#5 F#5 E5 F#5 G#5 C6 G#5 F#5 E5 D#5 E5 F#5 E5",
+    "titleJa": "おつきみやま",
+    "subtitleJa": "洞窟テーマのA・Bセクション",
     "tempoBpm": 120,
     "beatsPerBar": 4,
     "difficulty": {
@@ -2063,6 +2437,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-ff7-main-theme",
     "title": "Main Theme",
     "subtitle": "The Final Fantasy VII main theme, two 16-beat statements: E F# G# D#5 C#5 E F# G# B A E F# | E F# G# D#5 C#5 E F# G# B A E F# G# (G# held), 25 attacks",
+    "titleJa": "メインテーマ（FFVII）",
+    "subtitleJa": "メインテーマ（2回）",
     "tempoBpm": 86.00005160003096,
     "beatsPerBar": 4,
     "difficulty": {
@@ -2074,6 +2450,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-ff7-fighting",
     "title": "Fighting",
     "subtitle": "The Final Fantasy VII battle riff, one full 24-beat loop: F G# G A# G# C A# C# C G# F, again, then the D#5 G F G# G A# G# C A# G D# turnaround (33 attacks)",
+    "titleJa": "闘う者達",
+    "subtitleJa": "戦闘リフ（1ループ）",
     "tempoBpm": 185.000185000185,
     "beatsPerBar": 4,
     "difficulty": {
@@ -2085,6 +2463,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-smario-64-bob-omb-battlefield",
     "title": "Bob-omb Battlefield",
     "subtitle": "The Bob-omb Battlefield chorus lines: A G# G F# F E C, A A G# G# G G F# F# F G E, A A G# G# G G F# F# F E C (29 attacks, 21.5 beats)",
+    "titleJa": "ボムへいのせんじょう",
+    "subtitleJa": "コーラスライン",
     "tempoBpm": 109.99990833340972,
     "beatsPerBar": 4,
     "difficulty": {
@@ -2096,6 +2476,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-chrono-cross-scars-of-time",
     "title": "Scars of Time",
     "subtitle": "The main section of Scars of Time: E6 D6 C6 B5 A5 G5 F#5 G5 D6 B5 / E6 D6 C6 B5 A5 G5 A5 B5 A5 F#5 G5 F#5 E5 (E held), 23 attacks, 28.5 beats",
+    "titleJa": "時の傷痕",
+    "subtitleJa": "メインセクション",
     "tempoBpm": 112.00005973336519,
     "beatsPerBar": 4,
     "difficulty": {
@@ -2107,6 +2489,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-zelda-alttp-hyrule-castle",
     "title": "Hyrule Castle",
     "subtitle": "The Hyrule Castle first strain: the rising pickup G A A# C D, then D# D# D# D# C G D# D | C C C C G D# C A# (21 attacks, the A# held almost 4 beats)",
+    "titleJa": "ハイラル城",
+    "subtitleJa": "最初の部分",
     "tempoBpm": 134.00005806669182,
     "beatsPerBar": 4,
     "difficulty": {
@@ -2118,6 +2502,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-mega-man-3-spark-man",
     "title": "Spark Man Stage",
     "subtitle": "The Spark Man stage statement: D D F A# A F G | F E F E D E D C | G G A A# A A# C | A# C D C A# A (28 attacks, 16 beats, looped)",
+    "titleJa": "スパークマンステージ",
+    "subtitleJa": "ステージテーマ",
     "tempoBpm": 135.000135000135,
     "beatsPerBar": 4,
     "difficulty": {
@@ -2129,6 +2515,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-mega-man-3-snake-man",
     "title": "Snake Man Stage",
     "subtitle": "The Snake Man stage statement: D# D# C G G# G D# | F F D# F | G G G G G# A# G | C# C# C C | A# A# G# G C# C G G# A# C | F F F F G G# F | C# C# C C (43 attacks, 32 beats)",
+    "titleJa": "スネークマンステージ",
+    "subtitleJa": "ステージテーマ",
     "tempoBpm": 143.000143000143,
     "beatsPerBar": 4,
     "difficulty": {
@@ -2140,6 +2528,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-castlevania-3-beginning",
     "title": "Beginning",
     "subtitle": "The Beginning cycle: F E D A | A D E F E D A | G# E G# | G D# G (17 attacks, 16 beats)",
+    "titleJa": "ビギニング",
+    "subtitleJa": "ループ",
     "tempoBpm": 120,
     "beatsPerBar": 4,
     "difficulty": {
@@ -2151,6 +2541,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-animal-crossing-8-am",
     "title": "8:00 AM",
     "subtitle": "The whole 8:00 AM line: C A A# C C4 A# | A F G A C4 G | C A A# C C4 D C A# F A (22 attacks, the last A held almost 8 beats)",
+    "titleJa": "午前8時",
+    "subtitleJa": "全体",
     "tempoBpm": 112.00005973336519,
     "beatsPerBar": 4,
     "difficulty": {
@@ -2162,6 +2554,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-excitebike-title-theme",
     "title": "Title Theme",
     "subtitle": "The complete Excitebike title jingle: E G C E G C | G# B E G# B E | D C D C A G F F E D# D C | E F F# G C (29 attacks)",
+    "titleJa": "タイトルテーマ（エキサイトバイク）",
+    "subtitleJa": "タイトルジングル（完全版）",
     "tempoBpm": 109.99990833340972,
     "beatsPerBar": 4,
     "difficulty": {
@@ -2173,6 +2567,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-donkey-kong-country-main-theme",
     "title": "Main Theme",
     "subtitle": "The Donkey Kong Country theme verse: A F G F D | D D A# G A G E | E E C A A# C D | F G A | E F G (25 attacks, 28.5 beats)",
+    "titleJa": "メインテーマ（ドンキーコング）",
+    "subtitleJa": "テーマのバース",
     "tempoBpm": 125,
     "beatsPerBar": 4,
     "difficulty": {
@@ -2184,6 +2580,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-nokia-tune-grande-valse",
     "title": "Gran Vals",
     "subtitle": "The Nokia ringtone (the opening phrase of Tarrega's Gran Vals), 13 notes in 3/4: E6 D6 F#5 G#5 | C#6 B5 D5 E5 | B5 A5 C#5 E5 | A5 (dotted half)",
+    "titleJa": "グラン・ワルツ（ノキア着信音）",
+    "subtitleJa": "着信音フレーズ（13音）",
     "tempoBpm": 180.00018000018,
     "beatsPerBar": 3,
     "difficulty": {
@@ -2195,6 +2593,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-do-i-wanna-know-riff",
     "title": "Do I Wanna Know?",
     "subtitle": "The one-bar-pair guitar riff (20 notes, one cycle, G minor): F G A# G F G A# F4 D# D C A# C D C A# C D D G, ending on the G held 3 beats",
+    "titleJa": "ドゥ・アイ・ワナ・ノウ？",
+    "subtitleJa": "ギターリフ（1サイクル）",
     "tempoBpm": 85.00004250002125,
     "beatsPerBar": 4,
     "difficulty": {
@@ -2206,6 +2606,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-jeopardy-think",
     "title": "Think!",
     "subtitle": "Think! (Final Jeopardy music), 31 notes without the grace run: A D A D4 A D A | A D A D F# E D C# B A# | A D A D4 A D A | D B A G F# E D",
+    "titleJa": "シンク！",
+    "subtitleJa": "31音（装飾音符なし）",
     "tempoBpm": 125,
     "beatsPerBar": 4,
     "difficulty": {
@@ -2217,6 +2619,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-sf2-ryus-theme",
     "title": "Ryu's Theme",
     "subtitle": "Ryu's Theme main phrase (28 notes, one statement of the line over 7 bars): G E F# G A G F# B3 | E F# G A B G | E F# G A B C5 B | B A G F# F E D# (held 4 beats)",
+    "titleJa": "リュウのテーマ",
+    "subtitleJa": "メインフレーズ",
     "tempoBpm": 140.00014000014,
     "beatsPerBar": 4,
     "difficulty": {
@@ -2228,6 +2632,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-kirby-king-dededes-theme",
     "title": "King Dedede's Theme",
     "subtitle": "King Dedede's Theme opening statement (18 notes): D C D A#3 A F D# F G | C C# D C D A#3 A F C5 (held 2 beats)",
+    "titleJa": "デデデ大王のテーマ",
+    "subtitleJa": "冒頭の一節",
     "tempoBpm": 165.000165000165,
     "beatsPerBar": 4,
     "difficulty": {
@@ -2239,6 +2645,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-cave-story-main-theme",
     "title": "Main Theme",
     "subtitle": "The Cave Story theme's first statement (23 notes, 6/4, long-short pairs): D#5 F F F# G# F# F D# | F# G# F# F D# B4 | F# F# F D# F C#5 | G# G# F5 (held to the bar line)",
+    "titleJa": "メインテーマ（洞窟物語）",
+    "subtitleJa": "最初の一節",
     "tempoBpm": 157.40182061439177,
     "beatsPerBar": 6,
     "difficulty": {
@@ -2250,6 +2658,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-digimon-butter-fly",
     "title": "Butter-Fly",
     "subtitle": "Chorus first statement of Butter-Fly (Digimon Adventure opening), from the first E to the held E: E F# G# F# G# F# E D# E | C# E G# F# E E E F# F# E E D# C# B G# B C# | C# E C# E C# E C# C# G# G# F# E F# E F# G# F# F# E D# E",
+    "titleJa": "Butter-Fly",
+    "subtitleJa": "サビの最初の一節",
     "tempoBpm": 165.000165000165,
     "beatsPerBar": 4,
     "difficulty": {
@@ -2261,6 +2671,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-bebop-tank",
     "title": "Tank!",
     "subtitle": "The Tank! riff, two statements: C G C F# C D# C A# C(held) | C G C F# C D# C A# C(held)",
+    "titleJa": "Tank!",
+    "subtitleJa": "リフ（2回）",
     "tempoBpm": 255.00012750006374,
     "beatsPerBar": 4,
     "difficulty": {
@@ -2272,6 +2684,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-naruto-go",
     "title": "GO!!!",
     "subtitle": "GO!!! chorus: three statements B C# D# B G# B C# | B C# B D# C# B C# D# B ... then the lead-out F# F# E D# E D# C# B C# B(held)",
+    "titleJa": "GO!!!",
+    "subtitleJa": "サビ",
     "tempoBpm": 137.00006393336318,
     "beatsPerBar": 4,
     "difficulty": {
@@ -2283,6 +2697,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-do-you-hear-the-people-sing",
     "title": "Do You Hear the People Sing?",
     "subtitle": "Complete verse in F (59 notes, A3-C5 in the tab key): the rising marching call A G F G A Bb C, its descending answer, the repeat of both, and the closing climb to the held tonic",
+    "titleJa": "民衆の歌",
+    "subtitleJa": "バース（完全版）",
     "tempoBpm": 80,
     "beatsPerBar": 4,
     "difficulty": {
@@ -2294,6 +2710,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-ymca-verse",
     "title": "Y.M.C.A.",
     "subtitle": "Complete verse melody of Y.M.C.A. in three lines: the C#-A#-A#-G#-F#-G#-A#-C#-A#-C#-D#-A# opening line, its answer ending C#-D#-B, and the B-B-A#-G#-A#-B-D#-F#-D#-F-D#-C#-B-A#-G# climb and fall (written one octave below the Hooktheory page)",
+    "titleJa": "Y.M.C.A.",
+    "subtitleJa": "バース（完全版）",
     "tempoBpm": 127.00025400050801,
     "beatsPerBar": 4,
     "difficulty": {
@@ -2305,6 +2723,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-cant-buy-me-love-chorus",
     "title": "Can't Buy Me Love",
     "subtitle": "Complete refrain-tail and line of Can't Buy Me Love in C: the held G4 and E4, then the D#-D#-D-C-D-C-C-C blues line, E-G-G, and the E-D-D-F answer resolving on the held G4",
+    "titleJa": "キャント・バイ・ミー・ラブ",
+    "subtitleJa": "リフレイン（完全版）",
     "tempoBpm": 175.0138552635417,
     "beatsPerBar": 4,
     "difficulty": {
@@ -2316,6 +2736,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-eight-days-a-week-verse",
     "title": "Eight Days a Week",
     "subtitle": "Complete verse melody of Eight Days a Week in D major: the 11-note cell F#-E-D-E-E-B-B-D-G-G-F# stated twice",
+    "titleJa": "エイト・デイズ・ア・ウィーク",
+    "subtitleJa": "バース（完全版）",
     "tempoBpm": 141.00030315065177,
     "beatsPerBar": 4,
     "difficulty": {
@@ -2327,6 +2749,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-michelle-verse",
     "title": "Michelle",
     "subtitle": "Complete first statement of the Michelle verse melody in two question-and-answer phrases: C-C-C#-G#-G-C-G-G-F, then G#-B-G#-G-F-G#-G held (written an octave above the Hooktheory page)",
+    "titleJa": "ミッシェル",
+    "subtitleJa": "バースの最初の一節（完全版）",
     "tempoBpm": 120,
     "beatsPerBar": 4,
     "difficulty": {
@@ -2338,6 +2762,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-still-havent-found-chorus",
     "title": "I Still Haven't Found What I'm Looking For",
     "subtitle": "Complete chorus melody of I Still Haven't Found What I'm Looking For: the 11-note figure C#-C#-G#-F#-F-C#-A#-A#-A#-C#-C# stated twice (written an octave above the Hooktheory page)",
+    "titleJa": "アイ・スティル・ハヴント・ファウンド",
+    "subtitleJa": "サビ（完全版）",
     "tempoBpm": 102.00091800826208,
     "beatsPerBar": 4,
     "difficulty": {
@@ -2349,6 +2775,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-sunday-bloody-sunday-intro",
     "title": "Sunday Bloody Sunday",
     "subtitle": "Two complete cycles of the Sunday Bloody Sunday guitar intro arpeggio in B-flat minor (written a semitone above the MIDI files): 16 notes Bb-Db-F-Db, Ab-Db-F-Db, Gb-Db-Eb-Db, Gb-Db-Eb-Db plus the Gb lead-in, stated twice",
+    "titleJa": "ブラディ・サンデー",
+    "subtitleJa": "イントロのアルペジオ（2サイクル）",
     "tempoBpm": 100,
     "beatsPerBar": 4,
     "difficulty": {
@@ -2360,6 +2788,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-yesterday-once-more-chorus",
     "title": "Yesterday Once More",
     "subtitle": "Complete chorus melody of Yesterday Once More in E major (61 notes): the E-F#-G#-G#-G#-G# opening and its D#-E-D#-C#-G#-B answer, the repeat with a fifth G#, the long middle line through D#-E-F#-E-D#, and the closing descent E-F#-G#-A-F# held",
+    "titleJa": "イエスタデイ・ワンス・モア",
+    "subtitleJa": "サビ（完全版）",
     "tempoBpm": 84.000084000084,
     "beatsPerBar": 4,
     "difficulty": {
@@ -2371,6 +2801,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-another-day-in-paradise-intro",
     "title": "Another Day in Paradise",
     "subtitle": "Complete introduction of Another Day in Paradise: the eight-note cell 1-1-2-1-7-6-5-6 of its synth riff (A A B A G# F# E F# in the primary file) played four times, the second and fourth statements closing on the lower note instead of the sixth",
+    "titleJa": "アナザー・デイ・イン・パラダイス",
+    "subtitleJa": "イントロ（完全版）",
     "tempoBpm": 105.000105000105,
     "beatsPerBar": 4,
     "difficulty": {
@@ -2382,6 +2814,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-daydream-believer-chorus",
     "title": "Daydream Believer",
     "subtitle": "Complete chorus of Daydream Believer in G major: the E-E-F#-E-E-D line, the C-C-D-D-B-G-A-G answer, the D-E-D-C-B-C lift and the D-C-C-B-A close on the long A",
+    "titleJa": "デイドリーム・ビリーバー",
+    "subtitleJa": "サビ（完全版）",
     "tempoBpm": 125,
     "beatsPerBar": 4,
     "difficulty": {
@@ -2393,6 +2827,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-here-there-and-everywhere-verse",
     "title": "Here, There and Everywhere",
     "subtitle": "Complete verse melody of Here, There and Everywhere in G major: the long G, the rising B-D-A-G and C-E-D answer, the stepwise B-C-D-E and G-A-B climb, five repeated B, the C-B-B-A-G-A-B fall, F#-E and the closing held A",
+    "titleJa": "ヒア・ゼア・アンド・エヴリホエア",
+    "subtitleJa": "バース（完全版）",
     "tempoBpm": 90.00090000900009,
     "beatsPerBar": 4,
     "difficulty": {
@@ -2404,6 +2840,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-fool-on-the-hill-chorus",
     "title": "The Fool on the Hill",
     "subtitle": "Complete chorus melody of The Fool on the Hill in D minor: the D-A-A#-G-A-G call, the repeated A-A#-A-G-G-A-A# climb, the A#-C-A#-A-A#-C answer and the rising close C-D-E-F-E-D",
+    "titleJa": "ザ・フール・オン・ザ・ヒル",
+    "subtitleJa": "サビ（完全版）",
     "tempoBpm": 120,
     "beatsPerBar": 4,
     "difficulty": {
@@ -2415,6 +2853,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-knowing-me-verse",
     "title": "Knowing Me, Knowing You",
     "subtitle": "Complete verse melody of Knowing Me, Knowing You in D major: the D-E-B-D-D-E figure twice, the F#-F#-F#-E-E-D-D-C# line, the D-E-F#-F#-E answer, the low G with E-E-D-D-C#-C#-B and the closing B-C#-D-C#-D-C#-B",
+    "titleJa": "ノウイング・ミー、ノウイング・ユー",
+    "subtitleJa": "バース（完全版）",
     "tempoBpm": 106.00144868646538,
     "beatsPerBar": 4,
     "difficulty": {
@@ -2426,6 +2866,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-black-or-white-verse",
     "title": "Black or White",
     "subtitle": "Verse melody of Black or White in E major: the line B-E-G#-A-G#-E-B-A-G#-A-B (held), the two-note B pickup and its repeat E-G#-A-G#-E-B-A-G#-A-B to the held B",
+    "titleJa": "ブラック・オア・ホワイト",
+    "subtitleJa": "バース",
     "tempoBpm": 120,
     "beatsPerBar": 4,
     "difficulty": {
@@ -2437,6 +2879,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-one-piece-we-are",
     "title": "We Are!",
     "subtitle": "Complete chorus: A-A-A pickup into the rising D-D-A-D-F answer, the F-G#-G figure and the held D, then the same statement closing F-D-F-D (28 notes)",
+    "titleJa": "ウィーアー！",
+    "subtitleJa": "サビ（完全版）",
     "tempoBpm": 168.0004032009677,
     "beatsPerBar": 4,
     "difficulty": {
@@ -2448,6 +2892,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-one-piece-binks-sake",
     "title": "Binks' Sake",
     "subtitle": "The sung verse: two 26-note sentences (A#-G-F-D#-C-D-D#, the answer rising to G# and falling to F, closing on the held D#)",
+    "titleJa": "ビンクスの酒",
+    "subtitleJa": "歌のバース",
     "tempoBpm": 120,
     "beatsPerBar": 4,
     "difficulty": {
@@ -2459,6 +2905,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-zelda-song-of-healing",
     "title": "Song of Healing",
     "subtitle": "The complete 43-note Song of Healing melody: four 3/4 lines (each stated twice with its answering ending), closing on the held G4",
+    "titleJa": "いやしの歌",
+    "subtitleJa": "メロディ43音（完全版）",
     "tempoBpm": 92.00012880018032,
     "beatsPerBar": 3,
     "difficulty": {
@@ -2470,6 +2918,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-pokemon-poke-flute",
     "title": "Poké Flute",
     "subtitle": "The complete Poké Flute jingle: E F G A G C D C G A F G, ending on the held G",
+    "titleJa": "ポケモンのふえ",
+    "subtitleJa": "ジングル（完全版）",
     "tempoBpm": 80,
     "beatsPerBar": 4,
     "difficulty": {
@@ -2481,6 +2931,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-pokemon-healing-jingle",
     "title": "Pokémon Healed",
     "subtitle": "The complete Pokémon Center healing jingle: B B B G# E, the last E held",
+    "titleJa": "回復ジングル",
+    "subtitleJa": "回復ジングル（完全版）",
     "tempoBpm": 140.00014000014,
     "beatsPerBar": 4,
     "difficulty": {
@@ -2492,6 +2944,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-pokemon-center-hgss-lead",
     "title": "Pokémon Center",
     "subtitle": "The Pokémon Center lead melody as the HeartGold/SoulSilver flute voice: D A D A G F# E C# / C# A C# F# E C# D F# twice, ending on the long D (31 notes)",
+    "titleJa": "ポケモンセンター",
+    "subtitleJa": "リードメロディ（HGSSのフルート音色）",
     "tempoBpm": 113.99995440001824,
     "beatsPerBar": 4,
     "difficulty": {
@@ -2503,6 +2957,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-pokemon-jigglypuff-song",
     "title": "Jigglypuff’s Song",
     "subtitle": "The complete in-game Jigglypuff lullaby: E B G# F# G# A G# F# G# E, slow, 14.5 beats",
+    "titleJa": "プリンの歌",
+    "subtitleJa": "ゲーム内のプリンの子守歌（完全版）",
     "tempoBpm": 146.00032120070665,
     "beatsPerBar": 4,
     "difficulty": {
@@ -2514,6 +2970,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-pokemon-petalburg-city-rse",
     "title": "Petalburg City",
     "subtitle": "The first complete section of Petalburg City: four phrases, 51 notes, from the D#5 pickup to the held C#6 where the lead hands over",
+    "titleJa": "トウカシティ",
+    "subtitleJa": "最初のセクション（完全版）",
     "tempoBpm": 126.000126000126,
     "beatsPerBar": 4,
     "difficulty": {
@@ -2525,6 +2983,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-pokemon-dewford-town-rse",
     "title": "Dewford Town",
     "subtitle": "The first complete period of Dewford Town: four phrases, 44 notes, from the G5 entry to the long E5",
+    "titleJa": "ムロタウン",
+    "subtitleJa": "最初の部分（完全版）",
     "tempoBpm": 94.00012846684224,
     "beatsPerBar": 2,
     "difficulty": {
@@ -2536,6 +2996,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-sonic-casino-night-zone",
     "title": "Casino Night Zone",
     "subtitle": "Complete 16-bar main loop of the Sonic 2 pinball zone: held E4, E4-F4-E4 turn, A4-B4-A4-C5 climb, descending close (41 attacks, upper voice)",
+    "titleJa": "カジノナイトゾーン",
+    "subtitleJa": "メインループ16小節（完全版）",
     "tempoBpm": 168.60089358473599,
     "beatsPerBar": 4,
     "difficulty": {
@@ -2547,6 +3009,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-sonic-spring-yard-zone",
     "title": "Spring Yard Zone",
     "subtitle": "Spring Yard Zone theme: the two complete lines (F5-E5-D5-C5 descent with the A#4 turn, then the repeat closing A5-G5-F5), 27 attacks",
+    "titleJa": "スプリングヤードゾーン",
+    "subtitleJa": "テーマの2行（完全版）",
     "tempoBpm": 150,
     "beatsPerBar": 4,
     "difficulty": {
@@ -2558,6 +3022,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-hollow-knight-queens-gardens",
     "title": "Queen's Gardens",
     "subtitle": "Opening two-phrase cycle of Queen's Gardens: D5-C#5-A4-B4-D5-E5-C#5-B4 answered by D5-C#5-A4-B4-G4-A4-F#4-E4 (16 attacks, resolves to the tonic)",
+    "titleJa": "女王の庭",
+    "subtitleJa": "冒頭の2フレーズ",
     "tempoBpm": 136.0001450668214,
     "beatsPerBar": 4,
     "difficulty": {
@@ -2569,6 +3035,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-hollow-knight-greenpath",
     "title": "Greenpath",
     "subtitle": "Complete Greenpath verse: two statements of the theme with the descending close C4-A3 (25 attacks, long sustained notes)",
+    "titleJa": "緑の道",
+    "subtitleJa": "バース（完全版）",
     "tempoBpm": 170.0000850000425,
     "beatsPerBar": 6,
     "difficulty": {
@@ -2580,6 +3048,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-deltarune-dark-sanctuary",
     "title": "Dark Sanctuary",
     "subtitle": "Dark Sanctuary chorus theme: one complete 20-note statement (the section repeats it identically), A#4-A4-A#4-C5 pickup, three D5 attacks, climb to A5, descent and close on E5",
+    "titleJa": "暗黒の聖域",
+    "subtitleJa": "サビテーマ（完全版）",
     "tempoBpm": 190.0002850004275,
     "beatsPerBar": 6,
     "difficulty": {
@@ -2591,6 +3061,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-pvz-zombies-on-your-lawn",
     "title": "Zombies on Your Lawn",
     "subtitle": "Chorus melody of the credits song, instrumental line only: the G-ending phrase (D-D#-F-D#-D-G-F-G) answered by the C-ending phrase closing on A#3 (17 attacks)",
+    "titleJa": "ゾンビ・オン・ユア・ローン",
+    "subtitleJa": "エンディング曲のサビ（インスト）",
     "tempoBpm": 104.99992125005906,
     "beatsPerBar": 4,
     "difficulty": {
@@ -2602,6 +3074,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-stardew-valley-overture",
     "title": "Overture",
     "subtitle": "Stardew Valley Overture opening theme statement: six bars of 3/4, D#5-F#5-E5-D#5-E5-F#5-D#5-B4 / D#5-F#5-E5-G#5-F#5-C#5 (14 attacks)",
+    "titleJa": "序曲（スターデューバレー）",
+    "subtitleJa": "冒頭のテーマ",
     "tempoBpm": 90.00009000009,
     "beatsPerBar": 3,
     "difficulty": {
@@ -2613,6 +3087,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-clair-obscur-lumiere",
     "title": "Lumière",
     "subtitle": "Complete verse and pre-chorus line: the F#5 refrain twice, then the B5 descent and the rising B4-F#5 turn to the held E5",
+    "titleJa": "リュミエール",
+    "subtitleJa": "バースとプレコーラス（完全版）",
     "tempoBpm": 163.00007063336395,
     "beatsPerBar": 4,
     "difficulty": {
@@ -2624,6 +3100,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-clair-obscur-alicia",
     "title": "Alicia",
     "subtitle": "First statement of the chorus theme: G4 C5 D#5 D5 sway into G4, then F4 G#4 C5 and the descent to the held B4",
+    "titleJa": "アリシア",
+    "subtitleJa": "サビテーマの最初の一節",
     "tempoBpm": 114.0001710002565,
     "beatsPerBar": 4,
     "difficulty": {
@@ -2635,6 +3113,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-clair-obscur-une-vie-a-taimer",
     "title": "Une vie à t'aimer",
     "subtitle": "Verse line: the E5 D5 sway, the rising E-F#-G turn, the held D5 and the descent to G4 before the closing climb",
+    "titleJa": "愛する人生",
+    "subtitleJa": "バースの1行",
     "tempoBpm": 180.00018000018,
     "beatsPerBar": 3,
     "difficulty": {
@@ -2646,6 +3126,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-fma-brothers",
     "title": "Brothers",
     "subtitle": "Complete four-line theme: D F E F G A F E D, D F E F G C A G A, D F E F G A F E D, D C D E F E D",
+    "titleJa": "ブラーチヤ",
+    "subtitleJa": "テーマ4行（完全版）",
     "tempoBpm": 140.99997180000565,
     "beatsPerBar": 3,
     "difficulty": {
@@ -2657,6 +3139,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-spider-man-1967-theme",
     "title": "Spider-Man",
     "subtitle": "Complete first strain: C D# G call and F# D# C answer, the G#-G line, the F G# C B G# F climb, the repeat of the call, and the closing eight-note tag back to C",
+    "titleJa": "スパイダーマンのテーマ",
+    "subtitleJa": "最初の部分（完全版）",
     "tempoBpm": 192,
     "beatsPerBar": 4,
     "difficulty": {
@@ -2668,6 +3152,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-jojo-giorno-theme",
     "title": "Giorno's Theme (Il vento d'oro)",
     "subtitle": "First eight-bar period of the theme: B C# D E F# rising run, B D A G# answer, F# E F#; then the same run with the A B continuation and the F# G# F# close",
+    "titleJa": "ジョルノのテーマ（黄金の風）",
+    "subtitleJa": "最初の8小節",
     "tempoBpm": 135.000135000135,
     "beatsPerBar": 4,
     "difficulty": {
@@ -2679,6 +3165,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-caramelldansen",
     "title": "Caramelldansen (chorus)",
     "subtitle": "Complete first chorus period: two four-bar lines, from the A#3 pickup through G4 F4 D#4 to the A#4 G#4 G4 climb and the closing D#4 on the first beat of the next bar",
+    "titleJa": "キャラメルダンセン",
+    "subtitleJa": "最初のサビ（完全版）",
     "tempoBpm": 138.00019320027047,
     "beatsPerBar": 4,
     "difficulty": {
@@ -2690,6 +3178,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-hate-that-i-made-you-love-me",
     "title": "hate that i made you love me",
     "subtitle": "Complete chorus melody from the opening F down the F-D#-C#-G# cell through four two-bar lines to the final held D# (36 attacks, 32 beats)",
+    "titleJa": "ヘイト・ザット・アイ・メイド・ユー・ラブ・ミー",
+    "subtitleJa": "サビ（完全版）",
     "tempoBpm": 96,
     "beatsPerBar": 4,
     "difficulty": {
@@ -2701,6 +3191,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-dracula",
     "title": "Dracula",
     "subtitle": "Complete chorus riff stated twice: two eight-note statements A#-G#-F#-F-F#-F-C#-D#, each closing on the held D# (16 attacks, 15 beats)",
+    "titleJa": "ドラキュラ",
+    "subtitleJa": "サビリフ（2回）",
     "tempoBpm": 115.00002875000719,
     "beatsPerBar": 4,
     "difficulty": {
@@ -2712,6 +3204,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-manchild",
     "title": "Manchild",
     "subtitle": "First two chorus lines: the D-D-B pickup line and the rising A-B-B-A-G answer to the E-G-A-B-B-A-G close (19 attacks, 14 beats)",
+    "titleJa": "マンチャイルド",
+    "subtitleJa": "サビの最初の2行",
     "tempoBpm": 123.00022140039852,
     "beatsPerBar": 4,
     "difficulty": {
@@ -2723,6 +3217,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-end-of-beginning",
     "title": "End of Beginning",
     "subtitle": "Chorus second half: the B-D pickup, the descending D-D-D-C#-B-A-B-C#-D-B-A line and the rising D-D-E-F#-G-A-E-D-F#-E-D hook ending on the long held D (23 attacks, 16.5 beats)",
+    "titleJa": "エンド・オブ・ビギニング",
+    "subtitleJa": "サビの後半",
     "tempoBpm": 80,
     "beatsPerBar": 4,
     "difficulty": {
@@ -2734,6 +3230,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-wildflower",
     "title": "Wildflower",
     "subtitle": "First two chorus lines: the E-F#-F#-C# pickup line held on C# and the E-F#-A-G#-F#-E line held on E (10 attacks, 7.5 beats)",
+    "titleJa": "ワイルドフラワー",
+    "subtitleJa": "サビの最初の2行",
     "tempoBpm": 74.000074000074,
     "beatsPerBar": 4,
     "difficulty": {
@@ -2745,6 +3243,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-rockin-around-the-christmas-tree",
     "title": "Rockin' Around the Christmas Tree",
     "subtitle": "Opening eight bars of the recording: the neighbour-note figure, the ninth drop and the answering line, then the second four bars, ending on the held dominant before the next period",
+    "titleJa": "ロッキン・アラウンド・ザ・クリスマスツリー",
+    "subtitleJa": "冒頭の8小節",
     "tempoBpm": 141.00030315065177,
     "beatsPerBar": 4,
     "difficulty": {
@@ -2756,6 +3256,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-daisy-bell",
     "title": "Daisy Bell",
     "subtitle": "The complete 32-bar chorus tune in 3/4: the held descending triad call twice, the answer, the half-chorus cadence, then the stepwise second half with its turn and the closing scale-and-leap phrase on the tonic",
+    "titleJa": "デイジー・ベル",
+    "subtitleJa": "サビ32小節（完全版）",
     "tempoBpm": 170.00056666855556,
     "beatsPerBar": 3,
     "difficulty": {
@@ -2767,6 +3269,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-cliff-richard-congratulations",
     "title": "Congratulations",
     "subtitle": "The first refrain statement: the rising scale pickup, the lilting answer, the long run of steps and the long tonic that closes the eight bars",
+    "titleJa": "コングラチュレーションズ",
+    "subtitleJa": "最初のリフレイン",
     "tempoBpm": 93.00004185001883,
     "beatsPerBar": 4,
     "difficulty": {
@@ -2778,6 +3282,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-christina-perri-a-thousand-years",
     "title": "A Thousand Years",
     "subtitle": "The full section as transcribed: two statements of the stepwise triplet-figure line, each with its falling answer, the rising low phrase and the held close; the low half-beat pickups where the sources disagree are not included",
+    "titleJa": "ア・サウザンド・イヤーズ",
+    "subtitleJa": "全セクション",
     "tempoBpm": 138.00019320027047,
     "beatsPerBar": 4,
     "difficulty": {
@@ -2789,6 +3295,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-bts-butter-chorus",
     "title": "Butter",
     "subtitle": "The complete sung chorus, two statements: the stepwise descent from the high C, the low turn and the rising answer, then the repeated-note tail",
+    "titleJa": "バター",
+    "subtitleJa": "サビ（完全版、2回）",
     "tempoBpm": 110.00011000011,
     "beatsPerBar": 4,
     "difficulty": {
@@ -2800,6 +3308,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-gorillaz-feel-good-inc-bass-riff",
     "title": "Feel Good Inc.",
     "subtitle": "The opening four-bar bass riff: two repeated low notes, a rising step pair, a jump to a note held across the bar, then the answering descent to the tonic",
+    "titleJa": "フィール・グッド・インク",
+    "subtitleJa": "冒頭4小節のベースリフ",
     "tempoBpm": 139.4998465501688,
     "beatsPerBar": 4,
     "difficulty": {
@@ -2811,6 +3321,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-yiruma-river-flows-in-you-theme",
     "title": "River Flows in You",
     "subtitle": "The opening theme: the eight-note neighbour-tone motif ending on a held note, the two-note pickup and its repeat",
+    "titleJa": "リバー・フローズ・イン・ユー",
+    "subtitleJa": "冒頭のテーマ",
     "tempoBpm": 72.00002880001152,
     "beatsPerBar": 4,
     "difficulty": {
@@ -2822,6 +3334,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-stop-the-wedding",
     "title": "Stop The Wedding!",
     "subtitle": "Complete sung chorus, both statements: a held low pickup, a rising answer, then a stepwise descent, repeated with the same closing high note held long",
+    "titleJa": "ストップ・ザ・ウェディング！",
+    "subtitleJa": "サビ（完全版、2回）",
     "tempoBpm": 132.000132000132,
     "beatsPerBar": 4,
     "difficulty": {
@@ -2833,6 +3347,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-oh-yeah",
     "title": "oh yeah?",
     "subtitle": "Two complete statements of the sung line: a low pickup, a gentle rise through five pitches with a quick turn, the long low hold, then the answer that rises and falls back with a held close",
+    "titleJa": "オー・イエー？",
+    "subtitleJa": "歌のライン（2回）",
     "tempoBpm": 73.00007178340392,
     "beatsPerBar": 4,
     "difficulty": {
@@ -2844,6 +3360,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-love-me-not",
     "title": "Love Me Not",
     "subtitle": "The complete sung chorus built on one repeated cell: a step up to the high F, a stepwise fall with repeated notes, and the low turn, repeated with small variations and a final held low note",
+    "titleJa": "ラブ・ミー・ノット",
+    "subtitleJa": "サビ（完全版）",
     "tempoBpm": 114.0001710002565,
     "beatsPerBar": 4,
     "difficulty": {
@@ -2855,6 +3373,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-five-hundred-miles",
     "title": "500 Miles",
     "subtitle": "Complete verse melody in D major, both stanzas: the rising D-D-F#-F#-E-D-F# line and its answer down to B, the A-B-D-E lift held on E, then the repeated refrain stanza ending on the held tonic D (54 attacks, about 64 beats)",
+    "titleJa": "500マイル",
+    "subtitleJa": "バース（完全版）",
     "tempoBpm": 97.00010993345792,
     "beatsPerBar": 4,
     "difficulty": {
@@ -2866,6 +3386,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-mr-know-it-all",
     "title": "Mr. Know It All",
     "subtitle": "Complete sung chorus in B minor, two statements of a rising E-F#-G line that falls back through E to D with a held F#, answered by a lift to C#-D and a B4 drop (40 attacks, about 14 s at 126 BPM)",
+    "titleJa": "ミスター・ノウ・イット・オール",
+    "subtitleJa": "サビ（完全版、2回）",
     "tempoBpm": 126.000126000126,
     "beatsPerBar": 4,
     "difficulty": {
@@ -2877,6 +3399,8 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     "id": "catalogue-carry-that-weight",
     "title": "Carry That Weight",
     "subtitle": "Complete refrain, two statements: the pickup C, the rising C-D-E-G and falling G-F-D line, the repeated G-G-F-D answer and the low G3-C-E closing figure (30 attacks, about 21 s at 84 BPM)",
+    "titleJa": "キャリー・ザット・ウェイト",
+    "subtitleJa": "リフレイン（完全版、2回）",
     "tempoBpm": 84.000084000084,
     "beatsPerBar": 4,
     "difficulty": {

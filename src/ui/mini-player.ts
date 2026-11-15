@@ -9,7 +9,7 @@ import { songMeta, type SongbookEntry } from './songbook';
 import { staffClef, staffTokenHtml } from './staff';
 import { swapStaff, timeNoteThread } from './staff-motion';
 import { threadIcon } from './thread-icons';
-import { t } from './i18n';
+import { displayTitle, t } from './i18n';
 
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
@@ -92,7 +92,7 @@ export class MiniPlayer {
     }, error => {
       if (!current()) return;
       this.requesting = null;
-      this.status.textContent = t('mini.loadFailed', { title: entry.title, message: error instanceof Error ? error.message : 'unknown error' });
+      this.status.textContent = t('mini.loadFailed', { title: displayTitle(entry), message: error instanceof Error ? error.message : 'unknown error' });
     });
   }
 
@@ -109,8 +109,8 @@ export class MiniPlayer {
         arrangement: { title: track.title, tempoBpm: track.tempoBpm, notes },
         passages: createPassages(notes, track.tempoBpm, track.phraseStarts),
       };
-      this.title.textContent = entry.title;
-      this.expandButton.setAttribute('aria-label', t('mini.openLessonFor', { title: entry.title }));
+      this.title.textContent = displayTitle(entry);
+      this.expandButton.setAttribute('aria-label', t('mini.openLessonFor', { title: displayTitle(entry) }));
       this.meta.textContent = songMeta(entry);
       this.tab.classList.toggle('has-modifiers', notes.some(note => !!note.bend));
       this.renderedWindow = null;
@@ -152,7 +152,10 @@ export class MiniPlayer {
 
   /** Re-render the toggle wording and announcements in the new language. */
   refreshLanguage(): void {
-    if (this.loaded) this.expandButton.setAttribute('aria-label', t('mini.openLessonFor', { title: this.loaded.entry.title }));
+    if (this.loaded) {
+      this.title.textContent = displayTitle(this.loaded.entry);
+      this.expandButton.setAttribute('aria-label', t('mini.openLessonFor', { title: displayTitle(this.loaded.entry) }));
+    }
     this.announced = '';
     this.shown = null;
     this.render(this.quick.state);
@@ -179,7 +182,7 @@ export class MiniPlayer {
       return;
     }
     this.show();
-    const title = this.loaded.entry.title;
+    const title = displayTitle(this.loaded.entry);
     if (changed) {
       this.toggleButton.innerHTML = threadIcon(playing ? 'pause' : 'play');
       this.toggleButton.setAttribute('aria-label', t(playing ? 'mini.pauseAria' : 'mini.playAria', { title }));

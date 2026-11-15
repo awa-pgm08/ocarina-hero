@@ -35,7 +35,7 @@ import { bindPullToRefresh } from './pull-refresh';
 import { completedIds, markOpened, markPractice, PROGRESS_STORAGE, readProgress, type Progress } from './progress';
 import { DEFAULT_PREFERENCES, PREFERENCES_STORAGE, readPreferences, type Preferences } from './preferences';
 import { LOCAL_DATA_KEYS, parseSavedExport, savedExport } from './local-data';
-import { getLang, initI18n, t } from './i18n';
+import { displaySubtitle, displayTitle, getLang, initI18n, t } from './i18n';
 
 const APP_BASE = import.meta.env.BASE_URL;
 const engine = new OcarinaEngine();
@@ -383,11 +383,11 @@ function renderSource(source: Source, play = false): void {
 
 function runDemo(demo: DemoTrack): void {
   closeAudioEditor();
-  fileName.textContent = demo.title;
+  fileName.textContent = displayTitle(demo);
   stopPlayback();
   renderSource({
     title: demo.title,
-    subtitle: demo.subtitle,
+    subtitle: displaySubtitle(demo),
     tempoBpm: demo.tempoBpm,
     beatsPerBar: demo.beatsPerBar ?? 4,
     melody: demo.melody,
@@ -841,7 +841,7 @@ function renderLessonMeta(): void {
 }
 
 function updateLessonHeading(): void {
-  must('#lesson-title').textContent = selectedEntry?.title ?? current?.title ?? t('nav.freeplay');
+  must('#lesson-title').textContent = (selectedEntry ? displayTitle(selectedEntry) : current?.title) ?? t('nav.freeplay');
   const universe = must('#lesson-universe');
   universe.innerHTML = threadIcon(selectedEntry?.icon ?? 'music');
   universe.append(document.createTextNode(selectedEntry?.universe ?? (current ? t('lesson.yourMelody') : t('lesson.yourInstrument'))));
@@ -953,8 +953,8 @@ function offerNextStep(): void {
   const upcoming = selectedEntry && nextSong(catalogue.entries, selectedEntry.id, completedIds(progress));
   nextSongButton.hidden = !upcoming;
   if (upcoming) {
-    nextSongButton.querySelector('.stitched-label')!.textContent = upcoming.title;
-    nextSongButton.setAttribute('aria-label', t('lesson.nextSongAria', { title: upcoming.title }));
+    nextSongButton.querySelector('.stitched-label')!.textContent = displayTitle(upcoming);
+    nextSongButton.setAttribute('aria-label', t('lesson.nextSongAria', { title: displayTitle(upcoming) }));
     nextSongButton.dataset.song = upcoming.id;
   }
   songComplete.hidden = false;
@@ -1041,7 +1041,7 @@ function showView(next: AppView, pushHistory = true): void {
   if (next === 'lesson') watchGamepads();
   if (returningToCatalog) catalogue.refresh();
   if (next === 'catalog' || next === 'popular') refreshPopular();
-  document.title = next !== 'lesson' || !current ? 'Ocarina Hero' : selectedEntry ? songDocumentTitle(selectedEntry.title, songMeta(selectedEntry)) : `${current.title} · Ocarina Hero`;
+  document.title = next !== 'lesson' || !current ? 'Ocarina Hero' : selectedEntry ? songDocumentTitle(displayTitle(selectedEntry), songMeta(selectedEntry)) : `${current.title} · Ocarina Hero`;
   scroller.scrollTop = returningToCatalog ? catalogScroll : 0;
 }
 
@@ -1134,7 +1134,7 @@ must('#share-song').addEventListener('click', async () => {
   if (!selectedEntry) return;
   const button = must('#share-song .share-label');
   const url = shareUrl(location.href, APP_BASE, selectedEntry.id);
-  const title = `${selectedEntry.title} · Ocarina Hero`;
+  const title = `${displayTitle(selectedEntry)} · Ocarina Hero`;
   let label = t('share.copied');
   try {
     if (navigator.share) { await navigator.share({ title, url }); return; }
@@ -1338,6 +1338,8 @@ window.addEventListener('languagechange', () => {
   renderedWindow = null;
   renderTab();
   updateLessonHeading();
+  document.title = view !== 'lesson' || !current ? 'Ocarina Hero' : selectedEntry ? songDocumentTitle(displayTitle(selectedEntry), songMeta(selectedEntry)) : `${current.title} · Ocarina Hero`;
+  if (!songComplete.hidden) offerNextStep();
   updateProgress();
   refreshPracticeStatus();
   setPlayLabel(playback.playing || repeatingTimer !== undefined ? 'Stop' : 'Play');
