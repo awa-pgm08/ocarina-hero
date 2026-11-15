@@ -477,32 +477,52 @@ progress::-moz-progress-bar { background: transparent; }
 .gp-part-static { position: absolute; translate: -50% -50%; }
 .gp-at-stick-left { left: 24.4%; top: 37.9%; width: 13.7%; }
 .gp-at-stick-right { left: 59.4%; top: 55.1%; width: 12.4%; }
-.gp-at-dpad { left: 36.9%; top: 56.5%; width: 12.2%; }
+.gp-at-dpad-up { left: 36.9%; top: 53.9%; width: 6.5%; }
+.gp-at-dpad-down { left: 36.9%; top: 59.1%; width: 6.5%; }
+.gp-at-dpad-left { left: 35.1%; top: 56.5%; width: 8.6%; }
+.gp-at-dpad-right { left: 38.7%; top: 56.5%; width: 8.6%; }
 .gp-at-b { left: 71%; top: 43.5%; width: 8.6%; }
-.gp-in-l { width: 91%; }
-.gp-in-r { width: 89%; }
+/* The L/R parts are the grey tab band alone, sized to their natural share of the
+   photo (150/156 px of 780) inside their hit areas. */
+.gp-in-l { width: 92%; }
+.gp-in-r { width: 91%; }
 .gp-in-disc { width: 84%; }
 .gp-in-b { width: 82%; }
-/* Part feedback: the filter follows the PNG alpha, so a disc glows as a disc and
-   the cross as a cross. Expected parts pulse gently; active parts burn brighter
-   and press in slightly. The clusters mirror their bend keys' states onto the
-   shared stick / D-pad part via :has(). */
+/* Part feedback: the filter follows the PNG alpha, so a disc glows as a disc, the
+   tab as the tab band alone, and each D-pad arm as its own arm. Expected parts
+   pulse gently; active parts burn brighter and press in slightly. The clusters
+   mirror their bend keys' states via :has(): the stick glows whole whichever
+   bend is live, but each D-pad arm answers only to its own bend — the left and
+   right arms have no bend and never light. The pulse keyframes animate filter
+   only, so they never fight the transforms below. */
 @keyframes gp-part-pulse {
   from { filter: brightness(1.1) drop-shadow(0 0 3px #ffcd55a0); }
   to { filter: brightness(1.34) drop-shadow(0 0 9px #ffcd55e6); }
 }
 .pad--controller .key.is-expected .gp-part,
-.gp-cluster:has(.bend-key.is-expected) .gp-part { animation: gp-part-pulse 1.6s ease-in-out infinite alternate; }
+.gp-cluster-stick:has(.bend-key.is-expected) .gp-part,
+.gp-cluster-dpad:has(.bend-key[data-bend="1"].is-expected) .gp-at-dpad-up,
+.gp-cluster-dpad:has(.bend-key[data-bend="-1"].is-expected) .gp-at-dpad-down { animation: gp-part-pulse 1.6s ease-in-out infinite alternate; }
 .pad--controller .key.is-active .gp-part,
-.gp-cluster:has(.bend-key.is-active) .gp-part {
+.gp-cluster-stick:has(.bend-key.is-active) .gp-part,
+.gp-cluster-dpad:has(.bend-key[data-bend="1"].is-active) .gp-at-dpad-up,
+.gp-cluster-dpad:has(.bend-key[data-bend="-1"].is-active) .gp-at-dpad-down {
   animation: none;
   filter: brightness(1.48) drop-shadow(0 0 10px #ffcd55f2);
-  transform: scale(.96);
 }
+.pad--controller .key.is-active .gp-part,
+.gp-cluster-dpad:has(.bend-key[data-bend="1"].is-active) .gp-at-dpad-up,
+.gp-cluster-dpad:has(.bend-key[data-bend="-1"].is-active) .gp-at-dpad-down { transform: scale(.96); }
+/* Tilting the stick: while a stick bend is held, the stick part leans that way.
+   The shift is a transform on the img (independent of the filter pulse above);
+   the transition keeps it a quick lean rather than a jump. */
+.gp-at-stick-left { transition: transform 90ms ease-out; }
+.gp-cluster-stick:has(.bend-key[data-bend="2"].is-active) .gp-at-stick-left { transform: translateY(-9%); }
+.gp-cluster-stick:has(.bend-key[data-bend="-2"].is-active) .gp-at-stick-left { transform: translateY(9%); }
 /* Hit areas, centred on the corrected part positions; at least as large as the
    overlays they replace, and large enough to cover each part. */
-.gp-pos-l { left: 20.5%; top: 19.5%; width: 21%; height: 17.5%; border-radius: 12px; }
-.gp-pos-r { left: 73.6%; top: 15.9%; width: 22%; height: 16.5%; border-radius: 12px; }
+.gp-pos-l { left: 20.3%; top: 19.5%; width: 21%; height: 17.5%; border-radius: 12px; }
+.gp-pos-r { left: 73.8%; top: 16.2%; width: 22%; height: 16.5%; border-radius: 12px; }
 .gp-pos-rb { left: 71%; top: 43.5%; width: 10.5%; aspect-ratio: 1; border-radius: 50%; }
 .gp-pos-x { left: 70.3%; top: 26.2%; width: 10.5%; aspect-ratio: 1; border-radius: 50%; }
 .gp-pos-y { left: 64.6%; top: 35.4%; width: 10.5%; aspect-ratio: 1; border-radius: 50%; }

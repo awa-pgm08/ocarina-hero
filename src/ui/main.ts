@@ -41,7 +41,10 @@ import partLUrl from './parts/part-l.png?url';
 import partRUrl from './parts/part-r.png?url';
 import partStickLeftUrl from './parts/part-stick-left.png?url';
 import partStickRightUrl from './parts/part-stick-right.png?url';
-import partDpadUrl from './parts/part-dpad.png?url';
+import partDpadUpUrl from './parts/part-dpad-up.png?url';
+import partDpadDownUrl from './parts/part-dpad-down.png?url';
+import partDpadLeftUrl from './parts/part-dpad-left.png?url';
+import partDpadRightUrl from './parts/part-dpad-right.png?url';
 import partXUrl from './parts/part-x.png?url';
 import partYUrl from './parts/part-y.png?url';
 import partAUrl from './parts/part-a.png?url';
@@ -256,8 +259,9 @@ function buildPad(): void {
     // The photo is the pad's base; its controls, cut out as separate images, are
     // reassembled over it at their measured positions (see .gp-* in styles.css),
     // so state feedback can light up each real part. Interactive parts live inside
-    // their buttons; the stick and D-pad parts sit under their two bend hit areas
-    // in a .gp-cluster, whose :has() rules glow the whole part. B has no action,
+    // their buttons; the stick part and the four D-pad arm parts sit under their
+    // bend hit areas in a .gp-cluster, whose :has() rules glow the stick whole and
+    // each D-pad arm for its own bend. B has no action,
     // so it is a loose part — except in the retro scheme, where R's button sits
     // over the B disc and carries the part itself.
     pad.classList.add('pad--controller');
@@ -269,13 +273,16 @@ function buildPad(): void {
           ? keyHtml(pitchForButton('R'), 'gp-pos gp-pos-rb', partImg(partBUrl, 'gp-in-b'))
           : `${keyHtml(pitchForButton('R'), 'gp-pos gp-pos-r', partImg(partRUrl, 'gp-in-r'))}
              ${partImg(partBUrl, 'gp-part-static gp-at-b')}`}
-        <div class="gp-cluster">
+        <div class="gp-cluster gp-cluster-stick">
           ${partImg(partStickLeftUrl, 'gp-part-static gp-at-stick-left')}
           ${bendKeyHtml(2, 'gp-pos gp-pos-sup')}
           ${bendKeyHtml(-2, 'gp-pos gp-pos-sdown')}
         </div>
-        <div class="gp-cluster">
-          ${partImg(partDpadUrl, 'gp-part-static gp-at-dpad')}
+        <div class="gp-cluster gp-cluster-dpad">
+          ${partImg(partDpadUpUrl, 'gp-part-static gp-at-dpad-up')}
+          ${partImg(partDpadDownUrl, 'gp-part-static gp-at-dpad-down')}
+          ${partImg(partDpadLeftUrl, 'gp-part-static gp-at-dpad-left')}
+          ${partImg(partDpadRightUrl, 'gp-part-static gp-at-dpad-right')}
           ${bendKeyHtml(1, 'gp-pos gp-pos-dup')}
           ${bendKeyHtml(-1, 'gp-pos gp-pos-ddown')}
         </div>
