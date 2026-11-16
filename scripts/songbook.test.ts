@@ -25,7 +25,7 @@ test('withinOneEdit accepts one replaced, missing, extra or swapped letter and n
 });
 
 test('search matches all normalized words across title, franchise, artist and aliases', () => {
-  assert.deepEqual(ids(filterSongbook(entries, { query: '  POKEMON   rÓute ' })), ['catalogue-pokemon-route1']);
+  assert.deepEqual(ids(filterSongbook(entries, { query: '  POKEMON   rÓute ' })), ['catalogue-pokemon-route1', 'catalogue-pokemon-rse-route-101']);
   assert.deepEqual(ids(filterSongbook(entries, { query: 'ghibli spirited always' })), ['catalogue-always-with-me']);
   assert.deepEqual(ids(filterSongbook(entries, { query: 'linkin numb' })), ['catalogue-numb']);
   assert.deepEqual(ids(filterSongbook(entries, { query: 'pokemon route missing' })), []);
@@ -89,7 +89,7 @@ test('franchise composers and full theme names stay searchable without being dis
   assert.deepEqual(ids(filterSongbook(entries, { query: 'zimmer interstellar' })), ['catalogue-cornfield-chase']);
   assert.deepEqual(ids(filterSongbook(entries, { query: 'jujutsu aizo' })), ['catalogue-aizo']);
   assert.deepEqual(ids(filterSongbook(entries, { category: 'Games', universe: 'Super Mario' })),
-    ['catalogue-dire-dire-docks', 'catalogue-smb-world-clear', 'catalogue-smb-game-over', 'catalogue-smw-overworld', 'catalogue-sm64-select-a-file', 'catalogue-smario-64-bob-omb-battlefield']);
+    ['catalogue-dire-dire-docks', 'catalogue-smb-world-clear', 'catalogue-smb-game-over', 'catalogue-smw-overworld', 'catalogue-sm64-select-a-file', 'catalogue-smario-64-bob-omb-battlefield', 'catalogue-mario-movie-peaches']);
 });
 
 test('letter anchors mark the first song of each initial, folding accents and non-letters', () => {

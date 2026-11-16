@@ -3407,5 +3407,395 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
       "score": 3,
       "level": "easy"
     }
+  },
+  {
+    "id": "catalogue-pokemon-rby-vermilion-city",
+    "title": "Vermilion City",
+    "subtitle": "First 4-bar period of the Vermilion City lead: A D C# B A B C# | A D C# B C# B A, to the held tonic A",
+    "titleJa": "Pokémon — クチバシティ",
+    "subtitleJa": "最初の4小節",
+    "tempoBpm": 122.5179897248246,
+    "beatsPerBar": 4,
+    "difficulty": {
+      "score": 3.15,
+      "level": "easy"
+    }
+  },
+  {
+    "id": "catalogue-pokemon-rse-route-101",
+    "title": "Route 101",
+    "subtitle": "Route 101 first 4-bar period: A B A A G F# F# G A G F# E B, the held A, then the F# G A G A G A G F# E answer",
+    "titleJa": "Pokémon — 101番道路",
+    "subtitleJa": "最初の4小節",
+    "tempoBpm": 114.0001710002565,
+    "beatsPerBar": 4,
+    "difficulty": {
+      "score": 5.13,
+      "level": "medium"
+    }
+  },
+  {
+    "id": "catalogue-pokemon-rby-gym-leader-battle",
+    "title": "Gym Leader Battle",
+    "subtitle": "Gym Leader Battle introduction: the descending chromatic cascades (F5 to B4, then F#4 to C#4) and the B4 stabs, up to the loop entry",
+    "titleJa": "Pokémon — ジムリーダー戦",
+    "subtitleJa": "イントロ（ループ直前まで）",
+    "tempoBpm": 183.77735985444832,
+    "beatsPerBar": 4,
+    "difficulty": {
+      "score": 11.79,
+      "level": "expert"
+    }
+  },
+  {
+    "id": "catalogue-naruto-main-theme",
+    "title": "Main Theme",
+    "subtitle": "The flute-and-piano Naruto theme, first full period: a held A, the A-B-A-G turn onto a held E, the G-A pickup into a long D, the C-D-C turn onto A, then B and a closing G",
+    "titleJa": "メインテーマ",
+    "subtitleJa": "テーマの最初のフレーズ",
+    "tempoBpm": 120,
+    "beatsPerBar": 4,
+    "difficulty": {
+      "score": 3.94,
+      "level": "medium"
+    }
+  },
+  {
+    "id": "catalogue-naruto-man-of-the-world",
+    "title": "Man of the World",
+    "subtitle": "The slow flute melody, first four-bar period: F-G and a held E, D-E and a held F, the falling B-flat, A and G, then G-F and a final held E",
+    "titleJa": "マン・オブ・ザ・ワールド",
+    "subtitleJa": "最初の4小節のフレーズ",
+    "tempoBpm": 48.38709677419355,
+    "beatsPerBar": 4,
+    "difficulty": {
+      "score": 1.42,
+      "level": "easy"
+    }
+  },
+  {
+    "id": "catalogue-bloody-mary",
+    "title": "Bloody Mary",
+    "subtitle": "Both statements of the pre-chorus and chorus: three repeated F4 attacks, an upward G4 and E4, a stepwise descent F-E-D-C-D, the rising G3-B3-D4-E4 lift, and a quick D-C-A fall onto a long low A3 (the second statement lengthens that last note)",
+    "titleJa": "ブラッディ・メアリー",
+    "subtitleJa": "プリコーラスとサビ（2回分）",
+    "tempoBpm": 100,
+    "beatsPerBar": 4,
+    "difficulty": {
+      "score": 3.95,
+      "level": "medium"
+    }
+  },
+  {
+    "id": "catalogue-the-one-that-got-away",
+    "title": "The One That Got Away",
+    "subtitle": "The complete chorus: a long held G#4, the three repeated A4s falling through G#4 to the held F#4, the answer that rises and falls G#4-F#4-E4 down to C#4, then the repeated statement with the B4 lift and the closing B3-B3-C#4-C#4-B3-B3 tag",
+    "titleJa": "ザ・ワン・ザット・ゴット・アウェイ",
+    "subtitleJa": "サビ（完全版）",
+    "tempoBpm": 134.00005806669182,
+    "beatsPerBar": 4,
+    "difficulty": {
+      "score": 3.96,
+      "level": "medium"
+    }
+  },
+  {
+    "id": "catalogue-swim",
+    "title": "Swim",
+    "subtitle": "The complete chorus built on short repeated cells: the A4-F#4 pairs, the three repeated A4s into the B4-C#5-B4-A4 turn and the long G#4, the G#4 run into the low E4, and the closing run of four E5 attacks twice over a held C#5",
+    "titleJa": "スウィム",
+    "subtitleJa": "サビ（完全版）",
+    "tempoBpm": 94.00012846684224,
+    "beatsPerBar": 4,
+    "difficulty": {
+      "score": 4.94,
+      "level": "medium"
+    }
+  },
+  {
+    "id": "catalogue-good-luck-babe",
+    "title": "Good Luck, Babe!",
+    "subtitle": "The complete sung chorus: a leap down from the high F#5 into a run of repeated D5s with the C#5 turn, the held D5-C#5 answer and the low F#4 landing, repeated with the F#5 pickup, and closing on the descending B4-C#5-D5 figure",
+    "titleJa": "グッド・ラック、ベイブ！",
+    "subtitleJa": "サビ（完全版）",
+    "tempoBpm": 117.000117000117,
+    "beatsPerBar": 4,
+    "difficulty": {
+      "score": 4.89,
+      "level": "medium"
+    }
+  },
+  {
+    "id": "catalogue-steves-lava-chicken",
+    "title": "Steve’s Lava Chicken",
+    "subtitle": "The whole sung verse in C minor: two short chants on one repeated pitch with a minor-third pivot, then four rising-and-falling lines that each end on a quick turn, closing on a long high held tonic an octave up",
+    "titleJa": "スティーブズ・ラバ・チキン",
+    "subtitleJa": "歌のヴァース全体",
+    "tempoBpm": 158.0003476007647,
+    "beatsPerBar": 4,
+    "difficulty": {
+      "score": 7.7,
+      "level": "expert"
+    }
+  },
+  {
+    "id": "catalogue-choosin-texas",
+    "title": "Choosin’ Texas",
+    "subtitle": "The complete sung chorus: a step up to the high note and a circling stepwise fall that restarts after a low pickup, repeated with small variations and closing on a long tonic",
+    "titleJa": "チュージン・テキサス",
+    "subtitleJa": "サビ（完全版）",
+    "tempoBpm": 112.00005973336519,
+    "beatsPerBar": 4,
+    "difficulty": {
+      "score": 4.56,
+      "level": "medium"
+    }
+  },
+  {
+    "id": "catalogue-aperture",
+    "title": "Aperture",
+    "subtitle": "The sung chorus hook: an E-D-E turn that drops to a low B pair and climbs back to a bar-long high E, then a stepwise fall and a low dip, and the turn again",
+    "titleJa": "アパーチャー",
+    "subtitleJa": "サビのフック",
+    "tempoBpm": 128,
+    "beatsPerBar": 4,
+    "difficulty": {
+      "score": 4.68,
+      "level": "medium"
+    }
+  },
+  {
+    "id": "catalogue-lose-control",
+    "title": "Lose Control",
+    "subtitle": "The complete sung chorus in two statements: three long rising notes, a quick turn that falls through the low register, a run of repeated notes and a chromatic climb, then the whole thing again",
+    "titleJa": "ルーズ・コントロール",
+    "subtitleJa": "サビ（2回分）",
+    "tempoBpm": 160,
+    "beatsPerBar": 6,
+    "difficulty": {
+      "score": 5.66,
+      "level": "hard"
+    }
+  },
+  {
+    "id": "catalogue-smashing-pumpkins-1979",
+    "title": "1979",
+    "subtitle": "The complete chorus section: the long high held note and its stepwise fall, the three-note-and-stepwise-fall figure, the rising answer, and the second statement closing on repeated low notes",
+    "titleJa": "1979",
+    "subtitleJa": "サビ（完全版）",
+    "tempoBpm": 127.00025400050801,
+    "beatsPerBar": 4,
+    "difficulty": {
+      "score": 3.45,
+      "level": "easy"
+    }
+  },
+  {
+    "id": "catalogue-mr-brightside",
+    "title": "Mr. Brightside",
+    "subtitle": "The complete sung chorus: the rising-and-falling opening figure, the alternating two-note turn of each line, the repeated-note build into the long descent, and the held close on the title words",
+    "titleJa": "ミスター・ブライトサイド",
+    "subtitleJa": "サビ（完全版）",
+    "tempoBpm": 148.000148000148,
+    "beatsPerBar": 4,
+    "difficulty": {
+      "score": 3.97,
+      "level": "medium"
+    }
+  },
+  {
+    "id": "catalogue-creep",
+    "title": "Creep",
+    "subtitle": "The complete sung chorus: the first step up to the repeated high note, the stepwise fall, the repeated-note question line with its small upward turn, and the answer that closes on the held tonic",
+    "titleJa": "クリープ",
+    "subtitleJa": "サビ（完全版）",
+    "tempoBpm": 92.00012880018032,
+    "beatsPerBar": 4,
+    "difficulty": {
+      "score": 3.03,
+      "level": "easy"
+    }
+  },
+  {
+    "id": "catalogue-we-are-charlie-kirk",
+    "title": "We Are Charlie Kirk",
+    "subtitle": "The sung title refrain of the first chorus: a rising answer to a held high note, then a stepwise descent, repeated and closing on a held low note",
+    "titleJa": "ウィー・アー・チャーリー・カーク",
+    "subtitleJa": "最初のサビのタイトルフレーズ",
+    "tempoBpm": 136.0001450668214,
+    "beatsPerBar": 4,
+    "difficulty": {
+      "score": 2.92,
+      "level": "easy"
+    }
+  },
+  {
+    "id": "catalogue-naruto-samidare",
+    "title": "Samidare",
+    "subtitle": "The slow piano melody of Samidare, first agreed statement: F, D, then A-G-A-G, C and a held A, A-G-F-E-F-G, a rising A and E, and the long closing D",
+    "titleJa": "五月雨",
+    "subtitleJa": "最初のフレーズ",
+    "tempoBpm": 108.30324909747293,
+    "beatsPerBar": 4,
+    "difficulty": {
+      "score": 1.97,
+      "level": "easy"
+    }
+  },
+  {
+    "id": "catalogue-naruto-loneliness",
+    "title": "Loneliness",
+    "subtitle": "The slow violin melody over the D-minor piano arpeggio, first four-bar phrase: F-G-A-F and B-flat, E, a held A, then A-G and a held E, E-F and a long D",
+    "titleJa": "ロンリネス",
+    "subtitleJa": "最初の4小節",
+    "tempoBpm": 54.00000540000054,
+    "beatsPerBar": 4,
+    "difficulty": {
+      "score": 1.6,
+      "level": "easy"
+    }
+  },
+  {
+    "id": "catalogue-pokemon-gsc-new-bark-town",
+    "title": "New Bark Town",
+    "subtitle": "First 16-beat period of the New Bark Town lead (wave channel): D E pickup, F# A G F# E G F# D | A G A B D E D C# D E F# E",
+    "titleJa": "Pokémon — ワカバタウン",
+    "subtitleJa": "最初の16拍のフレーズ",
+    "tempoBpm": 102.20751191143378,
+    "beatsPerBar": 4,
+    "difficulty": {
+      "score": 4.81,
+      "level": "medium"
+    }
+  },
+  {
+    "id": "catalogue-pokemon-rby-cerulean-city",
+    "title": "Cerulean City",
+    "subtitle": "Cerulean City lead from the opening motif E D# C# B A B C# D# E through both statements to the long B5: first 21.5 beats",
+    "titleJa": "Pokémon — ハナダシティ",
+    "subtitleJa": "最初の21.5拍",
+    "tempoBpm": 129.14056950991153,
+    "beatsPerBar": 4,
+    "difficulty": {
+      "score": 8.15,
+      "level": "expert"
+    }
+  },
+  {
+    "id": "catalogue-pokemon-dp-lake",
+    "title": "Lake",
+    "subtitle": "The Lake theme tune (Lake Verity / Valor / Acuity): G G# A F# D | A D B F# F D A A# | A# A G A# A (held) | B A G B A F# D | A D B G E F# G | F# C# E D E F, one complete statement",
+    "titleJa": "Pokémon — 湖",
+    "subtitleJa": "湖のテーマ（1回分）",
+    "tempoBpm": 96,
+    "beatsPerBar": 4,
+    "difficulty": {
+      "score": 5.36,
+      "level": "medium"
+    }
+  },
+  {
+    "id": "catalogue-hollow-knight-bonebottom",
+    "title": "Bonebottom",
+    "subtitle": "The Bonebottom town theme: the G-G-G#-G-F-G call, its answer with the raised A#, then the F-D#-F fall and the G-G-F-D#-F-D close",
+    "titleJa": "ボーンボトム",
+    "subtitleJa": "ボーンボトムのテーマ",
+    "tempoBpm": 55.85552038726494,
+    "beatsPerBar": 4,
+    "difficulty": {
+      "score": 2.41,
+      "level": "easy"
+    }
+  },
+  {
+    "id": "catalogue-skyrim-dragonborn",
+    "title": "Dragonborn",
+    "subtitle": "The Skyrim main theme melody: the D-C#-D figure, the step up to E and back, then the B-B-A-B figure, closing on a held B (the line repeated once with the D-D-E-F# variant)",
+    "titleJa": "ドラゴンボーン",
+    "subtitleJa": "メインテーマのメロディ",
+    "tempoBpm": 104.99992125005906,
+    "beatsPerBar": 6,
+    "difficulty": {
+      "score": 7.16,
+      "level": "hard"
+    }
+  },
+  {
+    "id": "catalogue-game-of-thrones-main-title",
+    "title": "Main Title",
+    "subtitle": "The opening cello ostinato: the rising G-C-E-flat-F figure four times, then the same figure with the E natural four times",
+    "titleJa": "メインタイトル",
+    "subtitleJa": "冒頭のチェロのオスティナート",
+    "tempoBpm": 170.0000850000425,
+    "beatsPerBar": 6,
+    "difficulty": {
+      "score": 7.24,
+      "level": "hard"
+    }
+  },
+  {
+    "id": "catalogue-mario-movie-peaches",
+    "title": "Peaches",
+    "subtitle": "The complete chorus as sung by Bowser: the A#3-C#4 and C4-D#4 alternating figures, the rising F4-G#4-A#4 climb, the quick F4-D#4-C#4 descent onto a short low A#3, and the second statement that repeats it",
+    "titleJa": "ピーチズ",
+    "subtitleJa": "サビ（完全版）",
+    "tempoBpm": 92.00012880018032,
+    "beatsPerBar": 4,
+    "difficulty": {
+      "score": 5.24,
+      "level": "medium"
+    }
+  },
+  {
+    "id": "catalogue-smells-like-teen-spirit",
+    "title": "Smells Like Teen Spirit",
+    "subtitle": "The sung chorus melody (not the guitar riff): four-note cells that start on G#4-G4-G4-F4, climb to the repeated A#4 over a G#4 landing, drop to the repeated C#4 over a C4 landing and answer on A#4 again, played twice",
+    "titleJa": "スメルズ・ライク・ティーン・スピリット",
+    "subtitleJa": "サビのメロディ",
+    "tempoBpm": 117.000117000117,
+    "beatsPerBar": 4,
+    "difficulty": {
+      "score": 3.33,
+      "level": "easy"
+    }
+  },
+  {
+    "id": "catalogue-naruto-silhouette",
+    "title": "Silhouette",
+    "subtitle": "The sung chorus line of the Naruto Shippuden opening: a stepwise D F# E figure that climbs to a G, then the B A D, B A D leaps and the D C# D E F# D tag",
+    "titleJa": "シルエット",
+    "subtitleJa": "サビ",
+    "tempoBpm": 183.26262450404553,
+    "beatsPerBar": 4,
+    "difficulty": {
+      "score": 5.55,
+      "level": "hard"
+    }
+  },
+  {
+    "id": "catalogue-naruto-kanashimi-wo-yasashisa-ni",
+    "title": "Kanashimi wo Yasashisa ni",
+    "subtitle": "The sung chorus of Naruto opening 3: the repeated B B B C# B A# figure that falls to F# and climbs back to A#, a lower D# E answer, and the restatement closing on a held B",
+    "titleJa": "悲しみをやさしさに",
+    "subtitleJa": "OP3のサビ",
+    "tempoBpm": 125.91815320041972,
+    "beatsPerBar": 4,
+    "difficulty": {
+      "score": 4.75,
+      "level": "medium"
+    }
+  },
+  {
+    "id": "catalogue-birds-of-a-feather",
+    "title": "Birds of a Feather",
+    "subtitle": "The sung chorus: a rising answer to the held opening tone, then the same figure with a sixteenth turn, a repeated high B-A figure and a stepwise fall",
+    "titleJa": "バーズ・オブ・ア・フェザー",
+    "subtitleJa": "サビ",
+    "tempoBpm": 105.000105000105,
+    "beatsPerBar": 4,
+    "difficulty": {
+      "score": 4.78,
+      "level": "medium"
+    }
   }
 ];

@@ -84,6 +84,12 @@ group('Pokémon', ['Games'], 'pokeball', [
   ['catalogue-pokemon-jigglypuff-song', 'Jigglypuff’s Song', { titleJa: 'プリンの歌', version: 'FireRed / LeafGreen', aliases: ['Jigglypuff Lullaby', 'Jigglypuff', 'Sleep song', 'Game Freak'] }],
   ['catalogue-pokemon-petalburg-city-rse', 'Petalburg City', { titleJa: 'トウカシティ', version: 'Ruby / Sapphire / Emerald', aliases: ['Morikazu Aoki', 'Go Ichinose', 'Junichi Masuda'] }],
   ['catalogue-pokemon-dewford-town-rse', 'Dewford Town', { titleJa: 'ムロタウン', version: 'Ruby / Sapphire / Emerald', aliases: ['Go Ichinose', 'Morikazu Aoki', 'Junichi Masuda'] }],
+  ['catalogue-pokemon-rby-vermilion-city', 'Vermilion City', { titleJa: 'クチバシティ', version: 'Red / Blue / Yellow', aliases: ['Vermillion City', 'Junichi Masuda'] }],
+  ['catalogue-pokemon-rse-route-101', 'Route 101', { titleJa: '101番道路', version: 'Ruby / Sapphire / Emerald', aliases: ['Route 102', 'Route 103', 'Go Ichinose', 'Morikazu Aoki', 'Junichi Masuda'] }],
+  ['catalogue-pokemon-rby-gym-leader-battle', 'Gym Leader Battle', { titleJa: 'ジムリーダー戦', version: 'Red / Blue / Yellow', aliases: ['Gym Leader', 'Elite Four', 'Junichi Masuda', 'Pokémon Red and Blue'] }],
+  ['catalogue-pokemon-gsc-new-bark-town', 'New Bark Town', { titleJa: 'ワカバタウン', version: 'Gold / Silver / Crystal', aliases: ['Johto', 'Junichi Masuda'] }],
+  ['catalogue-pokemon-rby-cerulean-city', 'Cerulean City', { titleJa: 'ハナダシティ', version: 'Red / Blue / Yellow', aliases: ['Fuchsia City', 'Junichi Masuda'] }],
+  ['catalogue-pokemon-dp-lake', 'Lake', { titleJa: '湖', version: 'Diamond / Pearl', aliases: ['Lake Verity', 'Lake Valor', 'Lake Acuity', 'Go Ichinose'] }],
 ]);
 group('Undertale', ['Games'], 'heart', [
   ['catalogue-megalovania', 'Megalovania', { titleJa: 'メガロバニア' }],
@@ -110,6 +116,9 @@ group('Super Mario', ['Games'], 'mushroom', [
   ['catalogue-sm64-select-a-file', 'Select a File', { titleJa: 'ファイルセレクト', version: 'Super Mario 64', aliases: ['Koji Kondo', 'File Select', 'SM64'] }],
   ['catalogue-smario-64-bob-omb-battlefield', 'Bob-omb Battlefield', { titleJa: 'ボムへいのせんじょう', version: 'Super Mario 64', aliases: ['Koji Kondo', 'SM64', 'Course 1', 'Super Mario 64 Main Theme'] }],
 ]);
+group('Super Mario', ['Film', 'Games'], 'mushroom', [
+  ['catalogue-mario-movie-peaches', 'Peaches', { titleJa: 'ピーチズ', version: 'The Super Mario Bros. Movie', aliases: ['Jack Black', 'Bowser'] }],
+]);
 group('Metroid', ['Games'], 'gamepad', [['catalogue-super-metroid-item', 'Item Acquisition', { titleJa: 'アイテム取得', version: 'Super Metroid' }]]);
 group('Donkey Kong Country', ['Games'], 'gamepad', [
   ['catalogue-dkc-bonus-win', 'Bonus Win', { titleJa: 'ボーナス・ウィン', aliases: ['Boss Defeated', 'Bonus Victory'] }],
@@ -132,6 +141,9 @@ group('Minecraft', ['Games'], 'grassBlock', [
   ['catalogue-wet-hands', 'Wet Hands', { titleJa: 'ウェット・ハンズ', aliases: ['C418'] }],
   ['catalogue-sweden', 'Sweden', { titleJa: 'スウェーデン', aliases: ['C418'] }],
 ]);
+group('Minecraft', ['Film', 'Games'], 'grassBlock', [
+  ['catalogue-steves-lava-chicken', 'Steve’s Lava Chicken', { titleJa: 'スティーブズ・ラバ・チキン', version: 'A Minecraft Movie', aliases: ['Steve\'s Lava Chicken', 'Lava Chicken', 'Jack Black', 'Minecraft Movie'] }],
+]);
 group('Wii', ['Games'], 'remote', [['catalogue-mii-channel', 'Mii Channel', { titleJa: 'Miiチャンネル' }]]);
 group('EarthBound', ['Games'], 'gamepad', [
   ['catalogue-earthbound-eight-melodies', 'Eight Melodies', { titleJa: 'エイトメロディーズ', aliases: ['Mother 2', 'Keiichi Suzuki', 'Hirokazu Tanaka'] }],
@@ -151,6 +163,7 @@ group('Professor Layton', ['Games'], 'gamepad', [
 group('The Elder Scrolls', ['Games'], 'gamepad', [
   ['catalogue-morrowind-nerevar-rising', 'Nerevar Rising', { titleJa: 'ネレヴァル・ライジング', version: 'Morrowind', aliases: ['Jeremy Soule', 'Call of Magic', 'Main Theme', 'The Elder Scrolls III: Morrowind', 'Morrowind Theme'] }],
   ['catalogue-oblivion-reign-of-the-septims', 'Reign of the Septims', { titleJa: 'レイン・オブ・ザ・セプティムズ', version: 'Oblivion', aliases: ['Jeremy Soule', 'Main Theme', 'The Elder Scrolls IV: Oblivion', 'Oblivion Theme'] }],
+  ['catalogue-skyrim-dragonborn', 'Dragonborn', { titleJa: 'ドラゴンボーン', version: 'Skyrim', aliases: ['Dovahkiin', 'Jeremy Soule', 'Skyrim Main Theme'] }],
 ]);
 group('Bubble Bobble', ['Games'], 'gamepad', [
   ['catalogue-bubble-bobble-main-stage-theme', 'Main Theme', { titleJa: 'メインテーマ', aliases: ['Main Stage Theme', 'Stage Theme', 'Tadashi Kimijima', 'Taito'] }],
@@ -192,6 +205,7 @@ group('Cave Story', ['Games'], 'gamepad', [
 group('Hollow Knight', ['Games'], 'gamepad', [
   ['catalogue-hollow-knight-queens-gardens', 'Queen’s Gardens', { titleJa: '女王の庭', version: 'Hollow Knight', aliases: ['Queen\'s Gardens', 'Christopher Larkin'] }],
   ['catalogue-hollow-knight-greenpath', 'Greenpath', { titleJa: '緑の道', version: 'Hollow Knight', aliases: ['Christopher Larkin', 'Green Path'] }],
+  ['catalogue-hollow-knight-bonebottom', 'Bonebottom', { titleJa: 'ボーンボトム', version: 'Silksong', aliases: ['Bone Bottom', 'Christopher Larkin'] }],
 ]);
 group('Deltarune', ['Games'], 'gamepad', [
   ['catalogue-deltarune-dark-sanctuary', 'Dark Sanctuary', { titleJa: '暗黒の聖域', version: 'Chapters 3 and 4', aliases: ['Toby Fox'] }],
@@ -214,6 +228,12 @@ group('Naruto', ['Anime'], 'konohaLeaf', [
   ['catalogue-naruto-hokage-funeral', 'Grief and Sorrow', { titleJa: '悲しみと悲哀', aliases: ['Toshio Masuda', 'Hokage’s Funeral', 'Hokages Funeral', 'Ai to Shū', '哀と愁'] }],
   ['catalogue-naruto-raising-fighting-spirit', 'The Raising Fighting Spirit', { titleJa: '闘志', aliases: ['Toshio Masuda', 'The Rising Fighting Spirit', 'Raising Fighting Spirit', 'Wakiagaru Tōshi', '湧き上がる闘志'] }],
   ['catalogue-naruto-go', 'GO!!!', { titleJa: 'GO!!!', version: 'Opening 4', aliases: ['FLOW', 'Go', 'Naruto opening 4', 'GO!!! FLOW'] }],
+  ['catalogue-naruto-main-theme', 'Main Theme', { titleJa: 'メインテーマ', aliases: ['Naruto Main Theme', 'Toshio Masuda', 'Naruto Theme'] }],
+  ['catalogue-naruto-man-of-the-world', 'Man of the World', { titleJa: 'マン・オブ・ザ・ワールド', version: 'Shippuden', aliases: ['Utsusemi', 'Yasuharu Takanashi', 'Naruto Shippuden OST'] }],
+  ['catalogue-naruto-samidare', 'Samidare', { titleJa: '五月雨', version: 'Shippuden', aliases: ['Early Summer Rain', 'Yasuharu Takanashi', '五月雨'] }],
+  ['catalogue-naruto-loneliness', 'Loneliness', { titleJa: 'ロンリネス', aliases: ['Kodoku', '孤独', 'Toshio Masuda'] }],
+  ['catalogue-naruto-silhouette', 'Silhouette', { titleJa: 'シルエット', version: 'Shippuden opening 16', aliases: ['KANA-BOON'] }],
+  ['catalogue-naruto-kanashimi-wo-yasashisa-ni', 'Kanashimi wo Yasashisa ni', { titleJa: '悲しみをやさしさに', version: 'Opening 3', aliases: ['little by little', 'Turning Sadness Into Kindness', '悲しみをやさしさに'] }],
 ]);
 group('Neon Genesis Evangelion', ['Anime'], 'unit', [['catalogue-evangelion', 'A Cruel Angel’s Thesis', { titleJa: '残酷な天使のテーゼ', aliases: ['Evangelion'] }]]);
 group('Elfen Lied', ['Anime'], 'lily', [['catalogue-lilium', 'Lilium', { titleJa: 'リリウム' }]]);
@@ -312,6 +332,9 @@ group('Forrest Gump', ['Film'], 'film', [
 ]);
 group('Stranger Things', ['Film'], 'film', [
   ['catalogue-stranger-things-arpeggio', 'Main Title', { titleJa: 'メインタイトル', version: 'TV series (2016)', aliases: ['Kyle Dixon', 'Michael Stein', 'Kyle Dixon & Michael Stein', 'Stranger Things Theme', 'Main Theme', 'Survive'] }],
+]);
+group('Game of Thrones', ['Film'], 'film', [
+  ['catalogue-game-of-thrones-main-title', 'Main Title', { titleJa: 'メインタイトル', aliases: ['Game of Thrones Theme', 'Main Theme', 'Ramin Djawadi'] }],
 ]);
 group('Breakfast at Tiffany’s', ['Film'], 'film', [
   ['catalogue-moon-river', 'Moon River', { titleJa: 'ムーン・リバー', version: 'Film (1961)', aliases: ['Henry Mancini', 'Johnny Mercer', 'Audrey Hepburn'] }],
@@ -421,6 +444,19 @@ group('Pop', ['Pop'], 'microphone', [
   ['catalogue-five-hundred-miles', '500 Miles', { titleJa: '500マイル', artist: 'Peter, Paul & Mary', aliases: ['Peter, Paul and Mary', 'Hedy West', '500 Miles Away From Home', 'Five Hundred Miles'] }],
   ['catalogue-mr-know-it-all', 'Mr. Know It All', { titleJa: 'ミスター・ノウ・イット・オール', artist: 'Teddy Swims', aliases: ['Mr Know It All'] }],
   ['catalogue-carry-that-weight', 'Carry That Weight', { titleJa: 'キャリー・ザット・ウェイト', artist: 'The Beatles', aliases: ['Beatles', 'Abbey Road'] }],
+  ['catalogue-bloody-mary', 'Bloody Mary', { titleJa: 'ブラッディ・メアリー', artist: 'Lady Gaga', aliases: ['Wednesday dance'] }],
+  ['catalogue-the-one-that-got-away', 'The One That Got Away', { titleJa: 'ザ・ワン・ザット・ゴット・アウェイ', artist: 'Katy Perry' }],
+  ['catalogue-swim', 'Swim', { titleJa: 'スウィム', artist: 'BTS' }],
+  ['catalogue-good-luck-babe', 'Good Luck, Babe!', { titleJa: 'グッド・ラック、ベイブ！', artist: 'Chappell Roan', aliases: ['Good Luck Babe'] }],
+  ['catalogue-choosin-texas', 'Choosin’ Texas', { titleJa: 'チュージン・テキサス', artist: 'Ella Langley', aliases: ['Choosin\' Texas', 'Choosing Texas'] }],
+  ['catalogue-aperture', 'Aperture', { titleJa: 'アパーチャー', artist: 'Harry Styles' }],
+  ['catalogue-lose-control', 'Lose Control', { titleJa: 'ルーズ・コントロール', artist: 'Teddy Swims' }],
+  ['catalogue-mr-brightside', 'Mr. Brightside', { titleJa: 'ミスター・ブライトサイド', artist: 'The Killers', aliases: ['Mr Brightside', 'Mister Brightside'] }],
+  ['catalogue-creep', 'Creep', { titleJa: 'クリープ', artist: 'Radiohead' }],
+  ['catalogue-smashing-pumpkins-1979', '1979', { titleJa: '1979', artist: 'The Smashing Pumpkins', aliases: ['Smashing Pumpkins', 'Nineteen Seventy-Nine'] }],
+  ['catalogue-we-are-charlie-kirk', 'We Are Charlie Kirk', { titleJa: 'ウィー・アー・チャーリー・カーク', artist: 'Spalexma', aliases: ['SP Music Project', 'Charlie Kirk'] }],
+  ['catalogue-smells-like-teen-spirit', 'Smells Like Teen Spirit', { titleJa: 'スメルズ・ライク・ティーン・スピリット', artist: 'Nirvana', aliases: ['Teen Spirit'] }],
+  ['catalogue-birds-of-a-feather', 'Birds of a Feather', { titleJa: 'バーズ・オブ・ア・フェザー', artist: 'Billie Eilish' }],
 ]);
 
 // Classics
