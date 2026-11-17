@@ -230,6 +230,7 @@ group('Naruto', ['Anime'], 'konohaLeaf', [
   ['catalogue-naruto-go', 'GO!!!', { titleJa: 'GO!!!', version: 'Opening 4', aliases: ['FLOW', 'Go', 'Naruto opening 4', 'GO!!! FLOW'] }],
   ['catalogue-naruto-main-theme', 'Main Theme', { titleJa: 'メインテーマ', aliases: ['Naruto Main Theme', 'Toshio Masuda', 'Naruto Theme'] }],
   ['catalogue-naruto-man-of-the-world', 'Man of the World', { titleJa: 'マン・オブ・ザ・ワールド', version: 'Shippuden', aliases: ['Utsusemi', 'Yasuharu Takanashi', 'Naruto Shippuden OST'] }],
+  ['catalogue-naruto-afternoon-of-konoha', 'Afternoon of Konoha', { titleJa: '木ノ葉の午後', aliases: ['Toshio Masuda', 'Konoha no Gogo', '木ノ葉の午後'] }],
   ['catalogue-naruto-samidare', 'Samidare', { titleJa: '五月雨', version: 'Shippuden', aliases: ['Early Summer Rain', 'Yasuharu Takanashi', '五月雨'] }],
   ['catalogue-naruto-loneliness', 'Loneliness', { titleJa: 'ロンリネス', aliases: ['Kodoku', '孤独', 'Toshio Masuda'] }],
   ['catalogue-naruto-silhouette', 'Silhouette', { titleJa: 'シルエット', version: 'Shippuden opening 16', aliases: ['KANA-BOON'] }],

@@ -3630,6 +3630,19 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
     }
   },
   {
+    "id": "catalogue-naruto-afternoon-of-konoha",
+    "title": "Afternoon of Konoha",
+    "subtitle": "The plucked string opening of the Naruto filler-episode track, every note a short detached pluck: E F# G G# E D, the answer D D C# D D# E, the same figure again, and the closing answer D D D# D# E",
+    "titleJa": "木ノ葉の午後",
+    "subtitleJa": "撥弦の冒頭フレーズ",
+    "tempoBpm": 98.00014373354415,
+    "beatsPerBar": 4,
+    "difficulty": {
+      "score": 5.52,
+      "level": "hard"
+    }
+  },
+  {
     "id": "catalogue-naruto-samidare",
     "title": "Samidare",
     "subtitle": "The slow piano melody of Samidare, first agreed statement: F, D, then A-G-A-G, C and a held A, A-G-F-E-F-G, a rising A and E, and the long closing D",
