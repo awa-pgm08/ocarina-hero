@@ -3810,5 +3810,109 @@ export const CATALOGUE_INDEX: readonly (TrackSummary & { readonly beatsPerBar: n
       "score": 4.78,
       "level": "medium"
     }
+  },
+  {
+    "id": "catalogue-all-i-want-for-christmas-is-you",
+    "title": "All I Want for Christmas Is You",
+    "subtitle": "The first half of the up-tempo verse from the entry of the drums and sleigh bells, then the pre-chorus period with the leap to the high D and the title line closing on the long held G; the pre-chorus is played a fourth lower than the verse",
+    "titleJa": "オール・アイ・ウォント・フォー・クリスマス・イズ・ユー",
+    "subtitleJa": "ヴァース前半とプリコーラス",
+    "tempoBpm": 150,
+    "beatsPerBar": 4,
+    "difficulty": {
+      "score": 5.31,
+      "level": "medium"
+    }
+  },
+  {
+    "id": "catalogue-jingle-bells",
+    "title": "Jingle Bells",
+    "subtitle": "One complete stanza as sung today: the verse \"Dashing through the snow ... a sleighing song tonight\" followed by the whole chorus, \"Jingle bells, jingle bells ... one-horse open sleigh\" twice, the second time resolving to the tonic",
+    "titleJa": "ジングルベル",
+    "subtitleJa": "ヴァースとコーラス全体",
+    "tempoBpm": 130.00013000013,
+    "beatsPerBar": 2,
+    "difficulty": {
+      "score": 5.77,
+      "level": "hard"
+    }
+  },
+  {
+    "id": "catalogue-last-christmas",
+    "title": "Last Christmas",
+    "subtitle": "The complete chorus in both halves: the two-note call and its answer, the rising turn up to the held D, then the second half that climbs to the high G before easing down to the final held A",
+    "titleJa": "ラスト・クリスマス",
+    "subtitleJa": "コーラス全体",
+    "tempoBpm": 107.0001266168165,
+    "beatsPerBar": 4,
+    "difficulty": {
+      "score": 4.4,
+      "level": "medium"
+    }
+  },
+  {
+    "id": "catalogue-feliz-navidad",
+    "title": "Feliz Navidad",
+    "subtitle": "One complete statement as sung: the Spanish section (the three-fold two-bar greeting and its closing wish) followed by the English section (the climbing wish, the lower answer, the climbing wish again and the closing line down to the held final D)",
+    "titleJa": "フェリス・ナビダ",
+    "subtitleJa": "スペイン語パートと英語パート",
+    "tempoBpm": 148.000148000148,
+    "beatsPerBar": 4,
+    "difficulty": {
+      "score": 5.67,
+      "level": "hard"
+    }
+  },
+  {
+    "id": "catalogue-jingle-bell-rock",
+    "title": "Jingle Bell Rock",
+    "subtitle": "The complete 16-bar first verse as sung, in two eight-bar halves: the repeated-note title hook and its low answer, the answering line, the climbing third line and the closing line, then the same first three lines with their own closing line that settles on the held final D",
+    "titleJa": "ジングル・ベル・ロック",
+    "subtitleJa": "16小節の第1ヴァース",
+    "tempoBpm": 121.0001875502907,
+    "beatsPerBar": 4,
+    "difficulty": {
+      "score": 4.57,
+      "level": "medium"
+    }
+  },
+  {
+    "id": "catalogue-carol-of-the-bells",
+    "title": "Carol of the Bells",
+    "subtitle": "The complete first period of the melody voice in the standard Wilhousky arrangement (bars 17-24 of the SATB score): four statements of the four-note ostinato, the descending line and its cadence",
+    "titleJa": "キャロル・オブ・ザ・ベルズ",
+    "subtitleJa": "冒頭の第1ピリオド",
+    "tempoBpm": 150,
+    "beatsPerBar": 3,
+    "difficulty": {
+      "score": 7.38,
+      "level": "hard"
+    }
+  },
+  {
+    "id": "catalogue-rudolph-the-red-nosed-reindeer",
+    "title": "Rudolph the Red-Nosed Reindeer",
+    "subtitle": "The complete 16-bar main verse as Gene Autry sings it, in two eight-bar halves: the rocking opening line with its upward leap and long held note, the answering line that rises to a held top note, the descending third line and the closing line of alternating repeated notes, then the same three lines again with a new closing line that leaps to the top and settles on the long held tonic",
+    "titleJa": "赤鼻のトナカイ",
+    "subtitleJa": "16小節のメインヴァース",
+    "tempoBpm": 143.20014129080607,
+    "beatsPerBar": 4,
+    "difficulty": {
+      "score": 3.61,
+      "level": "medium"
+    }
+  },
+  {
+    "id": "catalogue-nanny-nanny-boo-boo",
+    "title": "Nanny Nanny Boo Boo",
+    "subtitle": "The playground teasing chant, complete as children sing it: the six-note figure on the falling minor third with its leap up to the sixth, stated twice and ending on a held low note",
+    "titleJa": "ナニー・ナニー・ブー・ブー",
+    "subtitleJa": "子どものはやし歌、そのまま",
+    "tempoBpm": 120,
+    "beatsPerBar": 2,
+    "difficulty": {
+      "score": 3.94,
+      "level": "medium"
+    }
   }
 ];

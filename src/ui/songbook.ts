@@ -458,6 +458,11 @@ group('Pop', ['Pop'], 'microphone', [
   ['catalogue-we-are-charlie-kirk', 'We Are Charlie Kirk', { titleJa: 'ウィー・アー・チャーリー・カーク', artist: 'Spalexma', aliases: ['SP Music Project', 'Charlie Kirk'] }],
   ['catalogue-smells-like-teen-spirit', 'Smells Like Teen Spirit', { titleJa: 'スメルズ・ライク・ティーン・スピリット', artist: 'Nirvana', aliases: ['Teen Spirit'] }],
   ['catalogue-birds-of-a-feather', 'Birds of a Feather', { titleJa: 'バーズ・オブ・ア・フェザー', artist: 'Billie Eilish' }],
+  ['catalogue-all-i-want-for-christmas-is-you', 'All I Want for Christmas Is You', { titleJa: 'オール・アイ・ウォント・フォー・クリスマス・イズ・ユー', artist: 'Mariah Carey', aliases: ['Mariah Carey', 'Merry Christmas', 'Christmas'] }],
+  ['catalogue-last-christmas', 'Last Christmas', { titleJa: 'ラスト・クリスマス', artist: 'Wham!', aliases: ['Wham!', 'George Michael', 'Christmas'] }],
+  ['catalogue-feliz-navidad', 'Feliz Navidad', { titleJa: 'フェリス・ナビダ', artist: 'José Feliciano', aliases: ['José Feliciano', 'Christmas'] }],
+  ['catalogue-jingle-bell-rock', 'Jingle Bell Rock', { titleJa: 'ジングル・ベル・ロック', artist: 'Bobby Helms', aliases: ['Bobby Helms', 'Christmas'] }],
+  ['catalogue-rudolph-the-red-nosed-reindeer', 'Rudolph the Red-Nosed Reindeer', { titleJa: '赤鼻のトナカイ', artist: 'Gene Autry', aliases: ['Gene Autry', 'Johnny Marks', 'Christmas'] }],
 ]);
 
 // Classics
@@ -483,6 +488,9 @@ group('Classics', ['Classics'], 'lyre', [
   ['catalogue-auld-lang-syne', 'Auld Lang Syne', { titleJa: '蛍の光', artist: 'Traditional', aliases: ['Robert Burns', 'Scottish song', 'New Year song'], icon: 'clock' }],
   ['catalogue-nokia-tune-grande-valse', 'Gran Vals', { titleJa: 'グラン・ワルツ', version: 'Nokia tune', artist: 'Francisco Tárrega', aliases: ['Nokia Tune', 'Nokia ringtone', 'Grande Valse', 'Gran Vals (Nokia tune)', 'Tarrega'] }],
   ['catalogue-daisy-bell', 'Daisy Bell', { titleJa: 'デイジー・ベル', artist: 'Harry Dacre', aliases: ['Bicycle Built for Two', 'Daisy Daisy', 'HAL 9000', 'Daisy Bell (Bicycle Built for Two)'] }],
+  ['catalogue-jingle-bells', 'Jingle Bells', { titleJa: 'ジングルベル', artist: 'Traditional', aliases: ['Christmas carol', 'James Lord Pierpont', 'Christmas'], icon: 'star' }],
+  ['catalogue-carol-of-the-bells', 'Carol of the Bells', { titleJa: 'キャロル・オブ・ザ・ベルズ', artist: 'Mykola Leontovych', version: 'Wilhousky arrangement', aliases: ['Leontovych', 'Peter Wilhousky', 'Shchedryk', 'Christmas carol'], icon: 'star' }],
+  ['catalogue-nanny-nanny-boo-boo', 'Nanny Nanny Boo Boo', { titleJa: 'ナニー・ナニー・ブー・ブー', artist: 'Traditional', aliases: ['playground chant', 'teasing chant', 'children’s song'] }],
 ]);
 
 /** Notes of the arrangement a lesson opens with: bends on, ornaments kept. */
